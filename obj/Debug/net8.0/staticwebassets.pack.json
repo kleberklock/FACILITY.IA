@@ -1,0 +1,85 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\admin.html",
+      "PackagePath": "staticwebassets\\admin.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\cadastrodeagente.html",
+      "PackagePath": "staticwebassets\\cadastrodeagente.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\cadastrodeusuario.html",
+      "PackagePath": "staticwebassets\\cadastrodeusuario.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\chatcomIA.html",
+      "PackagePath": "staticwebassets\\chatcomIA.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\checkout.html",
+      "PackagePath": "staticwebassets\\checkout.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\configuracoes.html",
+      "PackagePath": "staticwebassets\\configuracoes.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\dashboard.html",
+      "PackagePath": "staticwebassets\\dashboard.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\login.html",
+      "PackagePath": "staticwebassets\\login.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\meus_prompts.html",
+      "PackagePath": "staticwebassets\\meus_prompts.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\perfil.html",
+      "PackagePath": "staticwebassets\\perfil.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\planos.html",
+      "PackagePath": "staticwebassets\\planos.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\prompts.html",
+      "PackagePath": "staticwebassets\\prompts.html"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\script.js",
+      "PackagePath": "staticwebassets\\script.js"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\styles.css",
+      "PackagePath": "staticwebassets\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\klock\\OneDrive\\Desktop\\PROJFACILITY.IA\\wwwroot\\treinamento.html",
+      "PackagePath": "staticwebassets\\treinamento.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PROJFACILITY.IA.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.PROJFACILITY.IA.props",
+      "PackagePath": "build\\PROJFACILITY.IA.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PROJFACILITY.IA.props",
+      "PackagePath": "buildMultiTargeting\\PROJFACILITY.IA.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.PROJFACILITY.IA.props",
+      "PackagePath": "buildTransitive\\PROJFACILITY.IA.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

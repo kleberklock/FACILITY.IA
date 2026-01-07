@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script>
+    // Lógica de Proteção de Rota
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = 'login.html';
+    }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facility.IA - Checkout Seguro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* --- ESTILOS ESPECÍFICOS DO CHECKOUT --- */
+        body {
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.05) 0%, #050507 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+        }
+
+        /* Header Simplificado */
+        .checkout-header {
+            padding: 20px 5%;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(5, 5, 7, 0.9);
+        }
+        .secure-badge {
+            display: flex; align-items: center; gap: 8px;
+            color: #00ff88; font-size: 0.8rem; font-weight: bold;
+            background: rgba(0, 255, 136, 0.1); padding: 5px 12px; border-radius: 20px;
+        }
+
+        /* Layout Grid */
+        .checkout-container {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 450px;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        /* Coluna Esquerda */
+        .left-col {
+            display: flex; flex-direction: column; justify-content: center; gap: 30px;
+        }
+
+        .plan-summary-hero {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 30px; border-radius: 20px;
+        }
+        .plan-summary-hero h2 { margin-top: 0; color: white; font-size: 1.8rem; }
+        .plan-tag { background: var(--primary); color: black; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; vertical-align: middle; margin-left: 10px; }
+        
+        .benefit-item { display: flex; gap: 15px; margin-bottom: 15px; color: #ccc; }
+        .benefit-item i { color: var(--primary); margin-top: 4px; }
+
+        /* CARTÃO DE CRÉDITO VIRTUAL */
+        .credit-card-visual {
+            width: 380px; height: 270px;
+            background: linear-gradient(135deg, #0f1115 0%, #1a1a2e 100%);
+            border-radius: 20px; position: relative; padding: 25px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.5s transform; transform-style: preserve-3d; align-self: center;
+        }
+        
+        .card-chip { width: 50px; height: 35px; background: linear-gradient(135deg, #d4af37 0%, #f2d06b 100%); border-radius: 6px; margin-bottom: 40px; position: relative; overflow: hidden; }
+        .card-chip::after { content:''; position: absolute; width: 100%; height: 1px; background: rgba(0,0,0,0.3); top: 33%; }
+        .card-brand { position: absolute; top: 25px; right: 25px; font-size: 1.5rem; color: white; font-style: italic; font-weight: bold; }
+
+        .card-number-display { font-size: 1.6rem; color: white; letter-spacing: 2px; font-family: 'Courier New', monospace; margin-bottom: 25px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        
+        .card-details-row { display: flex; justify-content: space-between; color: #aaa; font-size: 0.7rem; text-transform: uppercase; }
+        .card-holder-display { font-size: 1rem; color: white; font-weight: bold; text-transform: uppercase; }
+        .card-expiry-display { font-size: 1rem; color: white; font-weight: bold; }
+
+        /* Coluna Direita */
+        .payment-box {
+            background: rgba(22, 27, 34, 0.9); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+
+        .payment-tabs { display: flex; gap: 10px; margin-bottom: 25px; background: rgba(0,0,0,0.3); padding: 5px; border-radius: 12px; }
+        .tab-btn {
+            flex: 1; padding: 12px; text-align: center; cursor: pointer; border-radius: 8px; font-size: 0.9rem; color: #888; transition: 0.3s;
+            border: 1px solid transparent; display: flex; align-items: center; justify-content: center; gap: 8px;
+        }
+        .tab-btn.active { background: rgba(255,255,255,0.05); color: white; border-color: rgba(255,255,255,0.1); font-weight: bold; }
+        .tab-btn:hover:not(.active) { color: white; }
+
+        /* Inputs */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; color: #aaa; margin-bottom: 8px; font-size: 0.85rem; }
+        .form-group input {
+            width: 100%; padding: 12px 15px; background: #0b0d10; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px; color: white; font-family: inherit; transition: 0.3s;
+        }
+        .form-group input:focus { border-color: var(--primary); box-shadow: 0 0 10px var(--primary-dim); }
+        
+        .row-inputs { display: flex; gap: 15px; }
+
+        .total-row {
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px;
+        }
+        .total-label { color: #ccc; }
+        .total-price { font-size: 1.5rem; font-weight: bold; color: white; }
+        .total-price span { font-size: 0.9rem; color: #666; font-weight: normal; }
+
+        .btn-checkout {
+            width: 100%; padding: 15px; margin-top: 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, #009966 100%);
+            color: black; font-weight: bold; font-size: 1rem; border: none; border-radius: 50px;
+            cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .btn-checkout:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(0,255,136,0.4); }
+
+        /* Área PIX */
+        .pix-area { display: none; text-align: center; padding: 20px 0; }
+        .qr-placeholder {
+            width: 180px; height: 180px; background: white; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center; border-radius: 10px;
+        }
+        .pix-copy-input { display: flex; gap: 10px; margin-top: 15px; }
+        .pix-copy-input input { flex: 1; text-align: center; font-family: monospace; }
+        .btn-copy { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 0 15px; border-radius: 8px; cursor: pointer; }
+
+        @media (max-width: 900px) {
+            .checkout-container { grid-template-columns: 1fr; }
+            .left-col { order: 2; align-items: center; }
+            .payment-box { order: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="checkout-header">
+        <div class="logo">
+            <h1>FACILITY.IA <span style="font-size:0.5em; color:#666; letter-spacing:2px;">SECURE CHECKOUT</span></h1>
+        </div>
+        <div class="secure-badge">
+            <i class="fas fa-lock"></i> SSL ENCRYPTED 256-BIT
+        </div>
+    </header>
+
+    <div class="checkout-container">
+        
+        <div class="left-col">
+            <div class="plan-summary-hero">
+                <h2>Carregando...</h2> 
+                </div>
+
+            <div class="credit-card-visual" id="cardVisual">
+                <div class="card-brand"><i class="fab fa-cc-mastercard"></i></div>
+                <div class="card-chip"></div>
+                <div class="card-number-display" id="displayNumber">0000 0000 0000 0000</div>
+                
+                <div class="card-details-row">
+                    <div>
+                        <span>TITULAR</span>
+                        <div class="card-holder-display" id="displayName">NOME NO CARTÃO</div>
+                    </div>
+                    <div>
+                        <span>VALIDADE</span>
+                        <div class="card-expiry-display" id="displayExpiry">MM/AA</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align:center; color:#666; font-size:0.8rem;">
+                <i class="fas fa-shield-alt"></i> Seus dados não são armazenados. Processamento via Stripe.
+            </div>
+        </div>
+
+        <div class="payment-box">
+            <div class="payment-tabs">
+                <div class="tab-btn active" onclick="switchTab('card')"><i class="far fa-credit-card"></i> Cartão de Crédito</div>
+                <div class="tab-btn" onclick="switchTab('pix')"><i class="fas fa-qrcode"></i> PIX (Instantâneo)</div>
+            </div>
+
+            <div id="cardForm">
+                <form action="dashboard.html">
+                    <div class="form-group">
+                        <label>Número do Cartão</label>
+                        <input type="text" id="inputNumber" placeholder="0000 0000 0000 0000" maxlength="19" oninput="updateCard('number', this.value)">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nome do Titular</label>
+                        <input type="text" id="inputName" placeholder="Como impresso no cartão" oninput="updateCard('name', this.value)">
+                    </div>
+
+                    <div class="row-inputs">
+                        <div class="form-group" style="flex:1;">
+                            <label>Validade</label>
+                            <input type="text" id="inputExpiry" placeholder="MM/AA" maxlength="5" oninput="updateCard('expiry', this.value)">
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" maxlength="3">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>CPF/CNPJ (Para Nota Fiscal)</label>
+                        <input type="text" placeholder="000.000.000-00">
+                    </div>
+
+                    <div class="total-row">
+                        <span class="total-label">Total a pagar:</span>
+                        <div class="total-price"></div>
+                    </div>
+
+                    <button type="button" class="btn-checkout" onclick="simulatePayment()">
+                        <i class="fas fa-lock"></i> Confirmar Assinatura
+                    </button>
+                </form>
+            </div>
+
+            <div id="pixForm" class="pix-area">
+                <p style="color:#ccc; margin-bottom:20px;">Escaneie o QR Code abaixo com seu app de banco. A liberação é automática.</p>
+                
+                <div class="qr-placeholder">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=PagamentoFacilityIA" alt="QR Code PIX">
+                </div>
+
+                <div class="pix-copy-input">
+                    <input type="text" value="00020126580014BR.GOV.BCB.PIX0136123e4567-e89b-12d3-a456-426614174000" readonly>
+                    <button class="btn-copy"><i class="far fa-copy"></i></button>
+                </div>
+
+                <div class="total-row">
+                    <span class="total-label">Total a pagar:</span>
+                    <div class="total-price"></div>
+                </div>
+
+                <button class="btn-checkout" style="background: #333; color:white; border:1px solid #555;">
+                    <i class="fas fa-sync"></i> Já paguei, verificar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- 1. CONFIGURAÇÃO DOS PLANOS ---
+        const plansData = {
+            plus: {
+                name: "Plano Plus",
+                tag: "MENSAL",
+                price: "R$ 49,90",
+                benefits: [
+                    "Acesso a +150 Especialistas",
+                    "Upload de Arquivos (PDF/Img)",
+                    "Histórico Ilimitado",
+                    "Suporte Prioritário"
+                ]
+            },
+            pro: {
+                name: "Plano Pro",
+                tag: "POWER USER",
+                price: "R$ 129,99",
+                benefits: [
+                    "Tudo do Plano Plus",
+                    "Workspaces Separados",
+                    "Memória de Longo Prazo",
+                    "Gerente de Projetos Exclusivo"
+                ]
+            }
+        };
+
+        // --- 2. LÓGICA DE CARREGAMENTO DINÂMICO ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const planType = urlParams.get('plan') || 'plus';
+            const selectedPlan = plansData[planType] || plansData['plus'];
+
+            // Atualiza Título
+            const titleElement = document.querySelector('.plan-summary-hero h2');
+            if(titleElement) titleElement.innerHTML = `${selectedPlan.name} <span class="plan-tag">${selectedPlan.tag}</span>`;
+
+            // Atualiza Benefícios
+            const benefitsContainer = document.querySelector('.plan-summary-hero');
+            if(benefitsContainer) {
+                // Remove itens antigos (mantendo o h2)
+                const oldItems = benefitsContainer.querySelectorAll('.benefit-item');
+                oldItems.forEach(el => el.remove());
+
+                // Adiciona novos
+                selectedPlan.benefits.forEach(benefit => {
+                    const item = document.createElement('div');
+                    item.className = 'benefit-item';
+                    item.innerHTML = `<i class="fas fa-check-circle"></i> ${benefit}`;
+                    benefitsContainer.appendChild(item);
+                });
+            }
+
+            // Atualiza Preço Total
+            document.querySelectorAll('.total-price').forEach(el => {
+                el.innerHTML = `${selectedPlan.price}<span>/mês</span>`;
+            });
+        });
+
+        // --- FUNÇÕES DE INTERFACE (Cartão e Abas) ---
+        function updateCard(field, value) {
+            if (field === 'number') {
+                let formatted = value.replace(/\D/g, '').substring(0,16);
+                formatted = formatted != '' ? formatted.match(/.{1,4}/g).join(' ') : '';
+                document.getElementById('inputNumber').value = formatted;
+                document.getElementById('displayNumber').innerText = formatted || '0000 0000 0000 0000';
+            } else if (field === 'name') {
+                document.getElementById('displayName').innerText = value || 'NOME NO CARTÃO';
+            } else if (field === 'expiry') {
+                let formatted = value.replace(/\D/g, '').substring(0,4);
+                if (formatted.length >= 3) {
+                    formatted = formatted.substring(0,2) + '/' + formatted.substring(2,4);
+                }
+                document.getElementById('inputExpiry').value = formatted;
+                document.getElementById('displayExpiry').innerText = formatted || 'MM/AA';
+            }
+        }
+
+        function switchTab(tab) {
+            const btns = document.querySelectorAll('.tab-btn');
+            const cardForm = document.getElementById('cardForm');
+            const pixForm = document.getElementById('pixForm');
+
+            if (tab === 'card') {
+                btns[0].classList.add('active'); btns[1].classList.remove('active');
+                cardForm.style.display = 'block'; pixForm.style.display = 'none';
+            } else {
+                btns[0].classList.remove('active'); btns[1].classList.add('active');
+                cardForm.style.display = 'none'; pixForm.style.display = 'block';
+            }
+        }
+
+        function simulatePayment() {
+            const btn = document.querySelector('.btn-checkout');
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Processando...';
+            btn.style.opacity = '0.8';
+            
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Sucesso!';
+                btn.style.background = '#00ff88';
+                setTimeout(() => { window.location.href = 'dashboard.html'; }, 1000);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

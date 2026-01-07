@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Facility.IA</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos do Modal de Recuperação */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            display: none; justify-content: center; align-items: center; z-index: 2000;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        
+        .modal-card {
+            background: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            width: 90%; max-width: 400px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transform: scale(0.9); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .modal-overlay.active .modal-card { transform: scale(1); }
+
+        .modal-close {
+            position: absolute; top: 15px; right: 15px;
+            background: none; border: none; color: #666; font-size: 1.2rem; cursor: pointer;
+        }
+        .modal-close:hover { color: white; }
+
+        .step-container { display: none; animation: fadeIn 0.4s; }
+        .step-container.active { display: block; }
+
+        .link-forgot {
+            display: block; text-align: right; margin-top: 5px; font-size: 0.85rem;
+            color: var(--text-muted); cursor: pointer; text-decoration: underline;
+        }
+        .link-forgot:hover { color: var(--primary); }
+
+        @keyframes fadeIn { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform: translateY(0);} }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="toast-container" class="toast-container"></div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <h2>Bem-vindo de volta</h2>
+            
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="seu@email.com">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Sua senha">
+                <span class="link-forgot" onclick="openModal()">Esqueci minha senha</span>
+            </div>
+
+            <button class="cta-button-primary btn-block" onclick="fazerLogin()">Entrar</button>
+
+            <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #888;">
+                Não tem conta? <a href="cadastrodeusuario.html" style="color: var(--primary);">Crie agora</a>
+            </p>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="index.html" style="color: #666; font-size: 0.8rem;">← Voltar ao início</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="recoveryModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal()">✖</button>
+            
+            <div id="step1" class="step-container active">
+                <h3 style="color: white; margin-top: 0;">Recuperar Senha</h3>
+                <p style="color: #aaa; font-size: 0.9rem;">Digite seu e-mail para receber um código de verificação.</p>
+                
+                <div class="input-group">
+                    <input type="email" id="recEmail" placeholder="seu@email.com" style="width: 100%;">
+                </div>
+                <button class="cta-button-primary" style="width: 100%; margin-top: 10px;" onclick="solicitarCodigo()">Enviar Código</button>
+            </div>
+
+            <div id="step2" class="step-container">
+                <h3 style="color: white; margin-top: 0;">Nova Senha</h3>
+                <p style="color: #aaa; font-size: 0.9rem;">Verifique seu e-mail e crie uma nova senha.</p>
+                
+                <div class="input-group">
+                    <label>Código Recebido</label>
+                    <input type="text" id="recCodigo" placeholder="000000" maxlength="6" style="text-align: center; letter-spacing: 5px; font-weight: bold;">
+                </div>
+                <div class="input-group">
+                    <label>Nova Senha</label>
+                    <input type="password" id="recNovaSenha" placeholder="Mínimo 6 caracteres">
+                </div>
+                <button class="cta-button-primary" style="width: 100%; margin-top: 10px;" onclick="redefinirSenha()">Alterar Senha</button>
+                <p style="text-align: center; margin-top: 10px; font-size: 0.8rem; cursor: pointer; color: #666;" onclick="voltarPasso1()">Reenviar código</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // --- LÓGICA DE LOGIN ---
+        async function fazerLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if(!email || !password) {
+                showToast("Preencha e-mail e senha.", "error");
+                return;
+            }
+
+            const btn = document.querySelector('.cta-button-primary');
+            btn.innerHTML = "Autenticando...";
+            btn.disabled = true;
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('userData', JSON.stringify(data.user));
+                    showToast("Login realizado com sucesso!");
+                    
+                    // --- CORREÇÃO AQUI: DIRECIONA PARA DASHBOARD ---
+                    setTimeout(() => {
+                        if(data.user.role === 'admin') window.location.href = 'admin.html';
+                        else window.location.href = 'dashboard.html'; // Alterado de prompts.html para dashboard.html
+                    }, 1000);
+                } else {
+                    showToast(data.message || "Erro no login.", "error");
+                    btn.innerHTML = "Entrar";
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                console.error(error);
+                showToast("Erro ao conectar com servidor.", "error");
+                btn.innerHTML = "Entrar";
+                btn.disabled = false;
+            }
+        }
+
+        // --- LÓGICA DO MODAL DE RECUPERAÇÃO ---
+        
+        const modal = document.getElementById('recoveryModal');
+        const step1 = document.getElementById('step1');
+        const step2 = document.getElementById('step2');
+
+        function openModal() {
+            modal.classList.add('active');
+            const emailLogin = document.getElementById('email').value;
+            if(emailLogin) document.getElementById('recEmail').value = emailLogin;
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                step1.classList.add('active');
+                step2.classList.remove('active');
+            }, 300); 
+        }
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        function voltarPasso1() {
+            step1.classList.add('active');
+            step2.classList.remove('active');
+        }
+
+        async function solicitarCodigo() {
+            const email = document.getElementById('recEmail').value;
+            if(!email) return showToast("Digite seu e-mail.", "error");
+
+            const btn = step1.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Enviando...";
+            btn.disabled = true;
+
+            try {
+                const res = await fetch('/api/auth/solicitar-redefinicao', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                
+                const data = await res.json();
+                
+                if(res.ok) {
+                    showToast(data.message);
+                    step1.classList.remove('active');
+                    step2.classList.add('active');
+                } else {
+                    showToast(data.message, "error");
+                }
+            } catch (e) {
+                showToast("Erro de conexão.", "error");
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        async function redefinirSenha() {
+            const email = document.getElementById('recEmail').value;
+            const codigo = document.getElementById('recCodigo').value;
+            const newPassword = document.getElementById('recNovaSenha').value;
+
+            if(!codigo || !newPassword) return showToast("Preencha todos os campos.", "error");
+
+            const btn = step2.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "Processando...";
+            btn.disabled = true;
+
+            try {
+                const res = await fetch('/api/auth/redefinir-senha', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, codigo, newPassword })
+                });
+
+                const data = await res.json();
+
+                if(res.ok) {
+                    showToast("Senha alterada! Faça login.", "success");
+                    closeModal();
+                    document.getElementById('email').value = email;
+                    document.getElementById('password').value = "";
+                } else {
+                    showToast(data.message, "error");
+                }
+            } catch (e) {
+                showToast("Erro de conexão.", "error");
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

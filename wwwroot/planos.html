@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planos de Acesso - Facility.IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="particles-js"></div>
+    <div class="scanline"></div>
+
+   <header>
+        <div class="logo">
+            <a href="index.html"><h1>FACILITY.IA <span class="badge-beta">MÁXIMO DESEMPENHO</span></h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="planos.html" class="text-primary">Planos</a></li>
+                <li><a href="prompts.html">Como funciona?</a></li>
+                <li><a href="login.html" class="cta-button" id="authBtn">Entrar</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pricing-section">
+            <div class="pricing-header">
+                <h2>Planos de I.A.</h2>
+                <p>Selecione a capacidade de processamento ideal para sua carreira.</p>
+            </div>
+
+            <div class="pricing-grid">
+                
+                <div class="pricing-card">
+                    <h3 class="plan-name">Grátis</h3>
+                    <div class="price">R$ 0 <span>/mês</span></div>
+                    <p class="plan-desc">Acesso básico aos agentes públicos.</p>
+                    
+                    <ul class="features-list">
+                        <li><span class="check-icon">✓</span> 5 Prompts/dia</li>
+                        <li><span class="check-icon">✓</span> Acesso ao Dev. FullStack</li>
+                        <li class="disabled"><span>✕</span> Upload de Arquivos</li>
+                        <li class="disabled"><span>✕</span> Histórico Ilimitado</li>
+                    </ul>
+
+                    <a href="login.html" class="btn-price" id="btnFreePlan">Criar Conta</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge-featured" style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--primary); color: black; padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">MAIS POPULAR</div>
+                    <h3 class="plan-name">Plus</h3>
+                    <div class="price">R$ 0 <span>/mês</span></div>
+                    <p class="plan-desc">Para estudantes e profissionais liberais.</p>
+                    
+                    <ul class="features-list">
+                        <li><span class="check-icon">✓</span> Prompts Ilimitados</li>
+                        <li><span class="check-icon">✓</span> +150 Profissões</li>
+                        <li><span class="check-icon">✓</span> Upload de Arquivos (PDF, Excel)</li>
+                        <li><span class="check-icon">✓</span> Histórico Ilimitado</li>
+                    </ul>
+
+                    <a href="checkout.html?plan=plus" class="btn-price">Assinar Plus</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="plan-name">Pro</h3>
+                    <div class="price">R$ 0 <span>/mês</span></div>
+                    <p class="plan-desc">Para quem gerencia múltiplos projetos.</p>
+                    
+                    <ul class="features-list">
+                        <li><span class="check-icon">✓</span> Tudo do plano Plus</li>
+                        <li><span class="check-icon">✓</span> <strong>Workspaces Separados</strong></li>
+                        <li><span class="check-icon">✓</span> Memória de Longo Prazo</li>
+                        <li><span class="check-icon">✓</span> Gerente de Projetos Exclusivo</li>
+                        <li><span class="check-icon">✓</span> Acesso Prioritário</li>
+                    </ul>
+
+                    <a href="checkout.html?plan=pro" class="btn-price">Assinar Pro</a>
+                </div>
+              
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FACILITY.IA INC.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script> 
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            const authBtn = document.getElementById('authBtn');
+            const btnFree = document.getElementById('btnFreePlan');
+
+            if (token) {
+                // Usuário está logado
+                
+                // 1. Muda botão do Header
+                if (authBtn) {
+                    authBtn.innerText = "Ir para Dashboard";
+                    authBtn.href = "dashboard.html";
+                    // Mudança visual opcional para destacar
+                    authBtn.style.background = "var(--primary)";
+                    authBtn.style.color = "black";
+                    authBtn.style.border = "none";
+                }
+
+                // 2. Esconde botão Criar Conta do Free
+                if (btnFree) {
+                    btnFree.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

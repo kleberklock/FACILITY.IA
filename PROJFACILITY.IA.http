@@ -1,0 +1,6 @@
+@PROJFACILITY.IA_HostAddress = http://localhost:5217
+
+GET {{PROJFACILITY.IA_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

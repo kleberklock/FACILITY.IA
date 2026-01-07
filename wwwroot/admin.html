@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - Facility.IA</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+    
+        :root {
+            --bg-dark: #0f111a;
+            --bg-sidebar: #151922;
+            --bg-card: #1e2330;
+            --bg-hover: #2a3042;
+            --primary: #5be885;
+            --accent: #8c52ff;
+            --danger: #ff4d4d;
+            --success: #00d084;
+            --text: #e6edf3;
+            --text-muted: #94a3b8;
+            --border: #2d3748;
+        }
+
+        body { 
+            background: var(--bg-dark); 
+            color: var(--text); 
+            font-family: 'Inter', 'Segoe UI', sans-serif; 
+            margin: 0; 
+            display: flex; 
+            height: 100vh; 
+            overflow: hidden;
+        }
+
+        /* --- SIDEBAR --- */
+        .sidebar {
+            width: 250px;
+            background: var(--bg-sidebar);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+        }
+
+        .logo { 
+            color: white; 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            margin-bottom: 40px; 
+            display: flex; align-items: center; gap: 10px;
+        }
+        .logo span { color: var(--primary); }
+
+        .menu-item {
+            padding: 12px 15px;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            transition: 0.2s;
+            display: flex; align-items: center; gap: 12px;
+            font-weight: 500;
+        }
+
+        .menu-item:hover, .menu-item.active { background: var(--primary); color: white; }
+        .logout { margin-top: auto; color: var(--danger); border: 1px solid rgba(255, 77, 77, 0.2); }
+        .logout:hover { background: rgba(255, 77, 77, 0.1); color: var(--danger); }
+
+        /* --- MAIN CONTENT --- */
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border);
+        }
+        .header h2 { margin: 0; font-size: 1.5rem; }
+
+        .section { display: none; animation: fadeIn 0.3s; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- TABELAS --- */
+        .card { background: var(--bg-card); border-radius: 12px; padding: 20px; border: 1px solid var(--border); }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th { text-align: left; color: var(--text-muted); padding: 12px; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+        td { padding: 15px 12px; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: middle; }
+        tr:hover { background: var(--bg-hover); }
+
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+        .badge-active { color: var(--success); background: rgba(0, 208, 132, 0.1); }
+        .badge-banned { color: var(--danger); background: rgba(255, 77, 77, 0.1); }
+
+        /* --- LAYOUT TREINAMENTO (GRID + PAINEL) --- */
+        .training-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 25px;
+            height: calc(100vh - 150px); /* Ajusta altura para não scrollar a página toda */
+        }
+
+        /* Grid de Profissões (Estilo Chat) */
+        .professions-scroll { overflow-y: auto; padding-right: 10px; }
+        .professions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .pro-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+            height: 110px;
+            transition: 0.2s;
+        }
+        .pro-card i { font-size: 1.8rem; color: #fff; opacity: 0.7; }
+        .pro-card span { font-size: 0.85rem; color: var(--text-muted); line-height: 1.2; font-weight: 500; }
+        
+        .pro-card:hover { border-color: var(--primary); background: rgba(91, 115, 232, 0.1); transform: translateY(-3px); }
+        .pro-card.selected { border-color: var(--primary); background: rgba(91, 115, 232, 0.2); box-shadow: 0 0 15px rgba(91, 115, 232, 0.2); }
+        .pro-card.selected i { color: var(--primary); opacity: 1; }
+        .pro-card.selected span { color: white; }
+
+        /* Painel Lateral de Upload */
+        .inspector-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex; flex-direction: column;
+            overflow: hidden;
+        }
+        .inspector-header { padding: 20px; border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.2); }
+        .inspector-body { padding: 20px; flex: 1; overflow-y: auto; }
+        
+        .upload-zone {
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .upload-zone:hover { border-color: var(--primary); background: rgba(91, 115, 232, 0.05); }
+
+        .file-list-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px; border-bottom: 1px solid var(--border); font-size: 0.85rem;
+        }
+        .file-list-item:hover { background: rgba(255,255,255,0.02); }
+
+        /* --- INPUTS --- */
+        input, select, textarea {
+            background: #12151d; border: 1px solid var(--border); color: white;
+            padding: 10px; border-radius: 6px; width: 100%; outline: none; font-family: inherit;
+        }
+        input:focus { border-color: var(--primary); }
+
+        .btn { border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-danger { background: rgba(255, 77, 77, 0.2); color: var(--danger); }
+        
+        /* TOAST */
+        .toast-container { position: fixed; top: 20px; right: 20px; z-index: 9999; }
+        .toast { background: #232936; color: white; padding: 15px 20px; margin-bottom: 10px; border-radius: 6px; border-left: 4px solid var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.3); animation: slideIn 0.3s; }
+        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <nav class="sidebar">
+        <div class="logo"><i class="fas fa-layer-group"></i> Facility<span>.IA</span></div>
+        
+        <div class="menu-item active" onclick="showTab('users')">
+            <i class="fas fa-users-cog"></i> Usuários
+        </div>
+        <div class="menu-item" onclick="showTab('training')">
+            <i class="fas fa-brain"></i> Treinamento IA
+        </div>
+
+        <div class="menu-item logout" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i> Sair
+        </div>
+    </nav>
+
+    <main class="main-content">
+        
+        <section id="users" class="section active">
+            <div class="header">
+                <h2>Base de Usuários</h2>
+                <div style="font-size:0.9rem; color:var(--text-muted);">Gerencie acessos, planos e ciclos de pagamento.</div>
+            </div>
+
+            <div class="card">
+                <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
+                    <input type="text" id="searchUser" placeholder="🔍 Buscar usuário..." style="width:300px;" onkeyup="filterUsers()">
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Usuário</th>
+                            <th>Data Inscrição</th>
+                            <th>Agente Favorito</th>
+                            <th>Plano / Ciclo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="training" class="section">
+            <div class="header" style="margin-bottom:15px; padding-bottom:10px;">
+                <h2>Central de Treinamento</h2>
+                <div style="font-size:0.9rem; color:var(--text-muted);">Selecione um agente para adicionar conhecimento.</div>
+            </div>
+
+            <div class="training-layout">
+                
+                <div style="display:flex; flex-direction:column; overflow:hidden;">
+                    <input type="text" id="searchProfession" placeholder="🔍 Buscar cargo (ex: Advogado, Médico)..." 
+                           style="margin-bottom:15px; padding:12px; font-size:1rem;" onkeyup="renderGrid(this.value)">
+                    
+                    <div class="professions-scroll">
+                        <div class="professions-grid" id="professionsGrid">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="inspector-panel" id="inspectorPanel" style="display:none;">
+                    <div class="inspector-header">
+                        <div style="font-size:0.8rem; color:var(--accent); font-weight:bold; margin-bottom:5px;">EDITANDO CONHECIMENTO DE:</div>
+                        <h3 id="selectedProfName" style="margin:0; font-size:1.4rem;">Advogado</h3>
+                    </div>
+                    
+                    <div class="inspector-body">
+                        <div style="display:flex; gap:10px; margin-bottom:15px;">
+                            <button class="btn btn-primary" style="flex:1;" onclick="toggleUploadMode('file')"><i class="fas fa-file-upload"></i> Arquivo</button>
+                            <button class="btn" style="flex:1; background:#2a3042; color:#ccc;" onclick="toggleUploadMode('text')"><i class="fas fa-keyboard"></i> Texto</button>
+                        </div>
+
+                        <div id="modeFile">
+                            <div class="upload-zone" onclick="document.getElementById('trainFileInput').click()">
+                                <i class="fas fa-cloud-upload-alt" style="font-size:2rem; color:var(--primary); margin-bottom:10px;"></i>
+                                <div style="font-size:0.9rem;">Clique para selecionar PDF ou Imagem</div>
+                                <div id="selectedFileName" style="color:var(--success); font-size:0.8rem; margin-top:5px; display:none;"></div>
+                            </div>
+                            <input type="file" id="trainFileInput" hidden onchange="handleFileSelect(this)">
+                            <button class="btn btn-primary" style="width:100%;" onclick="uploadKnowledgeFile()">Enviar para a IA</button>
+                        </div>
+
+                        <div id="modeText" style="display:none;">
+                            <textarea id="manualTextContent" rows="8" placeholder="Cole aqui leis, manuais ou regras..."></textarea>
+                            <button class="btn btn-primary" style="width:100%; margin-top:10px;" onclick="ingestKnowledgeText()">Absorver Texto</button>
+                        </div>
+
+                        <hr style="border:0; border-top:1px solid var(--border); margin:20px 0;">
+                        
+                        <h4 style="margin:0 0 10px 0; font-size:0.9rem; color:#ccc;">📚 Arquivos na Memória</h4>
+                        <div id="learnedFilesList" style="max-height:200px; overflow-y:auto;">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="inspector-panel" id="emptyStatePanel" style="display:flex; align-items:center; justify-content:center; text-align:center; padding:30px;">
+                    <div style="color:var(--text-muted);">
+                        <i class="fas fa-arrow-left" style="font-size:2rem; margin-bottom:15px;"></i><br>
+                        Selecione um profissional ao lado para gerenciar seu conhecimento.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const token = localStorage.getItem('token');
+        if (!token) window.location.href = 'login.html';
+        const headers = { 'Authorization': `Bearer ${token}` };
+
+        // --- DADOS (Mesma lista do Chat para consistência) ---
+        const rawProfessions = [
+            { name: "Advogado Civil", icon: "efa-scale-balanced", ara: "juridico" }, { name: "Advogado Trabalhista", icon: "fa-briefcase", area: "juridico" },
+            { name: "Advogado Criminalista", icon: "fa-handcuffs", area: "juridico" }, { name: "Advogado Tributarista", icon: "fa-file-invoice-dollar", area: "juridico" },
+            { name: "Advogado Imobiliário", icon: "fa-house-chimney", area: "juridico" }, { name: "Advogado de Família", icon: "fa-people-roof", area: "juridico" },
+            { name: "Advogado Digital/LGPD", icon: "fa-laptop-code", area: "juridico" }, { name: "Advogado Ambiental", icon: "fa-tree", area: "juridico" },
+            { name: "Advogado Corporativo", icon: "fa-building", area: "juridico" }, { name: "Advogado Previdenciário", icon: "fa-person-cane", area: "juridico" },
+            { name: "Juiz / Magistrado", icon: "fa-gavel", area: "juridico" }, { name: "Promotor de Justiça", icon: "fa-book-atlas", area: "juridico" },
+            { name: "Defensor Público", icon: "fa-shield-halved", area: "juridico" }, { name: "Oficial de Cartório", icon: "fa-stamp", area: "juridico" },
+            { name: "Paralegal", icon: "fa-folder-open", area: "juridico" },
+            { name: "Médico Clínico Geral", icon: "fa-user-doctor", area: "saude" }, { name: "Cardiologista", icon: "fa-heart-pulse", area: "saude" },
+            { name: "Dermatologista", icon: "fa-hand-dots", area: "saude" }, { name: "Pediatra", icon: "fa-baby", area: "saude" },
+            { name: "Ortopedista", icon: "fa-bone", area: "saude" }, { name: "Ginecologista", icon: "fa-person-pregnant", area: "saude" },
+            { name: "Psiquiatra", icon: "fa-brain", area: "saude" }, { name: "Neurologista", icon: "fa-bolt", area: "saude" },
+            { name: "Cirurgião Plástico", icon: "fa-scalpel", area: "saude" }, { name: "Oftalmologista", icon: "fa-eye", area: "saude" },
+            { name: "Dentista Geral", icon: "fa-tooth", area: "saude" }, { name: "Ortodontista", icon: "fa-teeth", area: "saude" },
+            { name: "Implantodontista", icon: "fa-screwdriver", area: "saude" }, { name: "Psicólogo Clínico", icon: "fa-comments", area: "saude" },
+            { name: "Nutricionista", icon: "fa-apple-whole", area: "saude" }, { name: "Fisioterapeuta", icon: "fa-person-walking", area: "saude" },
+            { name: "Enfermeiro(a)", icon: "fa-user-nurse", area: "saude" }, { name: "Farmacêutico", icon: "fa-pills", area: "saude" },
+            { name: "Médico Veterinário", icon: "fa-dog", area: "saude" }, { name: "Personal Trainer", icon: "fa-dumbbell", area: "saude" },
+            { name: "Dev. Front-End", icon: "fa-desktop", area: "tech" }, { name: "Dev. Back-End", icon: "fa-server", area: "tech" },
+            { name: "Dev. FullStack", icon: "fa-layer-group", area: "tech" }, { name: "Dev. Mobile (iOS)", icon: "fa-apple", area: "tech" },
+            { name: "Dev. Mobile (Android)", icon: "fa-android", area: "tech" }, { name: "DevOps Engineer", icon: "fa-infinity", area: "tech" },
+            { name: "Engenheiro de Dados", icon: "fa-database", area: "tech" }, { name: "Cientista de Dados", icon: "fa-chart-pie", area: "tech" },
+            { name: "Analista de Segurança", icon: "fa-user-secret", area: "tech" }, { name: "Arquiteto de Software", icon: "fa-sitemap", area: "tech" },
+            { name: "QA / Tester", icon: "fa-bug-slash", area: "tech" }, { name: "Product Manager (PM)", icon: "fa-clipboard-check", area: "tech" },
+            { name: "Scrum Master", icon: "fa-rotate", area: "tech" }, { name: "Dev. Blockchain", icon: "fa-bitcoin-sign", area: "tech" },
+            { name: "Dev. de Jogos", icon: "fa-gamepad", area: "tech" }, { name: "Engenheiro de IA", icon: "fa-robot", area: "tech" },
+            { name: "UX Designer", icon: "fa-pen-nib", area: "tech" }, { name: "UI Designer", icon: "fa-palette", area: "tech" },
+            { name: "Admin de Redes", icon: "fa-network-wired", area: "tech" }, { name: "Suporte Técnico", icon: "fa-headset", area: "tech" },
+            { name: "Engenheiro Civil", icon: "fa-helmet-safety", area: "engenharia" }, { name: "Engenheiro Elétrico", icon: "fa-bolt", area: "engenharia" },
+            { name: "Engenheiro Mecânico", icon: "fa-gears", area: "engenharia" }, { name: "Engenheiro de Produção", icon: "fa-industry", area: "engenharia" },
+            { name: "Engenheiro Químico", icon: "fa-flask", area: "engenharia" }, { name: "Engenheiro Agrônomo", icon: "fa-wheat-awn", area: "engenharia" },
+            { name: "Engenheiro Ambiental", icon: "fa-leaf", area: "engenharia" }, { name: "Eng. de Segurança", icon: "fa-shield", area: "engenharia" },
+            { name: "Arquiteto Urbanista", icon: "fa-city", area: "engenharia" }, { name: "Designer de Interiores", icon: "fa-couch", area: "engenharia" },
+            { name: "Paisagista", icon: "fa-tree-city", area: "engenharia" }, { name: "Topógrafo", icon: "fa-mountain-sun", area: "engenharia" },
+            { name: "Contador", icon: "fa-calculator", area: "negocios" }, { name: "Auditor Fiscal", icon: "fa-magnifying-glass-dollar", area: "negocios" },
+            { name: "Analista Financeiro", icon: "fa-chart-line", area: "negocios" }, { name: "Consultor de Investimentos", icon: "fa-sack-dollar", area: "negocios" },
+            { name: "Trader", icon: "fa-arrow-trend-up", area: "negocios" }, { name: "Economista", icon: "fa-money-bill-transfer", area: "negocios" },
+            { name: "Gestor de RH", icon: "fa-users", area: "negocios" }, { name: "Recrutador / Headhunter", icon: "fa-user-plus", area: "negocios" },
+            { name: "Business Partner", icon: "fa-handshake", area: "negocios" }, { name: "Gerente de Projetos", icon: "fa-timeline", area: "negocios" },
+            { name: "Corretor de Imóveis", icon: "fa-house", area: "negocios" }, { name: "Corretor de Seguros", icon: "fa-file-shield", area: "negocios" },
+            { name: "Consultor Empresarial", icon: "fa-briefcase", area: "negocios" }, { name: "CEO / Executivo", icon: "fa-user-tie", area: "negocios" },
+            { name: "Vendedor B2B", icon: "fa-phone", area: "negocios" }, { name: "Gestor de Logística", icon: "fa-truck-fast", area: "operacional" },
+            { name: "Comprador / Supply", icon: "fa-cart-shopping", area: "operacional" }, { name: "Representante Comercial", icon: "fa-suitcase", area: "negocios" },
+            { name: "Copywriter", icon: "fa-feather", area: "criativos" }, { name: "Redator SEO", icon: "fa-keyboard", area: "criativos" },
+            { name: "Social Media Manager", icon: "fa-hashtag", area: "criativos" }, { name: "Gestor de Tráfego", icon: "fa-bullhorn", area: "criativos" },
+            { name: "Designer Gráfico", icon: "fa-pen-ruler", area: "criativos" }, { name: "Diretor de Arte", icon: "fa-palette", area: "criativos" },
+            { name: "Editor de Vídeo", icon: "fa-film", area: "criativos" }, { name: "Motion Designer", icon: "fa-play", area: "criativos" },
+            { name: "Fotógrafo", icon: "fa-camera", area: "criativos" }, { name: "Jornalista", icon: "fa-newspaper", area: "criativos" },
+            { name: "Roteirista", icon: "fa-scroll", area: "criativos" }, { name: "Tradutor", icon: "fa-language", area: "criativos" },
+            { name: "Revisor de Texto", icon: "fa-glasses", area: "criativos" }, { name: "Produtor Musical", icon: "fa-music", area: "criativos" },
+            { name: "Influenciador Digital", icon: "fa-star", area: "criativos" },
+            { name: "Professor Fundamental", icon: "fa-chalkboard-user", area: "educacao" }, { name: "Professor Universitário", icon: "fa-graduation-cap", area: "educacao" },
+            { name: "Pesquisador Acadêmico", icon: "fa-microscope", area: "educacao" }, { name: "Pedagogo", icon: "fa-shapes", area: "educacao" },
+            { name: "Professor de Idiomas", icon: "fa-earth-americas", area: "educacao" }, { name: "Orientador Vocacional", icon: "fa-compass", area: "educacao" },
+            { name: "Bibliotecário", icon: "fa-book", area: "educacao" }, { name: "Estudante", icon: "fa-backpack", area: "educacao" },
+            { name: "Chef de Cozinha", icon: "fa-utensils", area: "operacional" }, { name: "Nutricionista Gastronômico", icon: "fa-carrot", area: "operacional" },
+            { name: "Organizador de Eventos", icon: "fa-champagne-glasses", area: "operacional" }, { name: "Agente de Viagens", icon: "fa-plane", area: "operacional" },
+            { name: "Piloto de Avião", icon: "fa-plane-up", area: "operacional" }, { name: "Policial / Segurança", icon: "fa-shield-cat", area: "operacional" },
+            { name: "Bombeiro Civil", icon: "fa-fire-extinguisher", area: "operacional" }, { name: "Síndico Profissional", icon: "fa-building-user", area: "operacional" }
+        ];
+
+        let selectedProfession = null;
+        let selectedFile = null;
+
+        // --- NAVEGAÇÃO ---
+        function showTab(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            
+            // Highlight Menu
+            const idx = id === 'users' ? 0 : 1;
+            document.querySelectorAll('.menu-item')[idx].classList.add('active');
+        }
+
+        function logout() { localStorage.clear(); window.location.href = 'login.html'; }
+        
+        function showToast(msg, type='success') {
+            const el = document.createElement('div'); el.className = 'toast';
+            el.style.borderLeftColor = type==='error'?'var(--danger)':'var(--success)';
+            el.innerHTML = `<i class="fas ${type==='error'?'fa-times':'fa-check'}"></i> ${msg}`;
+            document.getElementById('toastContainer').appendChild(el);
+            setTimeout(() => el.remove(), 3000);
+        }
+
+        // --- 1. USUÁRIOS ---
+        let usersCache = [];
+        async function loadUsers() {
+            try {
+                const res = await fetch('/api/admin/usuarios', { headers });
+                usersCache = await res.json();
+                renderUsers(usersCache);
+            } catch(e) { console.error(e); }
+        }
+
+        function renderUsers(list) {
+            const tbody = document.getElementById('userTableBody');
+            tbody.innerHTML = list.map(u => {
+                const date = new Date(u.createdAt).toLocaleDateString();
+                const statusBadge = u.isActive ? '<span class="badge badge-active">Ativo</span>' : '<span class="badge badge-banned">Banido</span>';
+                
+                return `
+                <tr>
+                    <td>
+                        <div style="font-weight:600; color:white;">${u.name}</div>
+                        <div style="font-size:0.8rem; color:var(--text-muted);">${u.email}</div>
+                    </td>
+                    <td>${date}</td>
+                    <td><i class="fas fa-robot" style="color:var(--primary)"></i> ${u.favoriteAgent}</td>
+                    <td>
+                        <div style="display:flex; gap:5px;">
+                            <select onchange="updatePlan(${u.id}, 'plan', this.value)" style="width:80px; padding:5px;">
+                                <option ${u.plan==='Free'?'selected':''}>Free</option>
+                                <option ${u.plan==='Pro'?'selected':''}>Pro</option>
+                                <option ${u.plan==='Enterprise'?'selected':''}>Ent</option>
+                            </select>
+                            <select style="width:90px; padding:5px; background:#1e2330; color:#aaa;">
+                                <option>Mensal</option>
+                                <option>Trimestral</option>
+                                <option>Anual</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>${statusBadge}</td>
+                    <td>
+                        <button class="btn btn-danger" onclick="toggleBan(${u.id})"><i class="fas ${u.isActive?'fa-ban':'fa-check'}"></i></button>
+                    </td>
+                </tr>
+                `;
+            }).join('');
+        }
+
+        function filterUsers() {
+            const term = document.getElementById('searchUser').value.toLowerCase();
+            renderUsers(usersCache.filter(u => u.name.toLowerCase().includes(term)));
+        }
+
+        async function updatePlan(id, type, val) {
+            if(type === 'plan') {
+                await fetch('/api/admin/usuario/plano', { 
+                    method:'POST', headers: {...headers, 'Content-Type':'application/json'},
+                    body: JSON.stringify({ userId: id, newPlan: val })
+                });
+                showToast("Plano atualizado!");
+            }
+        }
+
+        async function toggleBan(id) {
+            if(!confirm("Alterar acesso do usuário?")) return;
+            await fetch(`/api/admin/usuario/banir/${id}`, { method:'POST', headers });
+            loadUsers(); showToast("Status alterado.");
+        }
+
+        // --- 2. TREINAMENTO (GRID & LOGIC) ---
+        function renderGrid(filter="") {
+            const container = document.getElementById('professionsGrid');
+            container.innerHTML = "";
+            
+            const filtered = rawProfessions.filter(p => p.name.toLowerCase().includes(filter.toLowerCase()));
+            
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = `pro-card ${selectedProfession === p.name ? 'selected' : ''}`;
+                card.onclick = () => selectProfession(p.name);
+                card.innerHTML = `<i class="fas ${p.icon}"></i><span>${p.name}</span>`;
+                container.appendChild(card);
+            });
+        }
+
+        async function selectProfession(name) {
+            selectedProfession = name;
+            renderGrid(document.getElementById('searchProfession').value); // Re-render para highlight
+            
+            // Alterna painéis
+            document.getElementById('emptyStatePanel').style.display = 'none';
+            document.getElementById('inspectorPanel').style.display = 'flex';
+            document.getElementById('selectedProfName').innerText = name;
+
+            // Carrega Arquivos
+            loadFilesForAgent(name);
+        }
+
+        async function loadFilesForAgent(agentName) {
+            const list = document.getElementById('learnedFilesList');
+            list.innerHTML = '<div style="text-align:center; padding:10px; color:#666;">Carregando...</div>';
+            
+            const res = await fetch(`/api/admin/agente/${encodeURIComponent(agentName)}/arquivos`, { headers });
+            const files = await res.json();
+
+            if(files.length === 0) list.innerHTML = '<div style="text-align:center; padding:10px; color:#444;">Nenhum arquivo aprendido.</div>';
+            else {
+                list.innerHTML = files.map(f => `
+                    <div class="file-list-item">
+                        <div style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:200px;">
+                            <i class="fas fa-file-alt" style="color:var(--primary)"></i> ${f.fileName}
+                        </div>
+                        <i class="fas fa-trash" style="cursor:pointer; color:var(--danger);" onclick="deleteFile(${f.id})"></i>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Upload Logic
+        function toggleUploadMode(mode) {
+            document.getElementById('modeFile').style.display = mode==='file'?'block':'none';
+            document.getElementById('modeText').style.display = mode==='text'?'block':'none';
+        }
+
+        function handleFileSelect(input) {
+            if(input.files[0]) {
+                selectedFile = input.files[0];
+                const display = document.getElementById('selectedFileName');
+                display.innerText = selectedFile.name; display.style.display = 'block';
+            }
+        }
+
+        async function uploadKnowledgeFile() {
+            if(!selectedFile || !selectedProfession) return showToast("Selecione arquivo e profissão!", "error");
+            
+            const fd = new FormData();
+            fd.append('file', selectedFile);
+            fd.append('profession', selectedProfession);
+
+            try {
+                const res = await fetch('/api/knowledge/upload', { method:'POST', headers: {'Authorization':`Bearer ${token}`}, body:fd });
+                if(res.ok) { showToast("Arquivo enviado!"); selectedFile=null; loadFilesForAgent(selectedProfession); document.getElementById('selectedFileName').innerText=""; }
+                else showToast("Erro no upload", "error");
+            } catch(e) { showToast("Erro de conexão", "error"); }
+        }
+
+        async function ingestKnowledgeText() {
+            const text = document.getElementById('manualTextContent').value;
+            if(!text || !selectedProfession) return showToast("Preencha o texto!", "error");
+
+            try {
+                const res = await fetch('/api/knowledge/ingest', { 
+                    method:'POST', headers: {...headers, 'Content-Type':'application/json'},
+                    body: JSON.stringify({ text, profession: selectedProfession })
+                });
+                if(res.ok) { showToast("Texto absorvido!"); document.getElementById('manualTextContent').value=""; loadFilesForAgent(selectedProfession); }
+            } catch(e) { showToast("Erro", "error"); }
+        }
+
+        async function deleteFile(id) {
+    if(!confirm("Tem certeza que deseja apagar este conhecimento da IA?")) return;
+
+    // Feedback visual imediato
+    const originalIcon = event.target.className; // Captura ícone atual
+    event.target.className = "fas fa-spinner fa-spin"; // Põe loading
+
+    try {
+        const res = await fetch(`/api/admin/arquivo/${id}`, { 
+            method: 'DELETE', 
+            headers: headers 
+        });
+
+        if (res.ok) {
+            showToast("Arquivo removido com sucesso!");
+            // Recarrega a lista para sumir com o item
+            loadFilesForAgent(selectedProfession); 
+        } else {
+            // Tenta ler a mensagem de erro do backend
+            let erroMsg = "Erro desconhecido";
+            try {
+                const data = await res.json();
+                erroMsg = data.message || data;
+            } catch(e) { 
+                erroMsg = await res.text(); 
+            }
+            showToast("Erro: " + erroMsg, "error");
+            event.target.className = originalIcon; // Restaura ícone se falhou
+        }
+    } catch (e) {
+        console.error(e);
+        showToast("Erro de conexão com o servidor.", "error");
+        event.target.className = originalIcon;
+    }
+}
+
+        // Init
+        loadUsers();
+        renderGrid();
+    </script>
+</body>
+</html>
