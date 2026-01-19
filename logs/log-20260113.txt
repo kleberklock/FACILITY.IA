@@ -1,0 +1,27 @@
+2026-01-13 17:48:27.930 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 17:48:28.019 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 17:48:28.024 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 17:48:28.027 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 17:48:28.085 -03:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-01-13 17:48:28.463 -03:00 [INF] No migrations were applied. The database is already up to date.
+2026-01-13 17:48:28.742 -03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__emailAdmin_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__emailAdmin_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-01-13 17:48:28.847 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 17:48:28.948 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 17:48:28.953 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 17:48:28.955 -03:00 [INF] Hosting environment: Development
+2026-01-13 17:48:28.957 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 17:48:40.855 -03:00 [INF] Application is shutting down...

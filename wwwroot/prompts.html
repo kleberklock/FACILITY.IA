@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Facility.IA - Como Funciona</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* CSS Específico desta página que não afeta o site global */
+        /* Mantendo ajustes finos do layout de demonstração dos prompts */
+        
+        .explainer-section {
+            text-align: center;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .explainer-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .explainer-text {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .steps-visual {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .step-item { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+        .step-arrow { align-self: center; color: #444; }
+
+        .nav-pills {
+            display: flex;
+            gap: 15px;
+            margin: 0 auto 30px auto;
+            background: #161b22;
+            padding: 5px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            width: fit-content;
+        }
+
+        .pill {
+            padding: 10px 25px;
+            border-radius: 40px;
+            cursor: pointer;
+            color: #888;
+            transition: 0.3s;
+            display: flex; align-items: center; gap: 8px; font-weight: 500;
+        }
+
+        .pill.active {
+            background: var(--primary);
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+
+        .pipeline-container {
+            display: none;
+            width: 90%;
+            max-width: 900px;
+            margin: 0 auto;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+        .pipeline-container.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .demo-block {
+            background: #161b22;
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+        }
+        
+        .block-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+            padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .block-title { font-size: 1.1rem; color: #fff; font-weight: bold; }
+        .tag { font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.1); color: #aaa; }
+
+        .flow-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr 100px;
+            gap: 15px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .col-user { display: flex; flex-direction: column; align-items: center; }
+        
+        /* Ajuste do Slider específico da Demo */
+        .switch-demo { position: relative; display: inline-block; width: 60px; height: 34px; }
+        .switch-demo input { opacity: 0; width: 0; height: 0; }
+        .slider-demo {
+            position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #333; transition: .4s; border-radius: 34px;
+        }
+        .slider-demo:before {
+            position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px;
+            background-color: white; transition: .4s; border-radius: 50%;
+        }
+        input:checked + .slider-demo { background-color: var(--primary); }
+        input:checked + .slider-demo:before { transform: translateX(26px); box-shadow: 0 0 10px rgba(0,0,0,0.5); }
+
+        .col-process {
+            position: relative;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            height: 80px;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px dashed rgba(255,255,255,0.1);
+        }
+
+        .process-visual { display: flex; gap: 10px; opacity: 0.2; transition: 0.5s; }
+        
+        .prompt-chip {
+            background: rgba(0, 243, 255, 0.05);
+            border: 1px solid var(--primary); color: var(--primary);
+            padding: 4px 8px; border-radius: 4px; font-size: 0.65rem;
+            white-space: nowrap; transform: scale(0.9);
+        }
+
+        .col-process.active { border-color: var(--primary); background: rgba(0, 243, 255, 0.02); }
+        .col-process.active .process-visual { opacity: 1; }
+        .col-process.active .prompt-chip { animation: chipPulse 1.5s infinite alternate; }
+        .col-process.active .prompt-chip:nth-child(2) { animation-delay: 0.2s; }
+        .col-process.active .prompt-chip:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes chipPulse { from { transform: scale(0.9); box-shadow: 0 0 0 transparent; } to { transform: scale(1); box-shadow: 0 0 10px rgba(0,243,255,0.2); } }
+
+        .col-result { position: relative; height: 80px; display: flex; align-items: center; justify-content: center; }
+        
+        .doc-mini {
+            width: 50px; height: 65px; background: #fff; border-radius: 4px;
+            position: relative; transform: translateY(10px); opacity: 0; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .doc-mini::before { content: ''; position: absolute; top: 8px; left: 5px; right: 5px; height: 3px; background: #ddd; }
+        .doc-mini::after { content: ''; position: absolute; top: 15px; left: 5px; right: 15px; height: 3px; background: #ddd; box-shadow: 0 6px 0 #ddd, 0 12px 0 #ddd; }
+
+        .check-badge {
+            position: absolute; top: -5px; right: -5px; width: 20px; height: 20px;
+            background: #2ecc71; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 0.7rem; transform: scale(0); transition: 0.3s 0.6s;
+        }
+
+        .col-result.active .doc-mini { transform: translateY(0); opacity: 1; }
+        .col-result.active .check-badge { transform: scale(1); }
+
+        @media (max-width: 600px) {
+            .flow-grid { grid-template-columns: 1fr; gap: 20px; padding: 10px; }
+            .col-user, .col-process, .col-result { width: 100%; border: none; }
+            .col-process { height: auto; padding: 15px; flex-wrap: wrap; }
+            .process-visual { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="particles-js"></div>
+    <div class="scanline"></div>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><h1>FACILITY.IA</h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Voltar para Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="explainer-section">
+        <div class="explainer-title">
+            <i class="fas fa-info-circle"></i> Entenda o Fluxo dos Prompts
+        </div>
+        <div class="explainer-text">
+            Por trás de cada botão, existem centenas de instruções que nossa equipe já configurou para você.
+            Você não precisa "conversar" com a máquina. Você apenas diz o que quer, e nós entregamos pronto.
+        </div>
+        
+        <div class="steps-visual">
+            <div class="step-item">
+                <i class="fas fa-hand-pointer" style="color:white;"></i>
+                <span>1. Você Clica</span>
+            </div>
+            <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+            <div class="step-item">
+                <i class="fas fa-microchip" style="color:var(--primary);"></i>
+                <span>2. IA Processa</span>
+            </div>
+            <div class="step-arrow"><i class="fas fa-chevron-right"></i></div>
+            <div class="step-item">
+                <i class="fas fa-file-alt" style="color:#2ecc71;"></i>
+                <span>3. Resultado</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-pills">
+        <div class="pill active" onclick="switchTab('tab-study', this)">
+            <i class="fas fa-graduation-cap"></i> Estudo
+        </div>
+        <div class="pill" onclick="switchTab('tab-work', this)">
+            <i class="fas fa-briefcase"></i> Trabalho
+        </div>
+    </div>
+
+    <div id="tab-study" class="pipeline-container active">
+        
+        <div class="demo-block">
+            <div class="block-header">
+                <i class="fas fa-book-open" style="color: var(--primary);"></i>
+                <span class="block-title">Resumir Matéria Técnica</span>
+                <span class="tag">Para Provas</span>
+            </div>
+            <div class="flow-grid">
+                <div class="col-user">
+                    <label class="switch-demo"><input type="checkbox" onchange="toggleFlow(this, 's1')"><span class="slider-demo"></span></label>
+                </div>
+                <div class="col-process" id="proc-s1">
+                    <div class="process-visual">
+                        <span class="prompt-chip">Extrair Datas</span>
+                        <span class="prompt-chip">Preservar Fórmulas</span>
+                        <span class="prompt-chip">Criar Mnemônicos</span>
+                    </div>
+                </div>
+                <div class="col-result" id="res-s1">
+                    <div class="doc-mini"><div class="check-badge"><i class="fas fa-check"></i></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-block">
+            <div class="block-header">
+                <i class="fas fa-question-circle" style="color: #bd93f9;"></i>
+                <span class="block-title">Criar Simulado da Aula</span>
+                <span class="tag">Memorização</span>
+            </div>
+            <div class="flow-grid">
+                <div class="col-user">
+                    <label class="switch-demo"><input type="checkbox" onchange="toggleFlow(this, 's2')"><span class="slider-demo"></span></label>
+                </div>
+                <div class="col-process" id="proc-s2">
+                    <div class="process-visual">
+                        <span class="prompt-chip" style="border-color:#bd93f9; color:#bd93f9">Nível Difícil</span>
+                        <span class="prompt-chip" style="border-color:#bd93f9; color:#bd93f9">4 Alternativas</span>
+                        <span class="prompt-chip" style="border-color:#bd93f9; color:#bd93f9">Gabarito Comentado</span>
+                    </div>
+                </div>
+                <div class="col-result" id="res-s2">
+                    <div class="doc-mini"><div class="check-badge"><i class="fas fa-check"></i></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="tab-work" class="pipeline-container">
+        
+        <div class="demo-block">
+            <div class="block-header">
+                <i class="fas fa-tooth" style="color: var(--primary);"></i>
+                <span class="block-title">Instruções Pós-Operatório</span>
+                <span class="tag">Odontologia</span>
+            </div>
+            <div class="flow-grid">
+                <div class="col-user">
+                    <label class="switch-demo"><input type="checkbox" onchange="toggleFlow(this, 'w1')"><span class="slider-demo"></span></label>
+                </div>
+                <div class="col-process" id="proc-w1">
+                    <div class="process-visual">
+                        <span class="prompt-chip">Protocolo Cirúrgico</span>
+                        <span class="prompt-chip">Linguagem Empática</span>
+                        <span class="prompt-chip">Lista de Remédios</span>
+                    </div>
+                </div>
+                <div class="col-result" id="res-w1">
+                    <div class="doc-mini"><div class="check-badge"><i class="fas fa-check"></i></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-block">
+            <div class="block-header">
+                <i class="fas fa-gavel" style="color: #bd93f9;"></i>
+                <span class="block-title">Análise de Risco em Contrato</span>
+                <span class="tag">Jurídico</span>
+            </div>
+            <div class="flow-grid">
+                <div class="col-user">
+                    <label class="switch-demo"><input type="checkbox" onchange="toggleFlow(this, 'w2')"><span class="slider-demo"></span></label>
+                </div>
+                <div class="col-process" id="proc-w2">
+                    <div class="process-visual">
+                        <span class="prompt-chip" style="border-color:#bd93f9; color:#bd93f9">Código Civil 2024</span>
+                        <span class="prompt-chip" style="border-color:#bd93f9; color:#bd93f9">Buscar 'Multa Abusiva'</span>
+                        <span class="prompt-chip" style="border-color:#bd93f9; color:#bd93f9">Resumo Executivo</span>
+                    </div>
+                </div>
+                <div class="col-result" id="res-w2">
+                    <div class="doc-mini"><div class="check-badge"><i class="fas fa-check"></i></div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="divider-line"></div>
+
+    <section class="agent-explainer-section">
+        <div class="explainer-header">
+            <h2 class="section-title">E o que são os <span class="highlight-text">Agentes de IA?</span></h2>
+            <p class="section-desc">
+                Se os Prompts são os comandos, o Agente é o <strong>especialista contratado</strong> para executar.
+            </p>
+        </div>
+
+        <div class="comparison-container">
+            <div class="comparison-box generic">
+                <div class="brain-icon opacity-low">🧠</div>
+                <h3>IA Genérica (Padrão)</h3>
+                <p>Sabe "um pouco de tudo". Responde sobre culinária, poesia e leis na mesma conversa. É como um estagiário que tenta fazer tudo, mas erra detalhes técnicos.</p>
+                <ul class="comparison-list">
+                    <li>❌ Conhecimento Raso</li>
+                    <li>❌ Inventa informações (Alucinação)</li>
+                    <li>❌ Linguagem robótica</li>
+                </ul>
+            </div>
+
+            <div class="connector-arrow">
+                <i class="fas fa-angle-double-right"></i>
+            </div>
+
+            <div class="comparison-box specialized">
+                <div class="badge-training">Treinado na sua área</div>
+                <div class="brain-icon neon-pulse">🎓</div>
+                <h3>Agente Facility (Expert)</h3>
+                <p>Uma IA isolada e "treinada" apenas com livros e manuais da sua profissão (atual ou futura). Ela ignora o resto do mundo para focar 100% no seu nicho.</p>
+                <ul class="comparison-list">
+                    <li>✅ Cita leis e normas reais (ABNT/ISO)</li>
+                    <li>✅ Vocabulário Técnico Perfeito</li>
+                    <li>✅ Atua como seu Mentor Sênior</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="profession-examples">
+            <p>Disponível para:</p>
+            <div class="pill-container">
+                <span class="pro-pill">⚖️ Direito</span>
+                <span class="pro-pill">🦷 Odontologia</span>
+                <span class="pro-pill">💻 T.I.</span>
+                <span class="pro-pill">🏗️ Engenharia</span>
+                <span class="pro-pill">🧠 Psicologia</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid" style="text-align: left;">
+            <div class="footer-col">
+                <h5 class="uppercase">Sobre Nós</h5>
+                <p>Orquestração de Inteligência Artificial para ambientes de alta performance.</p>
+            </div>
+            <div class="footer-col">
+                <h5 class="uppercase">Links Úteis</h5>
+                <ul style="list-style: none;">
+                    <li><a href="index.html" style="color: #888;">Home</a></li>
+                    <li><a href="planos.html" style="color: #888;">Planos</a></li>
+                    <li><a href="login.html" style="color: #888;">Login</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom" style="text-align: center; margin-top: 40px; border-top: 1px solid #333; padding-top: 20px;">
+            <p>&copy; 2025 FACILITY.IA INC.</p>
+        </div>
+    </footer>
+<script src="config.js"></script> <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        /* Lógica das Abas e Animações de Demonstração */
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.pipeline-container').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.pill').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+
+        function toggleFlow(checkbox, idSuffix) {
+            const processBox = document.getElementById('proc-' + idSuffix);
+            const resultBox = document.getElementById('res-' + idSuffix);
+
+            if (checkbox.checked) {
+                processBox.classList.add('active');
+                setTimeout(() => {
+                    resultBox.classList.add('active');
+                }, 600);
+            } else {
+                processBox.classList.remove('active');
+                resultBox.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

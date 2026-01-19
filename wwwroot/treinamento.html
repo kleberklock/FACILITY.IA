@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Treinamento Neural | Facility.IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css"> 
+    <style>
+        :root {
+            --primary: #00F3FF;
+            --bg-dark: #050507;
+            --card-bg: #111;
+            --border-color: rgba(255,255,255,0.1);
+        }
+
+        body { 
+            background: var(--bg-dark); 
+            color: white; 
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif; 
+            height: 100vh;
+            overflow: hidden; /* Layout fixo */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 40px;
+            background: rgba(15, 17, 21, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
+        h1 span { color: var(--primary); }
+
+        .back-btn {
+            color: #888;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .back-btn:hover { color: white; }
+
+        /* Layout Principal */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Coluna esquerda fixa, direita fluida */
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Coluna da Esquerda (Upload e Ação) */
+        .control-panel {
+            background: #0b0d10;
+            border-right: 1px solid var(--border-color);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .selected-badge {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            display: none; /* Só aparece quando selecionado */
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-container { display: flex; gap: 5px; background: #1a1a1a; padding: 5px; border-radius: 8px; }
+        .tab { 
+            flex: 1; 
+            padding: 10px; 
+            text-align: center; 
+            cursor: pointer; 
+            border-radius: 5px; 
+            font-size: 0.85rem; 
+            color: #888;
+            transition: 0.3s;
+        }
+        .tab.active { background: #333; color: white; font-weight: bold; }
+
+        .upload-area {
+            border: 2px dashed #333;
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #666;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .upload-area:hover { border-color: var(--primary); background: rgba(0,243,255,0.02); color: white; }
+        .upload-area i { font-size: 2rem; margin-bottom: 10px; }
+
+        textarea {
+            width: 100%;
+            height: 100%;
+            background: #161616;
+            border: 1px solid #333;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            resize: none;
+            font-family: inherit;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: black;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+            margin-top: auto;
+        }
+        .action-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+        .action-btn:hover:not(:disabled) { box-shadow: 0 0 15px rgba(0,243,255,0.4); }
+
+        /* Coluna da Direita (Seleção de Profissão) */
+        .selection-panel {
+            padding: 30px;
+            overflow-y: auto;
+            background: radial-gradient(circle at top right, #111 0%, #050507 80%);
+        }
+
+        .search-hero {
+            position: sticky;
+            top: 0;
+            background: rgba(5, 5, 7, 0.95);
+            padding-bottom: 20px;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+        .filter-tag {
+            padding: 5px 15px;
+            border: 1px solid #333;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            white-space: nowrap;
+            color: #888;
+        }
+        .filter-tag:hover, .filter-tag.active { border-color: var(--primary); color: white; background: rgba(0,243,255,0.05); }
+
+        .search-input-wrapper { position: relative; }
+        .search-input-wrapper i { position: absolute; left: 15px; top: 12px; color: #666; }
+        .search-input-wrapper input {
+            width: 100%;
+            padding: 12px 15px 12px 40px;
+            background: #161b22;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+        }
+        .search-input-wrapper input:focus { border-color: var(--primary); outline: none; }
+
+        /* Grid de Profissões */
+        .professions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            padding-bottom: 50px;
+        }
+
+        .pro-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            height: 140px;
+            justify-content: center;
+        }
+        .pro-card i { font-size: 2rem; color: #ccc; transition: 0.3s; }
+        .pro-card span { font-size: 0.85rem; color: #888; font-weight: 500; line-height: 1.3; }
+        
+        .pro-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.05); }
+        .pro-card.selected { 
+            border-color: var(--primary); 
+            background: rgba(0, 243, 255, 0.05); 
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.1);
+        }
+        .pro-card.selected i { color: var(--primary); }
+        .pro-card.selected span { color: white; }
+
+        .hidden { display: none !important; }
+
+        /* Scrollbar custom */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #050507; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .main-layout { grid-template-columns: 1fr; overflow-y: auto; display: block; }
+            .control-panel { padding: 20px; border-bottom: 1px solid #333; }
+            .selection-panel { padding: 20px; }
+            body { overflow: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>FACILITY<span>.IA</span> <small style="font-size:0.9rem; color:#666; margin-left:10px;">/ Treinamento Neural</small></h1>
+        <a href="dashboard.html" class="back-btn"><i class="fas fa-arrow-left"></i> Voltar ao Dashboard</a>
+    </header>
+
+    <div class="main-layout">
+        
+        <aside class="control-panel">
+            <div style="margin-bottom: 10px;">
+                <h3 style="margin:0; margin-bottom:5px;">Material de Estudo</h3>
+                <p style="margin:0; font-size:0.8rem; color:#666;">Envie documentos para o agente aprender.</p>
+            </div>
+
+            <div id="selectedBadge" class="selected-badge">
+                <i class="fas fa-check-circle"></i> <span id="selectedNameDisplay">Nenhum Selecionado</span>
+            </div>
+
+            <div class="tab-container">
+                <div class="tab active" onclick="switchTab('file')"><i class="fas fa-file-upload"></i> Arquivo</div>
+                <div class="tab" onclick="switchTab('text')"><i class="fas fa-paragraph"></i> Texto</div>
+            </div>
+
+            <div id="fileTab" style="flex:1; display:flex;">
+                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p style="font-size:0.9rem;">Clique ou Arraste</p>
+                    <p style="font-size:0.7rem; color:#555;">PDF, DOCX, TXT, Imagens</p>
+                    <input type="file" id="fileInput" class="hidden" accept=".pdf,.docx,.txt,.jpg,.png,.jpeg" onchange="showFileName()">
+                    <div id="fileInfo" style="margin-top:10px; color:var(--primary); font-size:0.8rem; word-break: break-all;"></div>
+                </div>
+            </div>
+
+            <div id="textTab" class="hidden" style="flex:1;">
+                <textarea id="textContent" placeholder="Cole manuais, regras, leis ou procedimentos aqui para a IA memorizar..."></textarea>
+            </div>
+
+            <button id="btnTrain" class="action-btn" onclick="processarTreinamento()" disabled>
+                <i class="fas fa-brain"></i> INICIAR TREINAMENTO
+            </button>
+        </aside>
+
+        <section class="selection-panel">
+            <div class="search-hero">
+                <div style="margin-bottom:15px;">
+                    <h2 style="margin:0;">Quem você quer treinar?</h2>
+                    <p style="color:#666; font-size:0.9rem; margin-top:5px;">Selecione um especialista da lista global.</p>
+                </div>
+                
+                <div class="filter-tags">
+                    <div class="filter-tag active" onclick="filterByArea('all', this)">Todos</div>
+                    <div class="filter-tag" onclick="filterByArea('juridico', this)">Jurídico</div>
+                    <div class="filter-tag" onclick="filterByArea('saude', this)">Saúde</div>
+                    <div class="filter-tag" onclick="filterByArea('tech', this)">Tecnologia</div>
+                    <div class="filter-tag" onclick="filterByArea('engenharia', this)">Engenharia</div>
+                    <div class="filter-tag" onclick="filterByArea('negocios', this)">Negócios</div>
+                    <div class="filter-tag" onclick="filterByArea('criativos', this)">Criativos</div>
+                    <div class="filter-tag" onclick="filterByArea('educacao', this)">Educação</div>
+                    <div class="filter-tag" onclick="filterByArea('operacional', this)">Operacional</div>
+                </div>
+
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="profSearch" placeholder="Buscar cargo (Ex: Advogado, Scrum Master...)" onkeyup="renderGrid(this.value)">
+                </div>
+            </div>
+
+            <div class="professions-grid" id="professionsGrid"></div>
+        </section>
+
+    </div>
+    
+    <script src="config.js"></script> 
+    <script src="script.js"></script>
+    
+    <script>
+    // --- 1. BASE DE DADOS GLOBAL ---
+    const rawProfessions = [
+        { name: "Advogado Civil", icon: "fa-scale-balanced", area: "juridico" }, { name: "Advogado Trabalhista", icon: "fa-briefcase", area: "juridico" },
+        { name: "Advogado Criminalista", icon: "fa-handcuffs", area: "juridico" }, { name: "Advogado Tributarista", icon: "fa-file-invoice-dollar", area: "juridico" },
+        { name: "Advogado Imobiliário", icon: "fa-house-chimney", area: "juridico" }, { name: "Advogado de Família", icon: "fa-people-roof", area: "juridico" },
+        { name: "Advogado Digital/LGPD", icon: "fa-laptop-code", area: "juridico" }, { name: "Advogado Ambiental", icon: "fa-tree", area: "juridico" },
+        { name: "Advogado Corporativo", icon: "fa-building", area: "juridico" }, { name: "Advogado Previdenciário", icon: "fa-person-cane", area: "juridico" },
+        { name: "Juiz / Magistrado", icon: "fa-gavel", area: "juridico" }, { name: "Promotor de Justiça", icon: "fa-book-atlas", area: "juridico" },
+        { name: "Defensor Público", icon: "fa-shield-halved", area: "juridico" }, { name: "Oficial de Cartório", icon: "fa-stamp", area: "juridico" },
+        { name: "Paralegal", icon: "fa-folder-open", area: "juridico" },
+        { name: "Médico Clínico Geral", icon: "fa-user-doctor", area: "saude" }, { name: "Cardiologista", icon: "fa-heart-pulse", area: "saude" },
+        { name: "Dermatologista", icon: "fa-hand-dots", area: "saude" }, { name: "Pediatra", icon: "fa-baby", area: "saude" },
+        { name: "Ortopedista", icon: "fa-bone", area: "saude" }, { name: "Ginecologista", icon: "fa-person-pregnant", area: "saude" },
+        { name: "Psiquiatra", icon: "fa-brain", area: "saude" }, { name: "Neurologista", icon: "fa-bolt", area: "saude" },
+        { name: "Cirurgião Plástico", icon: "fa-scalpel", area: "saude" }, { name: "Oftalmologista", icon: "fa-eye", area: "saude" },
+        { name: "Dentista Geral", icon: "fa-tooth", area: "saude" }, { name: "Ortodontista", icon: "fa-teeth", area: "saude" },
+        { name: "Implantodontista", icon: "fa-screwdriver", area: "saude" }, { name: "Psicólogo Clínico", icon: "fa-comments", area: "saude" },
+        { name: "Nutricionista", icon: "fa-apple-whole", area: "saude" }, { name: "Fisioterapeuta", icon: "fa-person-walking", area: "saude" },
+        { name: "Enfermeiro(a)", icon: "fa-user-nurse", area: "saude" }, { name: "Farmacêutico", icon: "fa-pills", area: "saude" },
+        { name: "Médico Veterinário", icon: "fa-dog", area: "saude" }, { name: "Personal Trainer", icon: "fa-dumbbell", area: "saude" },
+        { name: "Dev. Front-End", icon: "fa-desktop", area: "tech" }, { name: "Dev. Back-End", icon: "fa-server", area: "tech" },
+        { name: "Dev. FullStack", icon: "fa-layer-group", area: "tech" }, { name: "Dev. Mobile (iOS)", icon: "fa-apple", area: "tech" },
+        { name: "Dev. Mobile (Android)", icon: "fa-android", area: "tech" }, { name: "DevOps Engineer", icon: "fa-infinity", area: "tech" },
+        { name: "Engenheiro de Dados", icon: "fa-database", area: "tech" }, { name: "Cientista de Dados", icon: "fa-chart-pie", area: "tech" },
+        { name: "Analista de Segurança", icon: "fa-user-secret", area: "tech" }, { name: "Arquiteto de Software", icon: "fa-sitemap", area: "tech" },
+        { name: "QA / Tester", icon: "fa-bug-slash", area: "tech" }, { name: "Product Manager (PM)", icon: "fa-clipboard-check", area: "tech" },
+        { name: "Scrum Master", icon: "fa-rotate", area: "tech" }, { name: "Dev. Blockchain", icon: "fa-bitcoin-sign", area: "tech" },
+        { name: "Dev. de Jogos", icon: "fa-gamepad", area: "tech" }, { name: "Engenheiro de IA", icon: "fa-robot", area: "tech" },
+        { name: "UX Designer", icon: "fa-pen-nib", area: "tech" }, { name: "UI Designer", icon: "fa-palette", area: "tech" },
+        { name: "Admin de Redes", icon: "fa-network-wired", area: "tech" }, { name: "Suporte Técnico", icon: "fa-headset", area: "tech" },
+        { name: "Engenheiro Civil", icon: "fa-helmet-safety", area: "engenharia" }, { name: "Engenheiro Elétrico", icon: "fa-bolt", area: "engenharia" },
+        { name: "Engenheiro Mecânico", icon: "fa-gears", area: "engenharia" }, { name: "Engenheiro de Produção", icon: "fa-industry", area: "engenharia" },
+        { name: "Engenheiro Químico", icon: "fa-flask", area: "engenharia" }, { name: "Engenheiro Agrônomo", icon: "fa-wheat-awn", area: "engenharia" },
+        { name: "Engenheiro Ambiental", icon: "fa-leaf", area: "engenharia" }, { name: "Eng. de Segurança", icon: "fa-shield", area: "engenharia" },
+        { name: "Arquiteto Urbanista", icon: "fa-city", area: "engenharia" }, { name: "Designer de Interiores", icon: "fa-couch", area: "engenharia" },
+        { name: "Paisagista", icon: "fa-tree-city", area: "engenharia" }, { name: "Topógrafo", icon: "fa-mountain-sun", area: "engenharia" },
+        { name: "Contador", icon: "fa-calculator", area: "negocios" }, { name: "Auditor Fiscal", icon: "fa-magnifying-glass-dollar", area: "negocios" },
+        { name: "Analista Financeiro", icon: "fa-chart-line", area: "negocios" }, { name: "Consultor de Investimentos", icon: "fa-sack-dollar", area: "negocios" },
+        { name: "Trader", icon: "fa-arrow-trend-up", area: "negocios" }, { name: "Economista", icon: "fa-money-bill-transfer", area: "negocios" },
+        { name: "Gestor de RH", icon: "fa-users", area: "negocios" }, { name: "Recrutador / Headhunter", icon: "fa-user-plus", area: "negocios" },
+        { name: "Business Partner", icon: "fa-handshake", area: "negocios" }, { name: "Gerente de Projetos", icon: "fa-timeline", area: "negocios" },
+        { name: "Corretor de Imóveis", icon: "fa-house", area: "negocios" }, { name: "Corretor de Seguros", icon: "fa-file-shield", area: "negocios" },
+        { name: "Consultor Empresarial", icon: "fa-briefcase", area: "negocios" }, { name: "CEO / Executivo", icon: "fa-user-tie", area: "negocios" },
+        { name: "Vendedor B2B", icon: "fa-phone", area: "negocios" }, { name: "Gestor de Logística", icon: "fa-truck-fast", area: "operacional" },
+        { name: "Comprador / Supply", icon: "fa-cart-shopping", area: "operacional" }, { name: "Representante Comercial", icon: "fa-suitcase", area: "negocios" },
+        { name: "Copywriter", icon: "fa-feather", area: "criativos" }, { name: "Redator SEO", icon: "fa-keyboard", area: "criativos" },
+        { name: "Social Media Manager", icon: "fa-hashtag", area: "criativos" }, { name: "Gestor de Tráfego", icon: "fa-bullhorn", area: "criativos" },
+        { name: "Designer Gráfico", icon: "fa-pen-ruler", area: "criativos" }, { name: "Diretor de Arte", icon: "fa-palette", area: "criativos" },
+        { name: "Editor de Vídeo", icon: "fa-film", area: "criativos" }, { name: "Motion Designer", icon: "fa-play", area: "criativos" },
+        { name: "Fotógrafo", icon: "fa-camera", area: "criativos" }, { name: "Jornalista", icon: "fa-newspaper", area: "criativos" },
+        { name: "Roteirista", icon: "fa-scroll", area: "criativos" }, { name: "Tradutor", icon: "fa-language", area: "criativos" },
+        { name: "Revisor de Texto", icon: "fa-glasses", area: "criativos" }, { name: "Produtor Musical", icon: "fa-music", area: "criativos" },
+        { name: "Influenciador Digital", icon: "fa-star", area: "criativos" },
+        { name: "Professor Fundamental", icon: "fa-chalkboard-user", area: "educacao" }, { name: "Professor Universitário", icon: "fa-graduation-cap", area: "educacao" },
+        { name: "Pesquisador Acadêmico", icon: "fa-microscope", area: "educacao" }, { name: "Pedagogo", icon: "fa-shapes", area: "educacao" },
+        { name: "Professor de Idiomas", icon: "fa-earth-americas", area: "educacao" }, { name: "Orientador Vocacional", icon: "fa-compass", area: "educacao" },
+        { name: "Bibliotecário", icon: "fa-book", area: "educacao" }, { name: "Estudante", icon: "fa-backpack", area: "educacao" },
+        { name: "Chef de Cozinha", icon: "fa-utensils", area: "operacional" }, { name: "Nutricionista Gastronômico", icon: "fa-carrot", area: "operacional" },
+        { name: "Organizador de Eventos", icon: "fa-champagne-glasses", area: "operacional" }, { name: "Agente de Viagens", icon: "fa-plane", area: "operacional" },
+        { name: "Piloto de Avião", icon: "fa-plane-up", area: "operacional" }, { name: "Policial / Segurança", icon: "fa-shield-cat", area: "operacional" },
+        { name: "Bombeiro Civil", icon: "fa-fire-extinguisher", area: "operacional" }, { name: "Síndico Profissional", icon: "fa-building-user", area: "operacional" }
+    ];
+
+    let selectedProfession = null;
+    let currentAreaFilter = 'all';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderGrid();
+    });
+
+    function renderGrid(searchTerm = "") {
+        const grid = document.getElementById('professionsGrid');
+        grid.innerHTML = "";
+        
+        const filtered = rawProfessions.filter(p => {
+            const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
+            const matchesArea = currentAreaFilter === 'all' || p.area === currentAreaFilter;
+            return matchesSearch && matchesArea;
+        });
+
+        filtered.forEach(prof => {
+            const card = document.createElement('div');
+            card.className = `pro-card ${selectedProfession === prof.name ? 'selected' : ''}`;
+            card.innerHTML = `<i class="fas ${prof.icon}"></i><span>${prof.name}</span>`;
+            card.onclick = () => selectProfession(prof.name, card);
+            grid.appendChild(card);
+        });
+    }
+
+    function filterByArea(area, el) {
+        currentAreaFilter = area;
+        document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+        renderGrid(document.getElementById('profSearch').value);
+    }
+
+    function selectProfession(name, cardEl) {
+        selectedProfession = name;
+        document.querySelectorAll('.pro-card').forEach(c => c.classList.remove('selected'));
+        cardEl.classList.add('selected');
+
+        const badge = document.getElementById('selectedBadge');
+        badge.style.display = 'block';
+        document.getElementById('selectedNameDisplay').innerText = name;
+        checkButtonState();
+    }
+
+    function switchTab(type) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        const index = type === 'file' ? 0 : 1;
+        document.querySelectorAll('.tab')[index].classList.add('active');
+
+        document.getElementById('fileTab').classList.toggle('hidden', type !== 'file');
+        document.getElementById('textTab').classList.toggle('hidden', type !== 'text');
+        
+        checkButtonState();
+    }
+
+    function showFileName() {
+        const file = document.getElementById('fileInput').files[0];
+        document.getElementById('fileInfo').innerText = file ? `Arquivo: ${file.name}` : "";
+        checkButtonState();
+    }
+
+    document.getElementById('textContent').addEventListener('input', checkButtonState);
+
+    function checkButtonState() {
+        const btn = document.getElementById('btnTrain');
+        const hasFile = document.getElementById('fileInput').files.length > 0;
+        const hasText = document.getElementById('textContent').value.trim().length > 0;
+        const isFileTab = !document.getElementById('fileTab').classList.contains('hidden');
+        
+        const hasContent = isFileTab ? hasFile : hasText;
+
+        if (selectedProfession && hasContent) {
+            btn.disabled = false;
+        } else {
+            btn.disabled = true;
+        }
+    }
+
+    async function processarTreinamento() {
+        const btn = document.getElementById('btnTrain');
+        if (!selectedProfession) return alert("Selecione um profissional primeiro!");
+
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSANDO...';
+
+        const isFile = !document.getElementById('fileTab').classList.contains('hidden');
+        
+        try {
+            let response;
+            if (isFile) {
+                const file = document.getElementById('fileInput').files[0];
+                const formData = new FormData();
+                formData.append("file", file);
+                formData.append("profession", selectedProfession);
+                
+                // --- FIX: CONFIG.API_URL APLICADO ---
+                response = await fetch(`${CONFIG.API_URL}/api/knowledge/upload`, { method: 'POST', body: formData });
+            } else {
+                const text = document.getElementById('textContent').value;
+                // --- FIX: CONFIG.API_URL APLICADO ---
+                response = await fetch(`${CONFIG.API_URL}/api/knowledge/ingest`, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ text, profession: selectedProfession })
+                });
+            }
+
+            if (response.ok) {
+                alert(`✅ Conhecimento adicionado ao cérebro do ${selectedProfession}!`);
+                document.getElementById('fileInput').value = "";
+                document.getElementById('fileInfo').innerText = "";
+                document.getElementById('textContent').value = "";
+                checkButtonState();
+            } else {
+                const err = await response.text();
+                alert("❌ Erro: " + err);
+            }
+        } catch (e) {
+            alert("Erro de conexão: " + e.message);
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-brain"></i> INICIAR TREINAMENTO';
+            checkButtonState();
+        }
+    }
+</script>
+</body>
+</html>

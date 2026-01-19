@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Especialistas</title>
+    <style>
+        body { font-family: sans-serif; padding: 50px; background: #f4f4f9; }
+        .form-container { background: white; padding: 20px; border-radius: 8px; max-width: 400px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #218838; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Novo Especialista</h2>
+        <input type="text" id="nome" placeholder="Nome do Agente (Ex: Contador)">
+        <input type="text" id="especialidade" placeholder="Especialidade (Ex: Imposto de Renda)">
+        <button onclick="cadastrarAgente()">Cadastrar no Banco</button>
+        <p id="mensagem"></p>
+        <a href="chatcomIA.html">Ir para o Chat</a>
+    </div>
+
+    <script src="config.js"></script> 
+    <script src="script.js"></script>
+    
+    <script>
+        async function cadastrarAgente() {
+            const nome = document.getElementById('nome').value;
+            const especialidade = document.getElementById('especialidade').value;
+
+            // --- FIX: CONFIG.API_URL APLICADO ---
+            const response = await fetch(`${CONFIG.API_URL}/api/agents`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: nome, specialty: especialidade })
+            });
+
+            if (response.ok) {
+                document.getElementById('mensagem').innerText = "✅ Cadastrado no SQL Server!";
+                document.getElementById('nome').value = "";
+                document.getElementById('especialidade').value = "";
+            } else {
+                alert("Erro ao cadastrar.");
+            }
+        }
+    </script>
+</body>
+</html>

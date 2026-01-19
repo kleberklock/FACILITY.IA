@@ -1,0 +1,1645 @@
+/* =========================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================= */
+:root {
+    /* MUDANÇA: Cor Principal alterada para VERDE NEON */
+    --primary: #00ff88;       
+    --primary-dim: rgba(0, 255, 136, 0.1);
+    
+    --secondary: #7000ff;     /* Roxo Profundo */
+    --accent: #ff0055;        /* Rosa Choque */
+    
+    /* Fundos */
+    --bg-deep: #050507;       /* Quase preto */
+    --bg-surface: #0f1115;    /* Cinza muito escuro */
+    
+    /* Vidro (Glassmorphism) */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shine: rgba(255, 255, 255, 0.15);
+    
+    /* Texto */
+    --text-main: #ffffff;
+    --text-muted: #a0a0b0;
+    
+    /* Dimensões */
+    --radius: 16px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* Barra de Rolagem Personalizada */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+/* =========================================
+   2. EFEITOS DE FUNDO
+   ========================================= */
+#particles-js {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2;
+    background: radial-gradient(circle at 50% 10%, #1a1a2e 0%, var(--bg-deep) 70%);
+}
+
+.scanline { display: none; }
+
+/* =========================================
+   3. CABEÇALHO (Header)
+   ========================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: rgba(5, 5, 7, 0.7);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #fff, var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.badge-beta {
+    font-size: 0.6rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+    text-shadow: 0 0 10px var(--primary);
+}
+
+nav ul { display: flex; gap: 30px; }
+nav a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+nav a:hover, nav a.text-primary { color: var(--primary); text-shadow: 0 0 10px var(--primary-dim); }
+
+/* =========================================
+   4. BOTÕES & CTAS
+   ========================================= */
+.cta-button, .cta-button-primary {
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.cta-button {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: white;
+}
+.cta-button:hover {
+    background: var(--glass-bg);
+    border-color: var(--primary);
+}
+
+.cta-button-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, #009966 100%);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+
+.cta-button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5);
+}
+
+/* =========================================
+   5. SEÇÃO HERO
+   ========================================= */
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 60px;
+    position: relative;
+    width: 100%;
+}
+
+#hero h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #ffffff 0%, #a0a0b0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 900px;
+}
+
+#hero p { 
+    font-size: 1.2rem; 
+    color: var(--text-muted); 
+    max-width: 600px; 
+    margin: 0 auto 40px; 
+}
+
+.stats-grid {
+    display: inline-flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 60px;
+    padding: 20px 40px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(5px);
+    border-radius: var(--radius);
+    border: 1px solid var(--glass-border);
+}
+
+.stat-num { font-size: 2.2rem; font-weight: 800; color: white; display: block; }
+.stat-label { font-size: 0.8rem; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; }
+
+/* =========================================
+   6. CARDS
+   ========================================= */
+.switch-card, .pricing-card, .agente-card, .login-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    padding: 25px;
+    transition: var(--transition);
+}
+
+.switch-card:hover, .pricing-card:hover, .agente-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--glass-shine);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.switch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.switch-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.switch-card.active {
+    border-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-dim);
+}
+
+.switch-info h4 { margin: 0 0 5px 0; font-size: 1.1rem; }
+.switch-info p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+.backend-note { font-size: 0.75rem; color: var(--primary); margin-top: 8px; opacity: 0; transition: 0.3s; }
+
+/* O Botão de Interruptor */
+.switch { position: relative; display: inline-block; width: 50px; height: 28px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #333; transition: .4s; border-radius: 34px;
+}
+.slider:before {
+    position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px;
+    background-color: white; transition: .4s; border-radius: 50%;
+}
+input:checked + .slider { background-color: var(--primary); box-shadow: 0 0 10px var(--primary); }
+input:checked + .slider:before { transform: translateX(22px); }
+
+/* =========================================
+   7. SEÇÃO DE AGENTES
+   ========================================= */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 40px 20px;
+}
+
+.agente-card {
+    width: 260px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+.agente-card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+.agente-card h4 { margin: 0 0 10px 0; color: white; }
+.agente-card p { font-size: 0.9rem; color: var(--text-muted); flex-grow: 1; }
+.card-status { 
+    font-size: 0.7rem; color: var(--primary); 
+    text-transform: uppercase; font-weight: bold; margin-bottom: 10px; 
+}
+.card-btn {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 8px 0;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.card-btn:hover { background: white; color: black; border-color: white; }
+
+/* =========================================
+   8. INPUTS E BUSCA
+   ========================================= */
+.universal-box { margin-top: 40px; display: flex; flex-direction: column; align-items: center; }
+.tag-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
+.tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    cursor: default;
+}
+.tag:hover { border-color: var(--primary); color: white; background: var(--primary-dim); }
+
+.input-search-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.input-profession {
+    width: 100%;
+    padding: 18px 25px;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    background: #0f1115;
+    color: white;
+    font-size: 1rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+.input-profession:focus { border-color: var(--primary); box-shadow: 0 0 15px var(--primary-dim); }
+.btn-activate {
+    position: absolute;
+    right: 5px; top: 5px;
+    background: var(--primary);
+    color: black;
+    border: none;
+    padding: 13px 30px;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-activate:hover { background: white; }
+
+/* =========================================
+   9. PLANOS (Pricing)
+   ========================================= */
+.pricing-section { padding: 80px 20px; text-align: center; }
+.pricing-grid { display: flex; justify-content: center; gap: 30px; margin-top: 50px; flex-wrap: wrap; }
+
+.pricing-card {
+    width: 300px;
+    padding: 40px;
+    text-align: left;
+    position: relative;
+}
+.pricing-card.featured {
+    border: 1px solid var(--primary);
+    background: linear-gradient(180deg, rgba(0, 255, 136, 0.03) 0%, rgba(22, 27, 34, 0.9) 100%);
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.plan-name { font-size: 1.4rem; margin: 0; color: white; }
+.price { font-size: 3rem; font-weight: 800; margin: 15px 0; letter-spacing: -1px; }
+.price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+.features-list li { margin-bottom: 12px; font-size: 0.9rem; color: #ccc; display: flex; align-items: center; gap: 10px; }
+.check-icon { color: var(--primary); }
+.disabled { opacity: 0.4; text-decoration: line-through; }
+
+.btn-price {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+.pricing-card.featured .btn-price { background: var(--primary); color: black; }
+.btn-price:hover { transform: scale(1.02); }
+
+/* =========================================
+   10. TELA DE LOGIN
+   ========================================= */
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000 100%);
+}
+.login-card { width: 100%; max-width: 400px; padding: 50px; }
+.login-card h2 { text-align: center; margin-bottom: 30px; color: var(--primary); }
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px; }
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    color: white;
+}
+.input-group input:focus { border-color: var(--primary); }
+.btn-block { width: 100%; margin-top: 10px; }
+
+/* =========================================
+   11. CHAT E FOOTER
+   ========================================= */
+.chat-widget-btn {
+    position: fixed; bottom: 30px; right: 30px;
+    width: 60px; height: 60px;
+    background: var(--primary);
+    color: black;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+    cursor: pointer;
+    z-index: 999;
+    transition: 0.3s;
+}
+.chat-widget-btn:hover { transform: scale(1.1); }
+
+.chat-window {
+    display: none; position: fixed; bottom: 100px; right: 30px;
+    width: 320px; height: 450px;
+    background: #161b22;
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    z-index: 999;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+.chat-header { background: var(--primary); color: black; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; }
+.chat-body { flex: 1; padding: 20px; color: #ccc; font-size: 0.9rem; background: rgba(0,0,0,0.2); }
+.chat-input { display: flex; padding: 10px; border-top: 1px solid #333; }
+.chat-input input { flex: 1; background: transparent; border: none; color: white; padding: 10px; }
+
+footer {
+    border-top: 1px solid var(--glass-border);
+    padding: 60px 5%;
+    margin-top: 80px;
+    background: #020203;
+    color: #666;
+    font-size: 0.85rem;
+}
+.footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+.footer-col h5 { color: white; margin-bottom: 20px; font-size: 1rem; }
+.footer-col ul li { margin-bottom: 10px; }
+
+/* =========================================
+   12. RESPONSIVIDADE (Celular)
+   ========================================= */
+@media (max-width: 991px) {
+
+    /* 1. LIBERAR ROLAGEM (O Fix Principal) */
+    html, body {
+        overflow-x: hidden !important; /* Bloqueia só para os lados */
+        overflow-y: auto !important;   /* OBRIGA a rolagem para baixo */
+        height: auto !important;       /* Permite que o site cresça */
+        min-height: 100vh;
+        position: relative !important; /* Remove o 'fixed' que travava tudo */
+        touch-action: pan-y;           /* Melhora a rolagem no Android */
+        -webkit-overflow-scrolling: touch; /* Rolagem macia no iPhone */
+    }
+
+    /* 2. MENU LATERAL (GAVETA) */
+    .sidebar {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 280px !important;
+        height: 100vh !important;
+        background: #0d1117 !important;
+        z-index: 9999;
+        transform: translateX(-110%); /* Escondido na esquerda */
+        transition: transform 0.3s ease;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+        display: flex !important; /* Garante que o flex funcione */
+        overflow-y: auto; /* Menu tem rolagem interna se for comprido */
+    }
+
+    .sidebar.app-open {
+        transform: translateX(0); /* Mostra o menu */
+    }
+
+    /* 3. BOTÃO DE MENU FLUTUANTE (VISÍVEL) */
+    .mobile-nav-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 15px; left: 15px;
+        width: 45px; height: 45px;
+        background: rgba(22, 27, 34, 0.95);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 8px;
+        z-index: 10000;
+        color: #fff;
+        font-size: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        cursor: pointer;
+    }
+
+    /* 4. FUNDO ESCURO QUANDO MENU ABRE */
+    .mobile-backdrop {
+        display: block;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 9998;
+        opacity: 0; visibility: hidden;
+        transition: all 0.3s;
+        backdrop-filter: blur(2px);
+    }
+    .mobile-backdrop.active {
+        opacity: 1; visibility: visible;
+    }
+
+    /* 5. CONTEÚDO PRINCIPAL (DESTROCAR O LAYOUT) */
+    .content, .chat-interface, main {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 80px 20px 100px 20px !important; /* Espaço para o botão em cima e input embaixo */
+        height: auto !important;
+        overflow: visible !important;
+        display: block !important;
+    }
+
+    /* 6. CORREÇÃO DA TELA DE CHAT */
+    .chat-layout {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    .messages-area {
+        height: auto !important;
+        overflow: visible !important;
+        padding-bottom: 20px;
+    }
+
+    /* Input fixo embaixo */
+    .input-wrapper {
+        position: fixed;
+        bottom: 0; left: 0; width: 100%;
+        background: #050507;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding: 10px;
+        z-index: 1000;
+    }
+    
+    /* Corrige tabelas e cards quebrando */
+    .card-grid, .switch-grid, .stats-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px;
+    }
+    
+    .agente-card, .switch-card, .stat-item {
+        width: 100% !important;
+        min-width: 0 !important; /* Evita estouro */
+    }
+
+    /* Texto legível e botões grandes */
+    p, span, div { font-size: 16px; } /* Evita zoom no iPhone */
+    h2 { font-size: 2rem !important; }
+    
+    .btn-activate, .card-btn, button {
+        padding: 15px !important;
+        min-height: 50px; /* Área de toque segura */
+    }
+}
+
+/* =========================================
+   13. ESTILOS DA PÁGINA "COMO FUNCIONA" (Agentes)
+   ========================================= */
+
+.divider-line {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    margin: 60px auto 40px auto;
+}
+
+.agent-explainer-section {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.highlight-text {
+    color: var(--primary); /* Verde Neon */
+    text-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+}
+
+.section-desc {
+    color: #aaa;
+    margin-bottom: 40px;
+    font-size: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container de Comparação */
+.comparison-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.comparison-box {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 30px;
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Caixa Especializada (Destaque) */
+.comparison-box.specialized {
+    background: rgba(0, 255, 136, 0.05); /* Fundo verde bem leve */
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    transform: scale(1.02);
+}
+
+.comparison-box h3 { margin: 15px 0 10px 0; font-size: 1.2rem; color: #fff; }
+.comparison-box p { font-size: 0.9rem; color: #ccc; line-height: 1.5; margin-bottom: 20px; }
+
+/* Ícones */
+.brain-icon { font-size: 3rem; margin-bottom: 10px; }
+.opacity-low { opacity: 0.5; filter: grayscale(100%); }
+.neon-pulse { 
+    animation: pulseGlow 2s infinite; 
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Badge "Treinado" */
+.badge-training {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #000;
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* Lista de Check/X */
+.comparison-list { text-align: left; list-style: none; padding: 0; margin: 0; }
+.comparison-list li { 
+    font-size: 0.85rem; 
+    color: #ddd; 
+    margin-bottom: 8px; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+/* Seta Central */
+.connector-arrow {
+    font-size: 2rem;
+    color: #444;
+    animation: slideRight 1.5s infinite;
+}
+
+@keyframes slideRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+/* Pills de Profissões */
+.profession-examples p { color: #666; font-size: 0.8rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+.pill-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.pro-pill {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+/* Responsivo para Celular (Seção Agentes) */
+@media (max-width: 768px) {
+    .comparison-container { flex-direction: column; }
+    .connector-arrow { transform: rotate(90deg); margin: 10px 0; }
+    .comparison-box.specialized { transform: scale(1); }
+    @keyframes slideRight {
+        0%, 100% { transform: translateY(0) rotate(90deg); }
+        50% { transform: translateY(5px) rotate(90deg); }
+    }
+    /* =========================================
+   SEÇÃO: EXPLICAÇÃO DOS AGENTES (IA vs EXPERT)
+   ========================================= */
+
+/* Linha Divisória Neon */
+.divider-line {
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    margin: 60px auto 40px auto;
+}
+
+/* Container Principal da Seção */
+.agent-explainer-section {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 60px;
+}
+
+/* Títulos e Textos */
+.section-title {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.highlight-text {
+    color: var(--primary); /* Verde Neon */
+    text-shadow: 0 0 15px var(--primary-dim);
+}
+
+.section-desc {
+    color: #aaa;
+    margin-bottom: 40px;
+    font-size: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Grid de Comparação (Lado a Lado) */
+.comparison-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+/* Caixas (Cards) */
+.comparison-box {
+    background: rgba(22, 27, 34, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 30px;
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Caixa Especializada (Destaque Verde) */
+.comparison-box.specialized {
+    background: rgba(0, 255, 136, 0.03);
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    transform: scale(1.02);
+}
+
+.comparison-box h3 { 
+    margin: 15px 0 10px 0; 
+    font-size: 1.2rem; 
+    color: #fff; 
+}
+
+.comparison-box p { 
+    font-size: 0.9rem; 
+    color: #ccc; 
+    line-height: 1.5; 
+    margin-bottom: 20px; 
+}
+
+/* Ícones do Cérebro */
+.brain-icon { 
+    font-size: 3rem; 
+    margin-bottom: 10px; 
+}
+
+.opacity-low { 
+    opacity: 0.5; 
+    filter: grayscale(100%); 
+}
+
+.neon-pulse { 
+    animation: pulseGlow 2s infinite; 
+    filter: drop-shadow(0 0 10px var(--primary));
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Badge "Treinado na sua área" */
+.badge-training {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary);
+    color: #000;
+    font-weight: bold;
+    font-size: 0.75rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px var(--primary);
+    white-space: nowrap;
+}
+
+/* Lista de Vantagens/Desvantagens */
+.comparison-list { 
+    text-align: left; 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.comparison-list li { 
+    font-size: 0.85rem; 
+    color: #ddd; 
+    margin-bottom: 8px; 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+/* Seta Central Animada */
+.connector-arrow {
+    font-size: 2rem;
+    color: #444;
+    animation: slideRight 1.5s infinite;
+}
+
+@keyframes slideRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+/* Pills (Exemplos de Profissões no final) */
+.profession-examples p { 
+    color: #666; 
+    font-size: 0.8rem; 
+    margin-bottom: 10px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+.pill-container { 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    flex-wrap: wrap; 
+}
+
+.pro-pill {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.pro-pill:hover {
+    border-color: var(--primary);
+    color: white;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .comparison-container { 
+        flex-direction: column; 
+    }
+    
+    .connector-arrow { 
+        transform: rotate(90deg); 
+        margin: 10px 0; 
+    }
+    
+    .comparison-box.specialized { 
+        transform: scale(1); 
+    }
+    
+    @keyframes slideRight {
+        0%, 100% { transform: translateY(0) rotate(90deg); }
+        50% { transform: translateY(5px) rotate(90deg); }
+    }
+}
+}
+/* =========================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GERAIS
+   ========================================= */
+:root {
+    --primary: #00ff88;       
+    --primary-dim: rgba(0, 255, 136, 0.1);
+    --secondary: #7000ff;
+    --accent: #ff0055;
+    
+    --bg-deep: #050507;
+    --bg-surface: #0f1115;
+    
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shine: rgba(255, 255, 255, 0.15);
+    
+    --text-main: #ffffff;
+    --text-muted: #a0a0b0;
+    
+    --radius: 16px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+ul { list-style: none; padding: 0; margin: 0; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+/* =========================================
+   2. EFEITOS GERAIS
+   ========================================= */
+#particles-js {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -2; background: radial-gradient(circle at 50% 10%, #1a1a2e 0%, var(--bg-deep) 70%);
+}
+.scanline { display: none; }
+
+/* =========================================
+   3. CABEÇALHO (Header Site)
+   ========================================= */
+header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 5%; background: rgba(5, 5, 7, 0.8); backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000;
+}
+.logo h1 {
+    font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; margin: 0;
+    background: linear-gradient(90deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.badge-beta {
+    font-size: 0.6rem; background: var(--glass-bg); border: 1px solid var(--primary);
+    color: var(--primary); padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle;
+}
+nav ul { display: flex; gap: 30px; }
+nav a { font-size: 0.9rem; font-weight: 500; color: var(--text-muted); }
+nav a:hover { color: var(--primary); }
+
+/* =========================================
+   4. BOTÕES & CTAS
+   ========================================= */
+.cta-button, .cta-button-primary {
+    padding: 10px 24px; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+    cursor: pointer; transition: var(--transition); border: none;
+}
+.cta-button { background: transparent; border: 1px solid var(--glass-border); color: white; }
+.cta-button:hover { background: var(--glass-bg); border-color: var(--primary); }
+
+.cta-button-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, #009966 100%); color: #000;
+    box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+}
+.cta-button-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5); }
+
+/* =========================================
+   5. ELEMENTOS DA VITRINE
+   ========================================= */
+#hero { text-align: center; padding: 100px 20px 60px; }
+#hero h2 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(180deg, #ffffff 0%, #a0a0b0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.stats-grid { display: inline-flex; gap: 60px; margin-top: 60px; padding: 20px 40px; background: var(--glass-bg); border-radius: var(--radius); border: 1px solid var(--glass-border); }
+.stat-num { font-size: 2.2rem; font-weight: 800; color: white; display: block; }
+
+/* Switch Cards */
+.switch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; }
+.switch-card { background: var(--glass-bg); border: 1px solid var(--glass-border); padding: 25px; border-radius: var(--radius); display: flex; justify-content: space-between; align-items: center; }
+.switch-card.active { border-color: var(--primary); box-shadow: 0 0 15px var(--primary-dim); }
+.switch { position: relative; display: inline-block; width: 50px; height: 28px; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #333; transition: .4s; border-radius: 34px; }
+.slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: var(--primary); }
+input:checked + .slider:before { transform: translateX(22px); }
+
+/* =========================================
+   6. LAYOUT DO CHAT (DESKTOP PADRÃO)
+   ========================================= */
+.chat-layout { display: grid; grid-template-columns: 280px 1fr; height: 100vh; width: 100vw; overflow: hidden; }
+
+/* Sidebar */
+.sidebar { background: #0b0d10; border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; padding: 20px; z-index: 20; }
+.new-chat-btn { background: rgba(0,255,136,0.05); border: 1px dashed var(--primary); color: var(--primary); padding: 12px; border-radius: 10px; cursor: pointer; text-align: center; font-weight: bold; margin-bottom: 20px; transition: 0.3s; }
+.new-chat-btn:hover { background: var(--primary-dim); }
+
+/* Área Principal */
+.chat-interface { display: none; flex-direction: column; height: 100%; position: relative; background: #050507; }
+.messages-area { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; scroll-behavior: smooth; }
+
+/* Balões de Mensagem */
+.message { display: flex; gap: 15px; max-width: 80%; animation: slideIn 0.3s ease; }
+.message.user { align-self: flex-end; flex-direction: row-reverse; }
+.msg-bubble { padding: 15px 20px; border-radius: 18px; font-size: 0.95rem; line-height: 1.5; word-wrap: break-word; }
+.ai .msg-bubble { background: rgba(255,255,255,0.05); color: #ddd; border-top-left-radius: 2px; }
+.user .msg-bubble { background: var(--primary-dim); border: 1px solid var(--primary); color: white; border-top-right-radius: 2px; }
+
+/* Input Area */
+.input-wrapper { padding: 20px 30px; background: rgba(5,5,7,0.95); backdrop-filter: blur(10px); }
+.input-box-styled { background: #161b22; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; display: flex; flex-direction: column; transition: 0.3s; }
+.input-box-styled:focus-within { border-color: var(--primary); box-shadow: 0 0 15px var(--primary-dim); }
+.input-container { padding: 8px; display: flex; align-items: flex-end; gap: 10px; }
+textarea { flex: 1; background: transparent; border: none; color: white; resize: none; height: 45px; max-height: 120px; padding: 12px; font-family: inherit; font-size: 1rem; }
+
+/* Vitrine de Seleção */
+.selection-screen { display: flex; flex-direction: column; align-items: center; padding: 40px; overflow-y: auto; height: 100%; width: 100%; }
+.professions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; width: 100%; max-width: 1000px; padding-bottom: 50px; }
+.pro-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; cursor: pointer; text-align: center; transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.pro-card:active, .pro-card:hover { transform: scale(0.98); background: rgba(255,255,255,0.08); border-color: var(--primary); }
+.pro-card i { font-size: 2rem; color: #fff; margin-bottom: 5px; }
+
+/* =========================================
+   7. MOBILE APP ENGINE (OTIMIZAÇÃO CELULAR)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Estrutura Fixa (App Feel) */
+    html, body { height: 100dvh; overflow: hidden; position: fixed; width: 100%; }
+    
+    .chat-layout { display: block; position: relative; height: 100dvh; width: 100vw; }
+
+    /* Sidebar como Gaveta Deslizante */
+    .sidebar {
+        position: fixed; top: 0; left: 0; width: 85%; max-width: 300px; height: 100dvh;
+        transform: translateX(-100%); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 10px 0 50px rgba(0,0,0,0.5); z-index: 9999;
+        padding-top: env(safe-area-inset-top); /* Suporte iPhone Notch */
+    }
+    .sidebar.active { transform: translateX(0); }
+
+    /* Overlay Escuro */
+    .sidebar-overlay {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+        opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9998;
+    }
+    .sidebar-overlay.active { opacity: 1; visibility: visible; }
+
+    /* Área de Chat Otimizada */
+    .chat-interface { height: 100dvh; width: 100%; padding-top: env(safe-area-inset-top); }
+    .messages-area { padding: 15px; padding-bottom: 20px; -webkit-overflow-scrolling: touch; }
+    
+    /* Input Fixo no Rodapé */
+    .input-wrapper {
+        padding: 10px; padding-bottom: max(10px, env(safe-area-inset-bottom));
+        border-top: 1px solid rgba(255,255,255,0.05);
+        position: absolute; bottom: 0; left: 0; width: 100%;
+        background: #0b0d10; z-index: 100;
+    }
+    .input-box-styled { border-radius: 25px; background: #161b22; }
+    
+    /* Header Mobile */
+    .chat-header-bar { padding: 10px 15px 10px 50px; min-height: 60px; justify-content: center; }
+    .mobile-menu-btn { display: block !important; position: absolute; top: 15px; left: 15px; font-size: 1.4rem; z-index: 100; padding: 10px; color: white; }
+
+    /* Ajustes Visuais */
+    .message { max-width: 90%; }
+    .msg-bubble { font-size: 1rem; padding: 12px 16px; }
+    
+    /* Esconder elementos desnecessários no mobile */
+    .logo h1 { font-size: 1.2rem; }
+    .active-modules-container { display: none; } /* Economiza espaço vertical */
+    
+    /* Vitrine Mobile */
+    .professions-grid { grid-template-columns: repeat(2, 1fr); padding-bottom: 80px; }
+    .search-hero { margin-bottom: 20px; }
+    .search-hero input { font-size: 1rem; padding: 12px 15px 12px 45px; }
+
+    /* Animações de Toque */
+    button:active, .action-icon:active, .pro-card:active { transform: scale(0.92); opacity: 0.8; }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu-btn { display: none; }
+    .sidebar-overlay { display: none; }
+}
+
+/* Animações */
+@keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* --- 1. VARIÁVEIS DO SEU TEMA (PRESERVADO) --- */
+:root {
+    --primary: #00ff88;       /* Seu Verde Original */
+    --primary-hover: #00cc6a;
+    --bg-dark: #050507;
+    --card-bg: rgba(22, 27, 34, 0.8); /* Leve transparência */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-muted: #aaaaaa;
+    --danger: #ff5555;
+    --transition-speed: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Suavidade */
+}
+
+/* --- 2. BASE (Reset e Fontes) --- */
+* { box-sizing: border-box; outline: none; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Segoe UI', 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition-speed); }
+
+/* --- 3. INTERATIVIDADE & ANIMAÇÕES (NOVO) --- */
+
+/* Classes para animar entrada de elementos */
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+.animate-slide-up { animation: slideUp 0.6s ease-out forwards; opacity: 0; }
+.animate-pop { animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; opacity: 0; }
+
+/* Delays para efeito cascata */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes popIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+
+/* Efeito de Hover em Cards (Vidro + Brilho) */
+.interactive-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.interactive-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.1); /* Brilho Verde Suave */
+}
+
+.interactive-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transform: skewX(-25deg);
+    transition: 0.5s;
+}
+.interactive-card:hover::after { left: 150%; transition: 0.7s; }
+
+/* Botões com Feedback */
+.btn-primary {
+    background: var(--primary);
+    color: #000;
+    font-weight: bold;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition-speed);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+}
+
+.btn-primary:active { transform: scale(0.95); }
+
+/* --- 4. COMPONENTES GLOBAIS --- */
+
+/* Inputs Modernos */
+.input-group label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 0.9rem; }
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: var(--transition-speed);
+}
+.input-group input:focus {
+    border-color: var(--primary);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
+}
+
+/* Sidebar (Menu Lateral) */
+.sidebar {
+    background: rgba(10, 10, 12, 0.95);
+    border-right: 1px solid var(--border-color);
+}
+.nav-btn.active { border-right: 3px solid var(--primary); color: white; background: linear-gradient(90deg, transparent, rgba(0,255,136,0.05)); }
+
+/* Toast Notifications (Avisos Flutuantes) */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.toast {
+    background: rgba(15, 15, 15, 0.95);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 280px;
+    animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Efeito elástico */
+}
+.toast.error { border-left-color: var(--danger); }
+
+
+@keyframes slideInRight { from { transform: translateX(120%); } to { transform: translateX(0); } }
+/* ============================================================ */
+/* 📱 MOBILE APP EXPERIENCE (CORRIGIDO - DESTRAVA ROLAGEM)       */
+/* ============================================================ */
+
+/* Esconde elementos mobile no PC */
+.mobile-nav-toggle, .mobile-backdrop { display: none; }
+
+@media (max-width: 991px) {
+
+    /* 1. DESTRAVAR ROLAGEM (A Correção Principal) */
+    html, body {
+        overflow-x: hidden !important; /* Bloqueia só para os lados */
+        overflow-y: auto !important;   /* OBRIGA a rolagem para baixo */
+        height: auto !important;       /* Permite que o site cresça */
+        min-height: 100vh;
+        position: relative;
+        touch-action: pan-y;           /* Melhora a rolagem no Android */
+        -webkit-overflow-scrolling: touch; /* Rolagem macia no iPhone */
+    }
+
+    /* 2. Menu Lateral (Gaveta) */
+    .sidebar {
+        position: fixed !important;
+        top: 0; left: 0;
+        width: 280px !important;
+        height: 100vh !important;
+        background: #0d1117 !important;
+        z-index: 9999;
+        transform: translateX(-110%);
+        transition: transform 0.3s ease;
+        overflow-y: auto; /* Menu tem sua própria rolagem se for comprido */
+    }
+
+    .sidebar.app-open { transform: translateX(0); }
+
+    /* 3. Botão Flutuante */
+    .mobile-nav-toggle {
+        display: flex;
+        align-items: center; justify-content: center;
+        position: fixed;
+        top: 15px; right: 15px;
+        width: 45px; height: 45px;
+        background: rgba(22, 27, 34, 0.95);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 8px;
+        z-index: 10000;
+        color: #fff;
+        font-size: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    /* 4. Fundo Escuro */
+    .mobile-backdrop {
+        display: block;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 9998;
+        opacity: 0; visibility: hidden;
+        transition: all 0.3s;
+        backdrop-filter: blur(2px);
+    }
+    .mobile-backdrop.active { opacity: 1; visibility: visible; }
+
+    /* 5. Conteúdo Principal */
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        /* Espaço em cima para o botão não tapar o título */
+        padding: 80px 20px 40px 20px !important; 
+        overflow: visible !important; /* Garante que o conteúdo não seja cortado */
+    }
+
+    /* 6. Cards e Tabelas */
+    .dashboard-grid, .grid-container, .cards-container {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px;
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto; /* Tabela rola para o lado se precisar */
+    }
+}
+/* ============================================================
+   📱 MOBILE APP EXPERIENCE V2.0 (COLE NO FINAL DO STYLES.CSS)
+   ============================================================ */
+
+/* 1. Ajustes de Viewport e Toque */
+@media (max-width: 991px) {
+    /* Bloqueia o "bounce" da página inteira no iOS */
+    html, body {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #050507; /* Cor do fundo para evitar branco no bounce */
+    }
+
+    /* Área de Conteúdo com Scroll Nativo */
+    .content, .chat-interface, main {
+        height: 100%;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+        padding-top: 60px !important; /* Espaço para o Header */
+        padding-bottom: 80px !important; /* Espaço para não cortar conteúdo */
+    }
+
+    /* 2. Menu Lateral (Gaveta Deslizante) */
+    .sidebar {
+        position: fixed !important;
+        top: 0; left: 0; bottom: 0;
+        width: 85% !important;
+        max-width: 300px;
+        z-index: 9999;
+        transform: translateX(-110%);
+        transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+    }
+    .sidebar.active { transform: translateX(0); }
+
+    /* Overlay Escuro */
+    .sidebar-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+        z-index: 9998; opacity: 0; pointer-events: none; transition: 0.3s;
+    }
+    .sidebar-overlay.active { opacity: 1; pointer-events: all; }
+
+    /* 3. Menus Flutuantes viram "Bottom Sheets" (Estilo iOS/Android) */
+    .floating-menu, .floating-panel {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        border: none !important;
+        border-top: 1px solid var(--primary) !important;
+        transform: translateY(110%);
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        max-height: 60vh;
+        z-index: 10000;
+        animation: none !important;
+        padding-bottom: env(safe-area-inset-bottom);
+        box-shadow: 0 -10px 40px rgba(0,0,0,0.8);
+    }
+    
+    /* Classe para abrir o menu via JS */
+    .floating-menu.open, .floating-panel.open {
+        display: block !important;
+        transform: translateY(0);
+    }
+
+    /* 4. Chat Input Sticky (Fixo no rodapé) */
+    .input-wrapper {
+        position: fixed;
+        bottom: 0; left: 0; width: 100%;
+        padding: 10px;
+        background: #050507;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        z-index: 50;
+        padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
+    
+    /* Ajuste para quando o teclado virtual abrir */
+    body.keyboard-open .input-wrapper {
+        padding-bottom: 10px; /* Remove safe-area extra */
+    }
+
+    /* 5. Feedback Tátil nos Botões */
+    .app-card:active, .btn-neon:active, .nav-btn:active, .action-icon:active {
+        transform: scale(0.96);
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    /* Esconde botões manuais antigos para o JS injetar o novo */
+    .mobile-btn, .mobile-menu-btn { display: none !important; }
+    
+    /* Botão Mobile Injetado pelo JS */
+    #mobile-nav-trigger {
+        position: fixed; top: 15px; left: 15px;
+        width: 45px; height: 45px;
+        background: rgba(22,27,34,0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 10001; color: white; font-size: 1.2rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+}
+/* ============================================================
+   📱 MOBILE APP EXPERIENCE V2.0 (COLE NO FINAL DO STYLES.CSS)
+   ============================================================ */
+
+/* 1. Ajustes de Viewport e Toque */
+@media (max-width: 991px) {
+    /* Bloqueia o "bounce" da página inteira no iOS e remove scroll horizontal */
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Ajuste de fontes para leitura confortável em telas pequenas */
+    html { font-size: 14px; }
+    h1 { font-size: 1.8rem !important; }
+    h2 { font-size: 1.5rem !important; }
+
+    /* Área de Conteúdo com Scroll Nativo e Espaçamento Seguro */
+    .content, .chat-interface, main, .main-content {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 80px 20px 100px 20px !important; /* Espaço p/ header e footer */
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    /* 2. Menu Lateral (Gaveta Deslizante Profissional) */
+    .sidebar {
+        position: fixed !important;
+        top: 0; left: 0; bottom: 0; height: 100vh !important;
+        width: 85% !important; max-width: 320px;
+        background: #0d1117 !important;
+        z-index: 9999;
+        transform: translateX(-110%);
+        transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); /* Efeito elástico suave */
+        box-shadow: 10px 0 50px rgba(0,0,0,0.8);
+        display: flex !important;
+        flex-direction: column;
+    }
+    
+    .sidebar.app-open { transform: translateX(0); }
+
+    /* Overlay Escuro (Fundo quando menu abre) */
+    .mobile-backdrop {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+        z-index: 9998; opacity: 0; visibility: hidden; transition: 0.3s;
+    }
+    .mobile-backdrop.active { opacity: 1; visibility: visible; }
+
+    /* 3. Menus Flutuantes (Bottom Sheets estilo iOS) */
+    /* Transforma menus dropdown em painéis que sobem do chão */
+    .floating-menu, .floating-panel {
+        position: fixed !important; bottom: 0 !important; left: 0 !important;
+        width: 100% !important; max-width: 100% !important;
+        border-radius: 20px 20px 0 0 !important;
+        background: #161b22 !important;
+        border-top: 1px solid var(--primary) !important;
+        transform: translateY(110%);
+        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        z-index: 10000;
+        padding-bottom: env(safe-area-inset-bottom); /* Respeita a barra do iPhone */
+    }
+    
+    /* Classe para abrir o menu via JS */
+    .floating-menu[style*="block"], .floating-panel[style*="block"] {
+        transform: translateY(0) !important;
+        display: block !important;
+        animation: none !important;
+    }
+
+    /* 4. Chat Input Sticky (Fixo no rodapé sem quebrar com teclado) */
+    .input-wrapper {
+        position: fixed; bottom: 0; left: 0; width: 100%;
+        background: #050507;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        z-index: 50;
+        padding: 10px 15px max(10px, env(safe-area-inset-bottom)) 15px;
+    }
+
+    /* 5. Transformar Grids em Coluna Única */
+    .card-grid, .switch-grid, .pricing-grid, .stats-grid, .professions-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px;
+    }
+    .agente-card, .switch-card, .pricing-card, .stat-item {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    /* 6. Feedback Tátil nos Botões (Sensação de App) */
+    .app-card:active, .btn-neon:active, .nav-btn:active, .action-icon:active, button:active {
+        transform: scale(0.96);
+        transition: transform 0.1s;
+    }
+
+    /* Botão Hambúrguer Flutuante (Criado via JS) */
+    #mobile-nav-trigger {
+        position: fixed; top: 15px; left: 15px;
+        width: 45px; height: 45px;
+        background: rgba(22,27,34,0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.1);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 10001; color: white; font-size: 1.2rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        cursor: pointer;
+    }
+}
+/* ============================================================
+   🚑 CORREÇÕES DE EMERGÊNCIA MOBILE (Kleber Fix)
+   ============================================================ */
+
+@media (max-width: 991px) {
+
+    /* --- PROBLEMA 1: Botão de Login Sumindo --- */
+    /* Força o cabeçalho a empilhar os itens verticalmente para caber tudo */
+    header {
+        flex-direction: column;
+        padding: 15px !important;
+        gap: 15px;
+    }
+    
+    header nav ul {
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Garante que o botão de entrar tenha cor e tamanho visíveis */
+    .cta-button, #authBtn {
+        background: var(--primary);
+        color: black !important;
+        padding: 8px 20px;
+        display: inline-block;
+    }
+
+    /* --- PROBLEMA 2: Sidebar (Menu Esquerdo) Embaçado --- */
+    /* O "embaçado" acontece porque o fundo escuro (backdrop) estava
+       ficando POR CIMA do menu. Vamos jogar o menu para o topo (z-index alto) */
+    .sidebar {
+        z-index: 20001 !important; /* Muito acima de tudo */
+        background: #0d1117 !important; /* Fundo sólido, sem transparência */
+        box-shadow: 5px 0 20px rgba(0,0,0,0.8) !important;
+    }
+
+    /* O fundo escuro fica um nível abaixo */
+    .mobile-backdrop {
+        z-index: 20000 !important;
+    }
+
+    /* Garante que o botão de abrir menu flutue acima de tudo */
+    #mobile-nav-trigger {
+        z-index: 20002 !important; 
+    }
+
+    /* --- PROBLEMA 3: Chat com IA não abre --- */
+    /* Às vezes o clique funciona, mas a tela de seleção não some
+       ou a tela de chat não ganha altura. Isso força a troca. */
+    
+    /* Garante que a tela de seleção ocupe tudo */
+    #selectionScreen {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        padding-top: 80px; /* Espaço pro header */
+    }
+
+    /* Quando o chat ativar, ele precisa forçar display flex */
+    #chatInterface[style*="flex"] {
+        display: flex !important;
+        height: 100vh !important;
+        position: fixed;
+        top: 0; left: 0; width: 100%;
+        z-index: 50; /* Acima da seleção */
+        background: #050507;
+    }
+
+    /* Ajuste dos cards de profissão para serem clicáveis */
+    .pro-card {
+        min-height: 120px; /* Área de toque maior */
+    }
+}

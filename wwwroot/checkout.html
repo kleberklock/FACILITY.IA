@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+    const token = localStorage.getItem('token');
+    if (!token) window.location.href = 'login.html';
+    </script>
+    <meta charset="UTF-8">
+    <title>Checkout Seguro | Facility.IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 136, 0.05) 0%, #050507 40%);
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            margin: 0;
+        }
+        .checkout-box {
+            background: rgba(22, 27, 34, 0.95); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px; padding: 40px; width: 100%; max-width: 500px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8); text-align: center;
+        }
+        .plan-summary {
+            background: rgba(255,255,255,0.03); padding: 20px; border-radius: 10px; margin: 20px 0;
+            border: 1px dashed rgba(255,255,255,0.2);
+        }
+        .total-price { font-size: 2.5rem; color: #00ff88; font-weight: bold; margin: 10px 0; }
+        .cycle-info { color: #888; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .btn-pay {
+            width: 100%; padding: 15px; margin-top: 20px;
+            background: #635bff; color: white; font-weight: bold; font-size: 1.1rem; border: none; border-radius: 8px;
+            cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .btn-pay:hover { background: #7a73ff; transform: translateY(-2px); }
+        .btn-pay:disabled { background: #444; cursor: not-allowed; transform: none; }
+        
+        .secure-badge { margin-top: 20px; color: #666; font-size: 0.8rem; display: flex; justify-content: center; gap: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-box">
+        <h2 style="margin-top:0;">Finalizar Assinatura</h2>
+        <p style="color:#ccc;">Ambiente criptografado e seguro.</p>
+
+        <div class="plan-summary">
+            <h3 id="planNameDisplay" style="margin:0; color:white;">Carregando...</h3>
+            <div class="total-price" id="priceDisplay">...</div>
+            <div class="cycle-info" id="cycleDisplay">...</div>
+        </div>
+
+        <button class="btn-pay" id="btnPay" onclick="goToStripe()">
+            <i class="fas fa-credit-card"></i> Ir para Pagamento
+        </button>
+
+        <div class="secure-badge">
+            <i class="fas fa-lock"></i> Processado via <strong>Stripe</strong>
+        </div>
+        
+        <br>
+        <a href="planos.html" style="color:#666; font-size:0.9rem; text-decoration:none;">Cancelar</a>
+    </div>
+
+    <script src="config.js"></script>
+    <script>
+        // 1. Configuração Visual
+        const PRICES = {
+            monthly: { plus: 59.90, pro: 149.90 },
+            quarterly: { plus: 161.73, pro: 404.73 },
+            annual: { plus: 575.04, pro: 1439.04 }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const plan = params.get('plan') || 'Plus';
+        const cycle = params.get('cycle') || 'monthly';
+
+        document.getElementById('planNameDisplay').innerText = `Plano ${plan}`;
+        const cycleName = cycle === 'quarterly' ? 'Trimestral' : cycle === 'annual' ? 'Anual' : 'Mensal';
+        document.getElementById('cycleDisplay').innerText = `Ciclo: ${cycleName}`;
+        
+        let val = 0;
+        const pKey = plan.toLowerCase();
+        if(PRICES[cycle] && PRICES[cycle][pKey]) val = PRICES[cycle][pKey];
+        document.getElementById('priceDisplay').innerText = val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        // 2. Função de Pagamento
+        async function goToStripe() {
+            const btn = document.getElementById('btnPay');
+            
+            // --- DIAGNÓSTICO DO USUÁRIO ---
+            const userData = JSON.parse(localStorage.getItem('userData'));
+            
+            // Tenta pegar o ID de todas as formas possíveis (minúsculo ou maiúsculo)
+            // Isso resolve o problema de 'undefined' que causa o erro 404
+            const safeUserId = userData ? (userData.id || userData.Id || userData.ID || userData.userId) : null;
+
+            if (!safeUserId) {
+                alert("⚠️ Erro de Sessão:\nNão foi possível identificar seu ID de usuário.\n\nPor favor, faça logout e login novamente.");
+                window.location.href = 'login.html';
+                return;
+            }
+            // -----------------------------
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Conectando...';
+            btn.disabled = true;
+
+            try {
+                const apiUrl = (typeof CONFIG !== 'undefined' && CONFIG.API_URL) ? CONFIG.API_URL : 'http://localhost:5217';
+                
+                const response = await fetch(`${apiUrl}/api/payment/create-checkout-session`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        userId: safeUserId, // Agora enviamos o ID garantido
+                        plan: plan,
+                        cycle: cycle
+                    })
+                });
+
+                if (response.status === 404) {
+                    alert("⚠️ Usuário não encontrado no banco de dados.\nIsso acontece se o banco foi resetado.\n\nRedirecionando para novo cadastro...");
+                    localStorage.clear(); // Limpa tudo para forçar renovação
+                    window.location.href = 'login.html';
+                    return;
+                }
+
+                if (!response.ok) {
+                    let txt = await response.text();
+                    throw new Error(txt);
+                }
+
+                const data = await response.json();
+                
+                if(data.url) {
+                    window.location.href = data.url; 
+                } else {
+                    throw new Error("Link de pagamento não gerado.");
+                }
+
+            } catch (e) {
+                console.error(e);
+                alert("Erro ao iniciar pagamento:\n" + e.message);
+                btn.innerHTML = 'Tentar Novamente';
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

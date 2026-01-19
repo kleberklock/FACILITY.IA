@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Prompts | Facility.IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { margin: 0; background: #050507; font-family: 'Segoe UI', sans-serif; overflow-x: hidden; color: white; }
+        .layout { display: flex; min-height: 100vh; }
+        .sidebar { width: 250px; background: rgba(10, 10, 12, 0.95); border-right: 1px solid rgba(255,255,255,0.05); padding: 30px; display: flex; flex-direction: column; position: fixed; height: 100vh; }
+        .content { margin-left: 250px; padding: 40px; width: 100%; }
+        
+        .prompts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        .prompt-card { background: #161b22; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
+        .prompt-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .card-title { font-weight: bold; color: var(--primary); font-size: 1.1rem; }
+        .card-body { color: #aaa; font-size: 0.9rem; line-height: 1.5; flex: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; margin-bottom: 20px; }
+        
+        .add-btn { background: var(--primary); color: black; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+
+        /* Modal Edição */
+        .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; display:none; align-items:center; justify-content:center; }
+        .modal-box { background: #1c2128; padding: 30px; border-radius: 15px; width: 500px; max-width: 90%; border: 1px solid rgba(255,255,255,0.1); }
+        .input-group { margin-bottom: 15px; }
+        .input-group label { display: block; color: #888; margin-bottom: 5px; font-size: 0.9rem; }
+        .input-group input, .input-group textarea { width: 100%; background: #0d1117; border: 1px solid #30363d; padding: 10px; color: white; border-radius: 6px; font-family: inherit; }
+        .input-group textarea { height: 150px; resize: vertical; }
+        .btn-action { background: #333; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <nav class="sidebar">
+            <div class="logo" style="color:white; font-weight:bold; font-size:1.2rem; margin-bottom:40px;">FACILITY<span style="color:#00ff88;">.IA</span></div>
+            <a href="dashboard.html" style="color:#888; text-decoration:none; margin-bottom:20px; display:block;"><i class="fas fa-arrow-left"></i> Voltar ao Dashboard</a>
+        </nav>
+
+        <div class="content">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h2>Meus Agentes Personalizados</h2>
+                <button class="add-btn" onclick="openModal()"><i class="fas fa-plus"></i> Novo Agente</button>
+            </div>
+
+            <div class="prompts-grid" id="promptsGrid">
+                </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="promptModal">
+        <div class="modal-box">
+            <h3 id="modalTitle" style="margin-top:0;">Criar Novo Agente</h3>
+            <div class="input-group">
+                <label>Nome do Agente</label>
+                <input type="text" id="pTitle" placeholder="Ex: Meu Revisor de Email">
+            </div>
+            <div class="input-group">
+                <label>Instrução do Sistema (Prompt)</label>
+                <textarea id="pContent" placeholder="Como este agente deve se comportar? Ex: Você é um especialista em corrigir gramática e tom de voz..."></textarea>
+            </div>
+            <div style="text-align:right; margin-top:20px;">
+                <button class="btn-action" onclick="closeModal()">Cancelar</button>
+                <button class="add-btn" style="display:inline-flex;" onclick="savePrompt()">Salvar Agente</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script> <script src="script.js"></script>
+    <script>
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        if (!userData) window.location.href = 'login.html';
+
+        async function renderPrompts() {
+            const grid = document.getElementById('promptsGrid');
+            grid.innerHTML = '<p style="color:#666;">Carregando seus agentes...</p>';
+            
+            try {
+                // Chama a API filtrando pelo ID do usuário
+                const response = await fetch(`${CONFIG.API_URL}/api/agents?userId=${userData.Id}`);
+                const agents = await response.json();
+                
+                // Filtra apenas os criados por mim (CreatorId == userId)
+                const myAgents = agents.filter(a => a.creatorId === userData.Id);
+
+                grid.innerHTML = "";
+                
+                if(myAgents.length === 0) {
+                    grid.innerHTML = `<div style="color:#666; grid-column:1/-1; text-align:center; padding:50px;">
+                        Você ainda não criou nenhum agente. <br> Clique em "Novo Agente" para começar.
+                    </div>`;
+                    return;
+                }
+
+                myAgents.forEach(agent => {
+                    grid.innerHTML += `
+                        <div class="prompt-card">
+                            <div class="card-header">
+                                <span class="card-title"><i class="fas fa-robot"></i> ${agent.name}</span>
+                            </div>
+                            <div class="card-body">${agent.systemInstruction}</div>
+                        </div>
+                    `;
+                });
+
+            } catch (error) {
+                console.error(error);
+                grid.innerHTML = `<p style="color:red;">Erro ao carregar agentes.</p>`;
+            }
+        }
+
+        function openModal() {
+            document.getElementById('promptModal').style.display = 'flex';
+            document.getElementById('pTitle').value = "";
+            document.getElementById('pContent').value = "";
+        }
+
+        function closeModal() { document.getElementById('promptModal').style.display = 'none'; }
+
+        async function savePrompt() {
+            const title = document.getElementById('pTitle').value;
+            const content = document.getElementById('pContent').value;
+            
+            if(!title || !content) return alert("Preencha todos os campos");
+
+            const btn = document.querySelector('#promptModal .add-btn');
+            btn.disabled = true;
+            btn.innerText = "Salvando...";
+
+            try {
+                const response = await fetch(`${CONFIG.API_URL}/api/agents`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        name: title, 
+                        prompt: content, 
+                        creatorId: userData.Id 
+                    })
+                });
+
+                if (response.ok) {
+                    alert("Agente criado com sucesso!");
+                    closeModal();
+                    renderPrompts();
+                } else {
+                    const err = await response.text();
+                    // Aqui pegamos a mensagem de erro do Back-end (Ex: Limite atingido)
+                    alert("❌ Não foi possível criar: " + err);
+                }
+            } catch (error) {
+                alert("Erro de conexão.");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Salvar Agente";
+            }
+        }
+
+        renderPrompts();
+    </script>
+</body>
+</html>

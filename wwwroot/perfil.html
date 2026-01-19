@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script>
+    const token = localStorage.getItem('token');
+    if (!token) window.location.href = 'login.html';
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil | Facility.IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        body { background: #050507; margin: 0; min-height: 100vh; display: flex; }
+        .sidebar { width: 250px; background: rgba(10, 10, 12, 0.95); border-right: 1px solid rgba(255,255,255,0.05); padding: 30px; display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100; }
+        .logo { font-size: 1.2rem; color: white; margin-bottom: 50px; font-weight: bold; letter-spacing: 1px; }
+        .logo span { color: #00ff88; }
+        .nav-btn { display: flex; align-items: center; gap: 15px; padding: 12px 0; color: #888; text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
+        .nav-btn:hover { color: white; }
+        .user-mini { margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: #ccc; }
+        .avatar { width: 35px; height: 35px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: black; font-weight: bold; font-size: 0.9rem; background-size: cover; background-position: center; }
+        .main-content { margin-left: 250px; padding: 50px; width: 100%; display: flex; justify-content: center; align-items: center; }
+        .profile-card { background: #161b22; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 40px; width: 100%; max-width: 600px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); position: relative; }
+        .big-avatar-wrapper { display: flex; justify-content: center; margin-bottom: 20px; position: relative; width: 120px; height: 120px; margin: 0 auto 30px auto; }
+        .big-avatar { width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary) 0%, #009966 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: bold; color: black; box-shadow: 0 0 30px rgba(0,255,136,0.3); text-transform: uppercase; background-size: cover; background-position: center; border: 3px solid #161b22; }
+        .camera-btn { position: absolute; bottom: 0; right: 0; background: #fff; color: black; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.5); transition: 0.2s; }
+        .camera-btn:hover { transform: scale(1.1); background: var(--primary); }
+        .profile-header { text-align: center; margin-bottom: 40px; }
+        .profile-header h2 { margin: 10px 0 5px 0; color: white; font-size: 1.8rem; }
+        .role-badge { background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 15px; font-size: 0.75rem; text-transform: uppercase; margin-top: 10px; display: inline-block; color: #ccc; letter-spacing: 1px; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group.full { grid-column: span 2; }
+        .form-group label { display: block; color: #aaa; margin-bottom: 8px; font-size: 0.85rem; }
+        .input-display { width: 100%; padding: 12px 15px; background: #0b0d10; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit; }
+        .input-display:disabled { color: #888; cursor: not-allowed; }
+        .btn-logout { width: 100%; padding: 15px; margin-top: 20px; background: rgba(255, 85, 85, 0.1); color: #ff5555; border: 1px solid #ff5555; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center; gap: 10px; }
+        .btn-logout:hover { background: #ff5555; color: white; }
+        .btn-save { width: 100%; padding: 15px; margin-top: 10px; background: var(--primary); color: black; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-save:hover { box-shadow: 0 0 15px var(--primary-dim); }
+        .btn-save:disabled { opacity: 0.7; cursor: not-allowed; }
+        @media (max-width: 768px) { .sidebar { display: none; } .main-content { margin-left: 0; padding: 20px; } .form-grid { grid-template-columns: 1fr; } .form-group.full { grid-column: span 1; } }
+    </style>
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">FACILITY<span>.IA</span></div>
+        <a href="dashboard.html" class="nav-btn"><i class="fas fa-th-large"></i> Início</a>
+        <a href="chatcomIA.html" class="nav-btn"><i class="fas fa-bolt"></i> Assistentes</a>
+        <a href="perfil.html" class="nav-btn active" style="color:white;"><i class="fas fa-user"></i> Meu Perfil</a>
+        <div class="user-mini">
+            <div class="avatar" id="sideAvatar">?</div>
+            <div style="font-size:0.8rem; color:#ccc;">
+                <div id="sideName">Carregando...</div>
+                <div style="color:#666; font-size:0.7rem;">Configurações</div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="profile-card">
+            <div class="big-avatar-wrapper">
+                <div class="big-avatar" id="mainAvatar">?</div>
+                <label for="photoInput" class="camera-btn"><i class="fas fa-camera"></i></label>
+                <input type="file" id="photoInput" accept="image/*" style="display:none;" onchange="previewPhoto(this)">
+            </div>
+            <div class="profile-header">
+                <h2 id="profileName">Carregando...</h2>
+                <p id="profileEmail">...</p>
+                <span class="role-badge" id="profileRole">USUÁRIO</span>
+            </div>
+            <div class="form-grid">
+                <div class="form-group full">
+                    <label>Nome Completo</label>
+                    <input type="text" id="inputName" class="input-display">
+                </div>
+                <div class="form-group">
+                    <label>E-mail (Não alterável)</label>
+                    <input type="text" id="inputEmail" class="input-display" disabled>
+                </div>
+                <div class="form-group">
+                    <label>Plano Atual</label>
+                    <input type="text" id="inputPlan" class="input-display" value="Free" disabled>
+                </div>
+            </div>
+            <button class="btn-save" onclick="salvarPerfil()"><i class="fas fa-save"></i> Salvar Alterações</button>
+            <button class="btn-logout" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair da Conta</button>
+        </div>
+    </main>
+
+    <script src="config.js"></script> 
+    <script src="script.js"></script>
+    <script>
+        let currentPhotoBase64 = null; 
+        let userEmail = "";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const dataStr = localStorage.getItem('userData');
+            if(dataStr) {
+                const user = JSON.parse(dataStr);
+                const name = user.name || user.Name || "Usuário";
+                userEmail = user.email || user.Email || "email@exemplo.com";
+                const role = user.role || user.Role || "user";
+                const plan = user.plan || user.Plan || "Free";
+                const initial = name.charAt(0).toUpperCase();
+
+                const savedPhoto = localStorage.getItem(`userPhoto_${userEmail}`);
+
+                document.getElementById('sideName').innerText = name;
+                document.getElementById('profileName').innerText = name;
+                document.getElementById('profileEmail').innerText = userEmail;
+                document.getElementById('profileRole').innerText = role.toUpperCase();
+                document.getElementById('inputName').value = name;
+                document.getElementById('inputEmail').value = userEmail;
+                document.getElementById('inputPlan').value = plan;
+
+                updateAvatarUI(savedPhoto, initial);
+            }
+        });
+
+        function updateAvatarUI(photoBase64, initial) {
+            const mainAv = document.getElementById('mainAvatar');
+            const sideAv = document.getElementById('sideAvatar');
+            if (photoBase64) {
+                mainAv.style.backgroundImage = `url('${photoBase64}')`;
+                mainAv.innerText = "";
+                sideAv.style.backgroundImage = `url('${photoBase64}')`;
+                sideAv.innerText = "";
+            } else {
+                mainAv.style.backgroundImage = "none";
+                mainAv.innerText = initial;
+                sideAv.style.backgroundImage = "none";
+                sideAv.innerText = initial;
+            }
+        }
+
+        function previewPhoto(input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    currentPhotoBase64 = e.target.result;
+                    const mainAv = document.getElementById('mainAvatar');
+                    mainAv.style.backgroundImage = `url('${currentPhotoBase64}')`;
+                    mainAv.innerText = "";
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        async function salvarPerfil() {
+            const newName = document.getElementById('inputName').value;
+            if(!newName) return alert("O nome não pode ser vazio.");
+
+            const btn = document.querySelector('.btn-save');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Salvando...';
+            btn.disabled = true;
+
+            try {
+                // 1. ATUALIZA NO SERVIDOR (Go-Live Ready)
+                const token = localStorage.getItem('token');
+                
+                const response = await fetch(`${CONFIG.API_URL}/api/user/profile`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ name: newName })
+                });
+
+                if (!response.ok) throw new Error("Erro ao atualizar no servidor");
+
+                // 2. ATUALIZA LOCALMENTE
+                let user = JSON.parse(localStorage.getItem('userData'));
+                user.Name = newName;
+                user.name = newName;
+                localStorage.setItem('userData', JSON.stringify(user));
+
+                if (currentPhotoBase64) {
+                    localStorage.setItem(`userPhoto_${userEmail}`, currentPhotoBase64);
+                }
+
+                btn.innerHTML = '<i class="fas fa-check"></i> Salvo!';
+                btn.style.background = '#00ff88';
+                
+                const initial = newName.charAt(0).toUpperCase();
+                const finalPhoto = currentPhotoBase64 || localStorage.getItem(`userPhoto_${userEmail}`);
+                
+                document.getElementById('profileName').innerText = newName;
+                document.getElementById('sideName').innerText = newName;
+                updateAvatarUI(finalPhoto, initial);
+
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-save"></i> Salvar Alterações';
+                    btn.style.background = 'var(--primary)';
+                    btn.disabled = false;
+                }, 2000);
+
+            } catch (e) {
+                console.error(e);
+                alert("Erro ao salvar: " + e.message);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        function logout() {
+            if(confirm("Deseja mesmo sair?")) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('userData');
+                window.location.href = 'index.html';
+            }
+        }
+    </script>
+</body>
+</html>

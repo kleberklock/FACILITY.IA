@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
+    <title>Facility.IA - Workstation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="config.js"></script> 
+    <script src="script.js"></script>
+    <style>
+        /* --- CSS BASE --- */
+        * { box-sizing: border-box; } 
+        body { margin: 0; overflow: hidden; background: #050507; font-family: 'Segoe UI', sans-serif; }
+        :root { --primary: #00ff88; --primary-dim: rgba(0, 255, 136, 0.1); }
+        .chat-layout { display: grid; grid-template-columns: 280px 1fr; height: 100vh; width: 100vw; }
+        .sidebar { background: rgba(15, 17, 21, 0.95); border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; padding: 20px; z-index: 20; transition: 0.3s ease-in-out; }
+        .mobile-menu-btn { display: none; position: absolute; top: 20px; left: 20px; z-index: 30; color: white; font-size: 1.5rem; cursor: pointer; }
+        .sidebar-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 15; opacity: 0; transition: 0.3s; }
+        @media (max-width: 768px) {
+            .chat-layout { grid-template-columns: 1fr; }
+            .mobile-menu-btn { display: block; }
+            .sidebar { position: fixed; left: -280px; top: 0; bottom: 0; width: 280px; height: 100vh; box-shadow: 5px 0 15px rgba(0,0,0,0.5); }
+            .sidebar.active { left: 0; }
+            .sidebar-overlay.active { display: block; opacity: 1; }
+            .chat-header-bar { padding-left: 60px; } 
+        }
+
+        /* --- HISTÓRICO PREMIUM (ATUALIZADO) --- */
+        .new-chat-btn { background: rgba(0, 255, 136, 0.05); border: 1px dashed var(--primary); color: var(--primary); padding: 12px; border-radius: 12px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: bold; margin-bottom: 25px; letter-spacing: 0.5px; }
+        .new-chat-btn:hover { background: var(--primary-dim); box-shadow: 0 0 20px rgba(0, 255, 136, 0.15); transform: translateY(-2px); }
+        
+        .history-list { flex: 1; overflow-y: auto; padding-right: 5px; margin-right: -10px; padding-right: 10px; }
+        .history-list::-webkit-scrollbar { width: 4px; }
+        .history-list::-webkit-scrollbar-track { background: transparent; }
+        .history-list::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        
+        .history-group { margin-bottom: 25px; animation: fadeIn 0.5s ease; }
+        .history-label { font-size: 0.7rem; color: #555; font-weight: 700; margin-bottom: 12px; padding-left: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .history-item { 
+            padding: 12px 15px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            color: #a0a0b0; 
+            font-size: 0.9rem; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); 
+            border: 1px solid transparent; 
+            background: rgba(255, 255, 255, 0.02); 
+            margin-bottom: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .history-item:hover { 
+            background: rgba(255, 255, 255, 0.06); 
+            color: white; 
+            border-color: rgba(255, 255, 255, 0.08); 
+            transform: translateX(4px); 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .history-item.active { 
+            background: linear-gradient(90deg, rgba(0, 255, 136, 0.08), transparent); 
+            color: var(--primary); 
+            border-left: 3px solid var(--primary); 
+            border-radius: 4px 12px 12px 4px; 
+        }
+
+        .history-item i { font-size: 1rem; color: #444; transition: 0.3s; min-width: 20px; text-align: center; }
+        .history-item:hover i { color: var(--primary); text-shadow: 0 0 10px var(--primary-dim); }
+        .history-item.active i { color: var(--primary); }
+        
+        .history-text { 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap; 
+            width: 100%; 
+            font-weight: 500;
+        }
+
+        .delete-chat-btn { 
+            position: absolute; 
+            right: 10px; 
+            color: #ff5555; 
+            background: #161b22;
+            padding: 5px; 
+            border-radius: 4px;
+            opacity: 0; 
+            transform: scale(0.8) translateX(10px); 
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: -10px 0 15px #161b22;
+        }
+        
+        .history-item:hover .delete-chat-btn { 
+            opacity: 1; 
+            transform: scale(1) translateX(0); 
+            display: block; 
+        }
+        .delete-chat-btn:hover { background: #ff5555; color: white; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* --------------------------- */
+
+        .chat-interface { display: flex; flex-direction: column; height: 100vh; position: relative; }
+        .chat-header-bar { min-height: 70px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; justify-content: center; padding: 10px 30px; background: rgba(5, 5, 7, 0.9); backdrop-filter: blur(10px); z-index: 5; }
+        .header-top { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+        .agent-info { display: flex; align-items: center; gap: 15px; }
+        .agent-avatar { width: 40px; height: 40px; border-radius: 10px; background: #222; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .active-modules-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; padding-left: 0; }
+        .module-badge { background: rgba(0, 255, 136, 0.1); border: 1px solid var(--primary); color: var(--primary); font-size: 0.65rem; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; display: flex; align-items: center; gap: 5px; cursor: default; }
+        .messages-area { flex: 1; padding: 30px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; }
+        .message { display: flex; gap: 15px; max-width: 700px; animation: slideIn 0.3s ease; }
+        .message.user { align-self: flex-end; flex-direction: row-reverse; }
+        .msg-bubble { padding: 15px 20px; border-radius: 12px; font-size: 0.95rem; line-height: 1.5; min-height: 40px; display: flex; align-items: center; word-break: break-word; }
+        .ai .msg-bubble { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); color: #ddd; border-top-left-radius: 0; }
+        .user .msg-bubble { background: rgba(0, 255, 136, 0.1); border: 1px solid var(--primary); color: white; border-top-right-radius: 0; }
+        .typing-cursor::after { content: '|'; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .input-wrapper { padding: 20px 30px; background: #050507; position: relative; }
+        .input-box-styled { background: #161b22; border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; transition: 0.3s; }
+        .input-box-styled:focus-within { border-color: var(--primary); }
+        .attachments-preview { display: flex; gap: 10px; padding: 10px 15px 0 15px; flex-wrap: wrap; }
+        .attachment-chip { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 12px; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: #ccc; }
+        .attachment-chip i.fa-times { color: #666; cursor: pointer; }
+        .attachment-chip i.fa-times:hover { color: #ff5555; }
+        .input-container { padding: 10px; display: flex; align-items: flex-end; gap: 10px; }
+        textarea { flex: 1; background: transparent; border: none; color: white; resize: none; height: 45px; padding: 10px; font-family: inherit; }
+        .action-icon { padding: 10px; color: #666; cursor: pointer; border-radius: 8px; transition: 0.2s; position: relative; }
+        .action-icon:hover { color: white; background: rgba(255,255,255,0.1); }
+        .action-icon.prompts { color: var(--primary); text-shadow: 0 0 10px rgba(0,255,136,0.3); }
+        .action-icon.recording { color: #ff5555; animation: pulseRed 1.5s infinite; background: rgba(255, 85, 85, 0.1); border: 1px solid #ff5555; }
+        @keyframes pulseRed { 0% { box-shadow: 0 0 0 0 rgba(255, 85, 85, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(255, 85, 85, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 85, 85, 0); } }
+        .floating-menu { position: absolute; bottom: 60px; left: 0; background: #161b22; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; width: 220px; padding: 5px; display: none; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 100; animation: slideUpFade 0.2s ease; }
+        .menu-option { padding: 12px 15px; display: flex; align-items: center; gap: 10px; color: #ccc; font-size: 0.85rem; cursor: pointer; border-radius: 8px; }
+        .menu-option:hover { background: var(--primary); color: black; }
+        .floating-panel { position: absolute; bottom: 75px; left: 20px; width: 400px; max-height: 400px; overflow-y: auto; background: rgba(22, 27, 34, 0.98); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 0; display: none; box-shadow: 0 20px 50px rgba(0,0,0,0.8); z-index: 200; animation: slideUpFade 0.2s ease; }
+        .panel-header { position: sticky; top: 0; background: rgba(22, 27, 34, 0.98); padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 2; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #888; text-transform: uppercase; font-weight: bold; }
+        .switches-content { padding: 10px; }
+        .prompt-switch-item { display: flex; align-items: center; justify-content: space-between; padding: 12px 15px; border-radius: 10px; transition: 0.2s; margin-bottom: 2px; border-bottom: 1px solid rgba(255,255,255,0.02); }
+        .prompt-switch-item:hover { background: rgba(255,255,255,0.05); }
+        .mini-switch { position: relative; display: inline-block; width: 40px; height: 22px; margin: 0; }
+        .mini-switch input { opacity: 0; width: 0; height: 0; }
+        .mini-slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #333; transition: .4s; border-radius: 34px; }
+        .mini-slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .mini-slider { background-color: var(--primary); }
+        input:checked + .mini-slider:before { transform: translateX(18px); }
+        .toast { position: absolute; top: -50px; left: 50%; transform: translateX(-50%); background: var(--primary); color: black; padding: 10px 20px; border-radius: 30px; font-weight: bold; font-size: 0.85rem; box-shadow: 0 5px 20px rgba(0,255,136,0.4); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 999; opacity: 0; }
+        .toast.show { top: 20px; opacity: 1; }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        .modal-box { background: #161b22; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; width: 90%; max-width: 450px; transform: translateY(20px); transition: 0.3s; box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+        .modal-overlay.active .modal-box { transform: translateY(0); }
+        .modal-header { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; font-weight: bold; }
+        .modal-body { padding: 20px; }
+        @keyframes slideUpFade { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <div id="toast" class="toast"><i class="fas fa-check-circle"></i> Notificação</div>
+    <input type="file" id="realFileInput" style="display: none;">
+
+    <div id="settingsModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header"><span>Configurações</span><i class="fas fa-times" style="cursor:pointer;" onclick="toggleSettings()"></i></div>
+            <div class="modal-body">
+                <div style="display:flex; justify-content:space-between; margin-bottom:20px; color:#ccc;"><span>Modo Neon</span><label class="mini-switch"><input type="checkbox" checked disabled><span class="mini-slider"></span></label></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="promptSelectorModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header"><span>Inserir Prompt</span><i class="fas fa-times" style="cursor:pointer;" onclick="document.getElementById('promptSelectorModal').classList.remove('active')"></i></div>
+            <div class="modal-body">
+                <div id="promptsListContainer" style="max-height: 300px; overflow-y: auto;"></div>
+                <div style="margin-top:15px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.1); text-align:center;"><a href="meus_prompts.html" style="color:var(--primary); text-decoration:none; font-size:0.8rem;">Gerenciar todos</a></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-layout">
+        <aside class="sidebar" id="mainSidebar">
+            <div class="logo" style="margin-bottom: 30px;"><a href="dashboard.html" style="text-decoration:none; color:inherit;"><h1>FACILITY<span>.IA</span></h1></a></div>
+            <div class="new-chat-btn" onclick="window.location.href='escolher_agente.html'"><i class="fas fa-arrow-left"></i> Trocar Agente</div>
+            
+            <div class="history-list" id="historyList"></div>
+
+            <div style="margin-top: auto; padding-top: 15px; border-top:1px solid rgba(255,255,255,0.1); color:white; display:flex; gap:10px; align-items:center;">
+                <div style="width:30px; height:30px; background:var(--primary); border-radius:50%; display:flex; justify-content:center; align-items:center; color:black; font-weight:bold;">U</div>
+                <div style="font-size:0.9rem;">USUARIO</div>
+            </div>
+        </aside>
+
+        <main style="position: relative; width: 100%; height: 100%; overflow: hidden;">
+            <div id="chatInterface" class="chat-interface">
+                <header class="chat-header-bar">
+                    <div class="header-top">
+                        <div class="agent-info">
+                            <div class="agent-avatar" id="headerIcon">🤖</div>
+                            <div><div style="font-weight:bold; color:white;" id="headerName">Carregando...</div><div style="font-size:0.7rem; color:#666;">● ONLINE</div></div>
+                        </div>
+                        <i class="fas fa-cog" style="color:#666; cursor:pointer;" onclick="toggleSettings()"></i>
+                    </div>
+                    <div class="active-modules-container" id="activeModulesArea"></div>
+                </header>
+
+                <div class="messages-area" id="messagesArea"></div>
+
+                <div class="input-wrapper">
+                    <div class="input-box-styled">
+                        <div class="attachments-preview" id="attachmentsPreview"></div>
+                        <div class="input-container">
+                            <div style="position:relative;">
+                                <div class="action-icon" onclick="toggleMenu('attachMenu')"><i class="fas fa-paperclip"></i></div>
+                                <div class="floating-menu" id="attachMenu">
+                                    <div class="section-label" style="font-size:0.75rem; color:#888; padding:5px 15px;">MÍDIA</div>
+                                    <div class="menu-option" onclick="triggerFileUpload('application/pdf')"><i class="far fa-file-pdf"></i> PDF</div>
+                                    <div class="menu-option" onclick="triggerFileUpload('image/*')"><i class="far fa-file-image"></i> Imagem</div>
+                                    <div class="section-label" style="margin-top:10px; border-top:1px solid rgba(255,255,255,0.1); padding:5px 15px; font-size:0.75rem; color:#888;">MEUS PROMPTS</div>
+                                    <div class="menu-option" onclick="openSavedPromptsList()"><i class="fas fa-terminal" style="color:var(--primary);"></i> Inserir Salvo</div>
+                                    <div class="menu-option" onclick="saveCurrentInputAsPrompt()"><i class="fas fa-save" style="color:#bd93f9;"></i> Salvar Rascunho</div>
+                                </div>
+                            </div>
+                            <div style="position:relative;">
+                                <div class="action-icon prompts" onclick="togglePanel()"><i class="fas fa-wand-magic-sparkles"></i></div>
+                                <div class="floating-panel" id="promptsPanel">
+                                    <div class="panel-header"><span>Módulos de Contexto</span></div>
+                                    <div class="switches-content" id="switchesContainer"></div>
+                                </div>
+                            </div>
+                            <div class="action-icon" id="micBtn" onclick="toggleRecording()"><i class="fas fa-microphone"></i></div>
+                            <textarea id="userInput" placeholder="Digite sua instrução..."></textarea>
+                            <button onclick="handleSendMessage()" style="background:var(--primary); border:none; width:40px; height:40px; border-radius:10px; cursor:pointer;"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+   <script>
+    (function() {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = "login.html";
+        }
+    })();
+
+    const knowledgeBase = {
+            juridico: [
+                { label: "REVISAR CONTRATO", desc: "Analisar cláusulas abusivas e riscos jurídicos." },
+                { label: "PESQUISAR JURISPRUDÊNCIA", desc: "Encontrar decisões recentes sobre o tema." },
+                { label: "RESUMIR PROCESSO", desc: "Sintetizar autos extensos em pontos chave." },
+                { label: "REDIGIR PETIÇÃO", desc: "Criar esboço inicial com fundamentação legal." },
+                { label: "ARGUMENTOS DE DEFESA", desc: "Gerar teses jurídicas a favor do cliente." },
+                { label: "CÁLCULO DE PRAZOS", desc: "Verificar tempestividade conforme CPC/CPP." },
+                { label: "JURIDIQUÊS P/ LEIGO", desc: "Traduzir termos técnicos para explicação ao cliente." },
+                { label: "AUDITORIA DE COMPLIANCE", desc: "Checklist de conformidade com a lei." }
+            ],
+            saude: [
+                { label: "INTERAÇÃO MEDICAMENTOSA", desc: "Verificar conflitos entre substâncias." },
+                { label: "EXPLICAÇÃO DE EXAME", desc: "Traduzir laudo técnico para linguagem simples." },
+                { label: "PROTOCOLO CLÍNICO", desc: "Passo a passo de atendimento padrão." },
+                { label: "CID-10 RÁPIDO", desc: "Busca inteligente de códigos de doenças." },
+                { label: "RESUMO DE CASO", desc: "Sintetizar histórico do paciente para prontuário." },
+                { label: "ORIENTAÇÃO PÓS-OP", desc: "Gerar lista de cuidados para o paciente." },
+                { label: "DIAGNÓSTICO DIFERENCIAL", desc: "Sugerir hipóteses baseadas em sintomas." },
+                { label: "CALCULADORA DE DOSAGEM", desc: "Ajuste pediátrico ou por peso." }
+            ],
+            tech: [
+                { label: "ENCONTRAR BUGS", desc: "Analisar snippet e apontar erros lógicos." },
+                { label: "GERAR TESTES UNITÁRIOS", desc: "Criar casos de teste para a função." },
+                { label: "EXPLIQUE O CÓDIGO", desc: "Comentar linha a linha o que o script faz." },
+                { label: "CONVERTER LINGUAGEM", desc: "Transcrever código (ex: Java -> Python)." },
+                { label: "OTIMIZAR SQL", desc: "Melhorar performance de queries lentas." },
+                { label: "DOCUMENTAR API", desc: "Gerar documentação Swagger/OpenAPI." },
+                { label: "REGEX HELPER", desc: "Criar expressão regular complexa." },
+                { label: "COMANDOS GIT", desc: "Lembrar sintaxe de comandos avançados." }
+            ],
+    };
+
+    let activeContexts = new Set();
+    let currentAgentIcon = "";
+    let currentAgentName = "";
+    let isGenericMode = false;
+    let currentFile = null; 
+    let isRecording = false;
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let audioBlobToSend = null;
+    let currentSessionId = null; 
+
+    const userInput = document.getElementById('userInput');
+    const switchesContainer = document.getElementById('switchesContainer');
+    const activeModulesArea = document.getElementById('activeModulesArea');
+    const sidebar = document.getElementById('mainSidebar');
+    const messagesArea = document.getElementById('messagesArea');
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        document.getElementById('realFileInput').addEventListener('change', handleFileSelected);
+        
+        const params = new URLSearchParams(window.location.search);
+        const agentName = params.get('name');
+        const agentIcon = params.get('icon');
+        const agentArea = params.get('area');
+
+        if(agentName) {
+            setupChat(agentName, agentIcon, agentArea);
+        } else {
+            alert("Selecione um agente primeiro.");
+            window.location.href = "escolher_agente.html";
+        }
+        
+        renderHistoryFromStorage(); 
+    });
+
+    function getHistory() {
+        return JSON.parse(localStorage.getItem('chatHistory') || '[]');
+    }
+
+    function saveHistory(history) {
+        localStorage.setItem('chatHistory', JSON.stringify(history));
+    }
+
+    function deleteChat(id, event) {
+        event.stopPropagation();
+        if(confirm('Excluir esta conversa?')) {
+            let history = getHistory();
+            history = history.filter(h => h.id !== id);
+            saveHistory(history);
+            renderHistoryFromStorage();
+            if(currentSessionId === id) window.location.href = "escolher_agente.html";
+        }
+    }
+
+    function renderHistoryFromStorage() {
+        const container = document.getElementById('historyList');
+        const history = getHistory();
+        const groups = { 'Hoje': [], 'Ontem': [], '7 Dias Anteriores': [], 'Mais Antigos': [] };
+        
+        history.sort((a, b) => b.timestamp - a.timestamp).forEach(chat => {
+            const date = new Date(chat.timestamp);
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            if (diffDays <= 1 && date.getDate() === now.getDate()) groups['Hoje'].push(chat);
+            else if (diffDays <= 2) groups['Ontem'].push(chat);
+            else if (diffDays <= 7) groups['7 Dias Anteriores'].push(chat);
+            else groups['Mais Antigos'].push(chat);
+        });
+
+        container.innerHTML = "";
+        for (const [label, chats] of Object.entries(groups)) {
+            if (chats.length > 0) {
+                let html = `<div class="history-group"><div class="history-label">${label}</div>`;
+                chats.forEach(chat => {
+                    const activeClass = chat.id === currentSessionId ? 'active' : '';
+                    html += `
+                        <div class="history-item ${activeClass}" onclick="loadChatSession('${chat.id}')">
+                            <i class="fas ${chat.icon}"></i>
+                            <span class="history-text">${chat.title}</span>
+                            <i class="fas fa-trash delete-chat-btn" onclick="deleteChat('${chat.id}', event)"></i>
+                        </div>`;
+                });
+                html += `</div>`;
+                container.innerHTML += html;
+            }
+        }
+    }
+
+    function saveMessageToHistory(sender, text) {
+        let history = getHistory();
+        let session = history.find(h => h.id === currentSessionId);
+        if (!session) {
+            const title = text.length > 30 ? text.substring(0, 30) + '...' : text;
+            session = {
+                id: currentSessionId,
+                timestamp: Date.now(),
+                title: title,
+                agentName: currentAgentName,
+                icon: currentAgentIcon,
+                messages: []
+            };
+            history.push(session);
+        }
+        session.messages.push({ sender, text, timestamp: Date.now() });
+        session.timestamp = Date.now();
+        saveHistory(history);
+        renderHistoryFromStorage();
+    }
+
+    function loadChatSession(sessionId) {
+        const history = getHistory();
+        const session = history.find(h => h.id === sessionId);
+        if (!session) return;
+        currentSessionId = sessionId;
+        
+        currentAgentName = session.agentName;
+        currentAgentIcon = session.icon;
+        document.getElementById('headerName').innerText = currentAgentName;
+        document.getElementById('headerIcon').innerHTML = `<i class="fas ${currentAgentIcon}"></i>`;
+        
+        messagesArea.innerHTML = "";
+        session.messages.forEach(msg => {
+            addMessage(msg.sender, msg.text, session.icon, false, false, false);
+        });
+        renderHistoryFromStorage();
+    }
+
+    function setupChat(name, icon, area) {
+        currentSessionId = Date.now().toString(); 
+        currentAgentName = name;
+        currentAgentIcon = icon;
+        document.getElementById('headerName').innerText = name;
+        document.getElementById('headerIcon').innerHTML = `<i class="fas ${icon}"></i>`;
+        
+        activeContexts.clear(); 
+        updateActiveBadges();
+        messagesArea.innerHTML = "";
+
+        loadSwitches(area);
+        addMessage('ai', `Olá! Sou seu ${name}. Como posso ajudar?`, icon, false, false, false);
+    }
+
+    async function handleSendMessage() {
+        const text = userInput.value.trim();
+        if (!text && !currentFile && !audioBlobToSend) return;
+
+        if(text) addMessage("user", text);
+        if(currentFile) addMessage("user", `[Arquivo: ${currentFile.name}]`, null, false, true);
+        if(audioBlobToSend) addMessage("user", `[Áudio]`, null, false, true);
+
+        const aiDiv = addMessage("ai", "", currentAgentIcon, true, false, false); 
+        userInput.value = ""; const f = currentFile; const a = audioBlobToSend; clearAttachments();
+
+        try {
+            const token = localStorage.getItem('token'); 
+            if (!token) {
+                alert("Sessão expirada. Faça login novamente.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('message', text);
+            formData.append('agentId', currentAgentName); 
+            if(f) formData.append('file', f);
+            
+            if(activeContexts.size > 0) {
+                 const contextStr = Array.from(activeContexts).map(c => c.l).join(", ");
+                 formData.append('systemContext', contextStr);
+            }
+            
+            const res = await fetch(`${CONFIG.API_URL}/api/chat/enviar`, { 
+                method: 'POST', 
+                headers: { 'Authorization': `Bearer ${token}` },
+                body: formData 
+            });
+
+            if (res.status === 403) {
+                const errorData = await res.json();
+                aiDiv.remove(); 
+                if(confirm("🚫 LIMITE ATINGIDO!\n\n" + errorData.message + "\n\nDeseja ver nossos planos agora?")) {
+                    window.location.href = "planos.html";
+                }
+                return;
+            }
+
+            if (!res.ok) throw new Error("Erro na comunicação com o servidor.");
+
+            const data = await res.json();
+
+            aiDiv.querySelector('.msg-bubble').innerText = ""; 
+            aiDiv.querySelector('.msg-bubble').classList.remove('typing-cursor');
+            
+            let i=0; 
+            const t = () => { 
+                if(i < data.reply.length) { 
+                    aiDiv.querySelector('.msg-bubble').innerHTML += data.reply.charAt(i); 
+                    i++; setTimeout(t, 10); 
+                } else {
+                    messagesArea.scrollTop = messagesArea.scrollHeight;
+                    saveMessageToHistory("ai", data.reply);
+                }
+            };
+            t();
+
+        } catch (e) {
+            console.error(e);
+            aiDiv.querySelector('.msg-bubble').innerText = "Erro: " + e.message;
+            aiDiv.querySelector('.msg-bubble').classList.remove('typing-cursor');
+        }
+    }
+
+    function triggerFileUpload(accept) { toggleMenu('attachMenu'); const i = document.getElementById('realFileInput'); i.accept = accept; i.click(); }
+    function handleFileSelected(e) { 
+        const f = e.target.files[0]; if(!f) return; currentFile = f;
+        const container = document.getElementById('attachmentsPreview'); container.innerHTML = "";
+        const icon = f.type.includes('pdf') ? 'fa-file-pdf' : 'fa-file-image';
+        container.innerHTML = `<div class="attachment-chip"><i class="far ${icon}"></i> ${f.name} <i class="fas fa-times" onclick="clearAttachments()"></i></div>`;
+    }
+    function clearAttachments() { currentFile = null; audioBlobToSend = null; document.getElementById('realFileInput').value=""; document.getElementById('attachmentsPreview').innerHTML=""; }
+
+    async function toggleRecording() {
+        const btn = document.getElementById('micBtn');
+        if (!isRecording) {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+                mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+                mediaRecorder.onstop = () => {
+                    audioBlobToSend = new Blob(audioChunks, { type: 'audio/webm' });
+                    document.getElementById('attachmentsPreview').innerHTML = `<div class="attachment-chip" style="border-color:#ff5555"><i class="fas fa-microphone-lines" style="color:#ff5555"></i> Áudio <i class="fas fa-times" onclick="clearAttachments()"></i></div>`;
+                };
+                mediaRecorder.start(); isRecording = true; btn.classList.add('recording'); userInput.placeholder = "Gravando...";
+            } catch (e) { alert("Erro no microfone."); }
+        } else {
+            mediaRecorder.stop(); isRecording = false; btn.classList.remove('recording'); userInput.placeholder = "Digite...";
+        }
+    }
+
+    function addMessage(sender, text, icon, typing=false, system=false, saveToStorage=true) {
+        const d = document.createElement('div'); d.className = `message ${sender}`;
+        d.innerHTML = `<div class="msg-bubble" ${system?'style="background:transparent;border:1px dashed #444;opacity:0.7"':''}>${typing?'Processando...':text}</div>`;
+        if(typing) d.querySelector('.msg-bubble').classList.add('typing-cursor');
+        messagesArea.appendChild(d); messagesArea.scrollTop = messagesArea.scrollHeight;
+        if (saveToStorage && !typing && !system) {
+            saveMessageToHistory(sender, text);
+        }
+        return d;
+    }
+
+    function loadSwitches(area) {
+        const profPrompts = knowledgeBase[area] || knowledgeBase['juridico']; 
+        switchesContainer.innerHTML = "";
+        profPrompts.forEach((p, i) => {
+             const id = `p_${i}`;
+             switchesContainer.innerHTML += `<div class="prompt-switch-item"><div><div class="prompt-label"><i class="fas fa-bolt"></i> ${p.label}</div><span class="prompt-desc">${p.desc}</span></div><label class="mini-switch"><input type="checkbox" onchange="toggleContext('${id}', '${p.label}', this.checked)"><span class="mini-slider"></span></label></div>`;
+        });
+    }
+    
+    function toggleContext(id, l, c) { if(c) activeContexts.add({id, l}); else activeContexts.forEach(i=>{if(i.id===id)activeContexts.delete(i)}); updateActiveBadges(); }
+    function updateActiveBadges() { activeModulesArea.innerHTML = ""; activeContexts.forEach(c => activeModulesArea.innerHTML += `<div class="module-badge"><i class="fas fa-microchip"></i> ${c.l}</div>`); }
+    function saveCurrentInputAsPrompt() { 
+        const t = userInput.value.trim(); if(!t) return; 
+        const name = prompt("Nome:"); if(name) { 
+            const s = JSON.parse(localStorage.getItem('userPrompts')||'[]'); 
+            s.push({title:name, content:t}); localStorage.setItem('userPrompts', JSON.stringify(s)); toggleMenu('attachMenu'); 
+        } 
+    }
+    function openSavedPromptsList() {
+        toggleMenu('attachMenu'); const s = JSON.parse(localStorage.getItem('userPrompts')||'[]');
+        const c = document.getElementById('promptsListContainer'); c.innerHTML = s.length ? "" : "Vazio.";
+        s.forEach(p => { c.innerHTML += `<div style="padding:10px;border-bottom:1px solid #333;cursor:pointer" onclick="document.getElementById('userInput').value='${p.content}';document.getElementById('promptSelectorModal').classList.remove('active')"><b>${p.title}</b><br><small>${p.content.substring(0,30)}...</small></div>`; });
+        document.getElementById('promptSelectorModal').classList.add('active');
+    }
+    function toggleSettings() { document.getElementById('settingsModal').classList.toggle('active'); }
+    function togglePanel() { const p = document.getElementById('promptsPanel'); p.style.display = p.style.display==='block'?'none':'block'; }
+    function toggleMenu(id) { const m = document.getElementById(id); m.style.display = m.style.display==='block'?'none':'block'; }
+    
+    userInput.addEventListener('keydown', (e) => { if(e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSendMessage(); } });
+    document.addEventListener('click', (e) => { if(!e.target.closest('.action-icon') && !e.target.closest('.floating-menu')) document.querySelectorAll('.floating-menu').forEach(m => m.style.display = 'none'); if(!e.target.closest('.prompts') && !e.target.closest('.floating-panel')) document.getElementById('promptsPanel').style.display = 'none'; });
+   </script>
+</body>
+</html>

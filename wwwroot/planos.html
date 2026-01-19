@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Planos - Facility.IA</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos Exclusivos do Toggle de Planos */
+        .billing-cycle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 15px;
+            position: relative;
+        }
+
+        .toggle-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 5px;
+            display: flex;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .toggle-option {
+            padding: 10px 25px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #aaa;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .toggle-option.active {
+            color: #000;
+            text-shadow: none;
+        }
+
+        /* O "fundo" branco que desliza */
+        .slider-bg {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: calc(100% - 10px);
+            background: var(--primary);
+            border-radius: 25px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 1;
+            box-shadow: 0 2px 10px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Badge de Desconto (Padrão) */
+        .discount-badge {
+            position: absolute;
+            top: -20px; /* Ajustei levemente a altura */
+            right: -5px;
+            background: #ff0055; /* Cor padrão (Rosa/Vermelho) */
+            color: white;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: 6px;
+            font-weight: bold;
+            animation: bounce 2s infinite;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+
+        /* Cor específica para o badge de 10% (Opcional - Laranja) */
+        .badge-10 {
+            background: #ff9900; 
+            animation-delay: 1s; /* Pula em tempo diferente do 20% */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-5px);}
+            60% {transform: translateY(-3px);}
+        }
+
+        .price-subtext {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: -10px;
+            margin-bottom: 15px;
+            height: 20px; 
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="scanline"></div>
+
+   <header>
+        <div class="logo">
+            <a href="index.html"><h1>FACILITY.IA <span class="badge-beta">v1.0</span></h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="planos.html" class="text-primary">Planos</a></li>
+                <li><a href="dashboard.html" class="cta-button" id="authBtn">Entrar</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pricing-section">
+            <div class="pricing-header">
+                <h2>Escolha seu Poder</h2>
+                <p>Desbloqueie todo o potencial da IA para sua carreira.</p>
+            </div>
+
+            <div class="billing-cycle-container">
+                <div class="toggle-wrapper">
+                    <div class="slider-bg" id="sliderBg"></div>
+                    
+                    <div class="toggle-option active" onclick="setCycle('monthly', this, 0)">
+                        Mensal
+                    </div>
+                    
+                    <div class="toggle-option" onclick="setCycle('quarterly', this, 1)">
+                        Trimestral
+                        <div class="discount-badge badge-10">-10%</div>
+                    </div>
+
+                    <div class="toggle-option" onclick="setCycle('annual', this, 2)">
+                        Anual
+                        <div class="discount-badge">-20%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Iniciante</h3>
+                    <div class="price">R$ 0 <span>/mês</span></div>
+                    <p class="plan-desc">Para conhecer a plataforma.</p>
+                    <div class="price-subtext">Sempre grátis</div>
+                    
+                    <ul class="features-list">
+                        <li><span class="check-icon">✓</span> 5.000 Tokens/mês</li>
+                        <li><span class="check-icon">✓</span> Agentes Básicos</li>
+                        <li class="disabled"><span>✕</span> Upload de Arquivos</li>
+                    </ul>
+                    <a href="login.html" class="btn-price" id="btnFreePlan">Começar Agora</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="badge-featured" style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--primary); color:#000; padding:4px 12px; border-radius:12px; font-weight:bold; font-size:12px;">MAIS VENDIDO</div>
+                    <h3 class="plan-name">Plus</h3>
+                    
+                    <div class="price" id="price-plus">R$ 49,90 <span>/mês</span></div>
+                    <div class="price-subtext" id="desc-plus">Cobrado mensalmente</div>
+
+                    <p class="plan-desc">Para uso diário profissional.</p>
+                    <ul class="features-list">
+                        <li><span class="check-icon">✓</span> Tokens Ilimitados*</li>
+                        <li><span class="check-icon">✓</span> Todos os Agentes</li>
+                        <li><span class="check-icon">✓</span> Upload de PDF/Excel</li>
+                        <li><span class="check-icon">✓</span> Histórico Completo</li>
+                    </ul>
+                    <a href="#" onclick="irParaCheckout('Plus')" class="btn-price">Assinar Plus</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="plan-name">Pro</h3>
+                    
+                    <div class="price" id="price-pro">R$ 99,90 <span>/mês</span></div>
+                    <div class="price-subtext" id="desc-pro">Cobrado mensalmente</div>
+
+                    <p class="plan-desc">Para alta performance.</p>
+                    <ul class="features-list">
+                        <li><span class="check-icon">✓</span> Tudo do Plus</li>
+                        <li><span class="check-icon">✓</span> <strong>Prioridade Máxima</strong></li>
+                        <li><span class="check-icon">✓</span> Suporte Dedicado</li>
+                        <li><span class="check-icon">✓</span> Acesso Antecipado (Beta)</li>
+                    </ul>
+                    <a href="#" onclick="irParaCheckout('Pro')" class="btn-price">Assinar Pro</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bottom"><p>&copy; 2026 Facility.IA</p></div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // CONFIGURAÇÃO DE PREÇOS
+        const PRICES = {
+            monthly: {
+                plus: { val: "49,90", desc: "Cobrado mensalmente" },
+                pro:  { val: "99,90", desc: "Cobrado mensalmente" }
+            },
+            quarterly: { // 10% OFF
+                plus: { val: "44,90", desc: "Cobrado R$ 134,70 a cada 3 meses" },
+                pro:  { val: "89,90", desc: "Cobrado R$ 269,70 a cada 3 meses" }
+            },
+            annual: { // 20% OFF
+                plus: { val: "39,90", desc: "Cobrado R$ 478,80 por ano" },
+                pro:  { val: "79,90", desc: "Cobrado R$ 958,80 por ano" }
+            }
+        };
+
+        let currentCycle = 'monthly';
+
+        function setCycle(cycle, element, index) {
+            currentCycle = cycle;
+
+            document.querySelectorAll('.toggle-option').forEach(el => el.classList.remove('active'));
+            element.classList.add('active');
+            
+            const slider = document.getElementById('sliderBg');
+            const width = element.offsetWidth;
+            const left = element.offsetLeft;
+            slider.style.width = `${width}px`;
+            slider.style.transform = `translateX(${left - 5}px)`; 
+
+            animarPreco('price-plus', PRICES[cycle].plus.val);
+            animarPreco('price-pro', PRICES[cycle].pro.val);
+
+            document.getElementById('desc-plus').innerText = PRICES[cycle].plus.desc;
+            document.getElementById('desc-pro').innerText = PRICES[cycle].pro.desc;
+        }
+
+        function animarPreco(id, novoValor) {
+            const el = document.getElementById(id);
+            el.style.opacity = 0;
+            el.style.transform = "translateY(-10px)";
+            
+            setTimeout(() => {
+                el.innerHTML = `R$ ${novoValor} <span>/mês</span>`;
+                el.style.opacity = 1;
+                el.style.transform = "translateY(0)";
+            }, 200);
+        }
+
+        function irParaCheckout(plano) {
+            window.location.href = `checkout.html?plan=${plano}&cycle=${currentCycle}`;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstOpt = document.querySelector('.toggle-option.active');
+            if(firstOpt) {
+                const slider = document.getElementById('sliderBg');
+                slider.style.width = `${firstOpt.offsetWidth}px`;
+            }
+
+            const token = localStorage.getItem('token');
+            if (token) {
+                const btn = document.getElementById('authBtn');
+                if(btn) btn.innerText = "Dashboard";
+                const btnFree = document.getElementById('btnFreePlan');
+                if(btnFree) btnFree.style.display = "none";
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            const active = document.querySelector('.toggle-option.active');
+            if(active) {
+                const slider = document.getElementById('sliderBg');
+                slider.style.width = `${active.offsetWidth}px`;
+                slider.style.transform = `translateX(${active.offsetLeft - 5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

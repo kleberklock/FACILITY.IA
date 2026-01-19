@@ -1,0 +1,1663 @@
+2026-01-13 19:00:18.177 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:00:18.263 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:00:18.271 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:00:18.276 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:00:18.314 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-01-13 19:00:18.722 -03:00 [INF] No migrations were applied. The database is already up to date.
+2026-01-13 19:00:18.983 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 19:00:19.272 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 19:00:19.276 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 19:00:19.277 -03:00 [INF] Hosting environment: Development
+2026-01-13 19:00:19.278 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 19:00:28.357 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/ - null null
+2026-01-13 19:00:28.570 -03:00 [INF] Sending file. Request path: '/index.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\index.html'
+2026-01-13 19:00:28.575 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/index.html - 200 14460 text/html 219.1977ms
+2026-01-13 19:00:28.593 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/config.js - null null
+2026-01-13 19:00:28.594 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/styles.css - null null
+2026-01-13 19:00:28.599 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/script.js - null null
+2026-01-13 19:00:28.601 -03:00 [INF] The file /styles.css was not modified
+2026-01-13 19:00:28.609 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/styles.css - 304 null text/css 14.9794ms
+2026-01-13 19:00:28.615 -03:00 [INF] Sending file. Request path: '/script.js'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\script.js'
+2026-01-13 19:00:28.615 -03:00 [INF] Sending file. Request path: '/config.js'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\config.js'
+2026-01-13 19:00:28.625 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/script.js - 200 5051 text/javascript 26.7436ms
+2026-01-13 19:00:28.625 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/config.js - 200 462 text/javascript 32.4546ms
+2026-01-13 19:00:28.831 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/favicon.ico - null null
+2026-01-13 19:00:28.839 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 19:00:28.893 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/favicon.ico - 404 0 null 62.3657ms
+2026-01-13 19:00:28.902 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5217/favicon.ico, Response status code: 404
+2026-01-13 19:00:32.593 -03:00 [INF] Application is shutting down...
+2026-01-13 19:00:40.874 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:00:40.939 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:00:40.944 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:00:40.945 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:00:40.971 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-01-13 19:00:40.991 -03:00 [INF] No migrations were applied. The database is already up to date.
+2026-01-13 19:00:41.067 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 19:00:41.120 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 19:00:41.125 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 19:00:41.127 -03:00 [INF] Hosting environment: Development
+2026-01-13 19:00:41.128 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 19:00:43.360 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/favicon.ico - null null
+2026-01-13 19:00:43.440 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 19:00:43.478 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/favicon.ico - 404 0 null 118.7333ms
+2026-01-13 19:00:43.490 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5217/favicon.ico, Response status code: 404
+2026-01-13 19:01:00.774 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/login.html - null null
+2026-01-13 19:01:00.873 -03:00 [INF] Sending file. Request path: '/login.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\login.html'
+2026-01-13 19:01:00.875 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/login.html - 200 10424 text/html 101.4945ms
+2026-01-13 19:01:03.914 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/prompts.html - null null
+2026-01-13 19:01:03.987 -03:00 [INF] Sending file. Request path: '/prompts.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\prompts.html'
+2026-01-13 19:01:03.990 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/prompts.html - 200 18987 text/html 76.4297ms
+2026-01-13 19:01:13.388 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/index.html - null null
+2026-01-13 19:01:13.393 -03:00 [INF] Sending file. Request path: '/index.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\index.html'
+2026-01-13 19:01:13.401 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/index.html - 200 14460 text/html 12.8674ms
+2026-01-13 19:01:14.418 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/planos.html - null null
+2026-01-13 19:01:14.470 -03:00 [INF] Sending file. Request path: '/planos.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\planos.html'
+2026-01-13 19:01:14.473 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/planos.html - 200 5456 text/html 54.6953ms
+2026-01-13 19:01:17.442 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/dashboard.html - null null
+2026-01-13 19:01:17.529 -03:00 [INF] Sending file. Request path: '/dashboard.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\dashboard.html'
+2026-01-13 19:01:17.537 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/dashboard.html - 200 16805 text/html 94.403ms
+2026-01-13 19:01:29.433 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 19:01:29.439 -03:00 [INF] CORS policy execution failed.
+2026-01-13 19:01:29.440 -03:00 [INF] Request origin http://localhost:5217 does not have permission to access the resource.
+2026-01-13 19:01:29.446 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:01:29.485 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 19:01:29.854 -03:00 [ERR] Failed executing DbCommand (33ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 19:01:29.877 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'PROJFACILITY.IA.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:dcc0f51e-b904-4b5d-8837-ba0734aa11eb
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:dcc0f51e-b904-4b5d-8837-ba0734aa11eb
+Error Number:207,State:1,Class:16
+2026-01-13 19:01:29.892 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 400.5689ms
+2026-01-13 19:01:29.895 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:01:29.897 -03:00 [ERR] ERRO CRÍTICO NÃO TRATADO: Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at PROJFACILITY.IA.Controllers.AuthController.Login(LoginRequest request) in C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\Controllers\AuthController.cs:line 195
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at PROJFACILITY.IA.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\Middlewares\ExceptionHandlingMiddleware.cs:line 21
+ClientConnectionId:dcc0f51e-b904-4b5d-8837-ba0734aa11eb
+Error Number:207,State:1,Class:16
+2026-01-13 19:01:29.955 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 500 null application/json 521.5814ms
+2026-01-13 19:01:48.161 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/api/auth/login - null null
+2026-01-13 19:01:48.169 -03:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-01-13 19:01:48.172 -03:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-01-13 19:01:48.173 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/api/auth/login - 405 0 null 11.8734ms
+2026-01-13 19:01:52.376 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/api/auth/login - null null
+2026-01-13 19:01:52.380 -03:00 [INF] Executing endpoint '405 HTTP Method Not Supported'
+2026-01-13 19:01:52.381 -03:00 [INF] Executed endpoint '405 HTTP Method Not Supported'
+2026-01-13 19:01:52.383 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/api/auth/login - 405 0 null 6.3418ms
+2026-01-13 19:01:59.061 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/favicon.ico - null null
+2026-01-13 19:01:59.064 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/favicon.ico - 404 0 null 2.8671ms
+2026-01-13 19:01:59.068 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5217/favicon.ico, Response status code: 404
+2026-01-13 19:02:01.247 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 19:02:01.250 -03:00 [INF] CORS policy execution failed.
+2026-01-13 19:02:01.252 -03:00 [INF] Request origin http://localhost:5217 does not have permission to access the resource.
+2026-01-13 19:02:01.253 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:02:01.255 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 19:02:01.320 -03:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 19:02:01.324 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'PROJFACILITY.IA.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:dcc0f51e-b904-4b5d-8837-ba0734aa11eb
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:dcc0f51e-b904-4b5d-8837-ba0734aa11eb
+Error Number:207,State:1,Class:16
+2026-01-13 19:02:01.334 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 75.4856ms
+2026-01-13 19:02:01.336 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:02:01.338 -03:00 [ERR] ERRO CRÍTICO NÃO TRATADO: Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at PROJFACILITY.IA.Controllers.AuthController.Login(LoginRequest request) in C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\Controllers\AuthController.cs:line 195
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at PROJFACILITY.IA.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\Middlewares\ExceptionHandlingMiddleware.cs:line 21
+ClientConnectionId:dcc0f51e-b904-4b5d-8837-ba0734aa11eb
+Error Number:207,State:1,Class:16
+2026-01-13 19:02:01.351 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 500 null application/json 104.1094ms
+2026-01-13 19:02:23.481 -03:00 [INF] Application is shutting down...
+2026-01-13 19:02:28.946 -03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:02:29.001 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:02:29.006 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:02:29.009 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:02:29.033 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-01-13 19:02:29.050 -03:00 [INF] No migrations were applied. The database is already up to date.
+2026-01-13 19:02:29.111 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 19:02:29.159 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 19:02:29.164 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 19:02:29.167 -03:00 [INF] Hosting environment: Development
+2026-01-13 19:02:29.168 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 19:02:31.012 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/favicon.ico - null null
+2026-01-13 19:02:31.056 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 19:02:31.081 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/favicon.ico - 404 0 null 70.2896ms
+2026-01-13 19:02:31.089 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5217/favicon.ico, Response status code: 404
+2026-01-13 19:02:32.733 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 19:02:32.741 -03:00 [INF] CORS policy execution failed.
+2026-01-13 19:02:32.743 -03:00 [INF] Request origin http://localhost:5217 does not have permission to access the resource.
+2026-01-13 19:02:32.746 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:02:32.766 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 19:02:33.014 -03:00 [ERR] Failed executing DbCommand (21ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 19:02:33.032 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'PROJFACILITY.IA.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5756f834-07a0-4f47-8397-0abde599200d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:5756f834-07a0-4f47-8397-0abde599200d
+Error Number:207,State:1,Class:16
+2026-01-13 19:02:33.046 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 267.8197ms
+2026-01-13 19:02:33.048 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:02:33.054 -03:00 [ERR] ERRO CRÍTICO NÃO TRATADO: Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Nome de coluna 'LastResetDate' inválido.
+Nome de coluna 'UsedTokensCurrentMonth' inválido.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__209_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at PROJFACILITY.IA.Controllers.AuthController.Login(LoginRequest request) in C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\Controllers\AuthController.cs:line 195
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at PROJFACILITY.IA.Middlewares.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\Middlewares\ExceptionHandlingMiddleware.cs:line 21
+ClientConnectionId:5756f834-07a0-4f47-8397-0abde599200d
+Error Number:207,State:1,Class:16
+2026-01-13 19:02:33.086 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 500 null application/json 353.3875ms
+2026-01-13 19:05:22.235 -03:00 [INF] Application is shutting down...
+2026-01-13 19:06:20.445 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:06:20.504 -03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:06:20.510 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:06:20.515 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:06:20.541 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-01-13 19:06:20.556 -03:00 [INF] Applying migration '20260113220532_FixUserColumnsManual'.
+2026-01-13 19:06:20.646 -03:00 [INF] Executed DbCommand (57ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Messages] DROP CONSTRAINT [PK_Messages];
+2026-01-13 19:06:20.652 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DROP INDEX [IX_Messages_UserId_AgentName] ON [Messages];
+2026-01-13 19:06:20.657 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Documents] DROP CONSTRAINT [PK_Documents];
+2026-01-13 19:06:20.717 -03:00 [INF] Executed DbCommand (58ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Messages]') AND [c].[name] = N'AgentName');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [Messages] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [Messages] DROP COLUMN [AgentName];
+2026-01-13 19:06:21.008 -03:00 [INF] Executed DbCommand (288ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Messages]', N'ChatMessages';
+2026-01-13 19:06:21.014 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+EXEC sp_rename N'[Documents]', N'KnowledgeDocuments';
+2026-01-13 19:06:21.029 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [LastResetDate] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+2026-01-13 19:06:21.036 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Users] ADD [UsedTokensCurrentMonth] bigint NOT NULL DEFAULT CAST(0 AS bigint);
+2026-01-13 19:06:21.045 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ChatMessages] ADD [AgentId] nvarchar(max) NOT NULL DEFAULT N'';
+2026-01-13 19:06:21.082 -03:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ChatMessages] ADD CONSTRAINT [PK_ChatMessages] PRIMARY KEY ([Id]);
+2026-01-13 19:06:21.095 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [KnowledgeDocuments] ADD CONSTRAINT [PK_KnowledgeDocuments] PRIMARY KEY ([Id]);
+2026-01-13 19:06:21.115 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260113220532_FixUserColumnsManual', N'8.0.0');
+2026-01-13 19:06:29.366 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:06:29.430 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:06:29.437 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:06:29.440 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:06:29.465 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-01-13 19:06:29.481 -03:00 [INF] No migrations were applied. The database is already up to date.
+2026-01-13 19:06:29.543 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 19:06:29.590 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 19:06:29.595 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 19:06:29.595 -03:00 [INF] Hosting environment: Development
+2026-01-13 19:06:29.596 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 19:06:31.398 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/script.js - null null
+2026-01-13 19:06:31.440 -03:00 [INF] The file /script.js was not modified
+2026-01-13 19:06:31.444 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/script.js - 304 null text/javascript 47.9808ms
+2026-01-13 19:06:35.145 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/login.html - null null
+2026-01-13 19:06:35.150 -03:00 [INF] The file /login.html was not modified
+2026-01-13 19:06:35.152 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/login.html - 304 null text/html 6.4772ms
+2026-01-13 19:06:35.815 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 19:06:35.823 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 19:06:35.826 -03:00 [INF] CORS policy execution failed.
+2026-01-13 19:06:35.827 -03:00 [INF] Request origin http://localhost:5217 does not have permission to access the resource.
+2026-01-13 19:06:35.847 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:06:35.888 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 19:06:36.133 -03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 19:06:36.511 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 19:06:36.530 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 19:06:36.560 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 659.9284ms
+2026-01-13 19:06:36.564 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:06:36.569 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 754.5743ms
+2026-01-13 19:10:56.129 -03:00 [INF] Application is shutting down...
+2026-01-13 19:11:02.970 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:11:03.021 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:11:03.026 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:11:03.028 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:11:03.050 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-01-13 19:11:03.065 -03:00 [INF] No migrations were applied. The database is already up to date.
+2026-01-13 19:11:15.654 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:11:15.710 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:11:15.715 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2026-01-13 19:11:15.719 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2026-01-13 19:11:15.740 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2026-01-13 19:11:15.756 -03:00 [INF] No migrations were applied. The database is already up to date.
+2026-01-13 19:11:15.820 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 19:11:15.870 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 19:11:15.874 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 19:11:15.875 -03:00 [INF] Hosting environment: Development
+2026-01-13 19:11:15.876 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 19:11:19.086 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/ - null null
+2026-01-13 19:11:19.168 -03:00 [INF] The file /index.html was not modified
+2026-01-13 19:11:19.177 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/index.html - 304 null text/html 96.7865ms
+2026-01-13 19:11:19.199 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/script.js - null null
+2026-01-13 19:11:19.201 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/config.js - null null
+2026-01-13 19:11:19.208 -03:00 [INF] The file /config.js was not modified
+2026-01-13 19:11:19.208 -03:00 [INF] The file /script.js was not modified
+2026-01-13 19:11:19.210 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/config.js - 304 null text/javascript 8.9955ms
+2026-01-13 19:11:19.210 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/script.js - 304 null text/javascript 10.9649ms
+2026-01-13 19:11:19.390 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/favicon.ico - null null
+2026-01-13 19:11:19.394 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 19:11:19.425 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/favicon.ico - 404 0 null 34.3772ms
+2026-01-13 19:11:19.430 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5217/favicon.ico, Response status code: 404
+2026-01-13 19:11:20.583 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/login.html - null null
+2026-01-13 19:11:20.587 -03:00 [INF] The file /login.html was not modified
+2026-01-13 19:11:20.589 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/login.html - 304 null text/html 5.2521ms
+2026-01-13 19:11:21.451 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 19:11:21.457 -03:00 [INF] CORS policy execution failed.
+2026-01-13 19:11:21.458 -03:00 [INF] Request origin http://localhost:5217 does not have permission to access the resource.
+2026-01-13 19:11:21.462 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:11:21.480 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 19:11:21.720 -03:00 [INF] Executed DbCommand (17ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 19:11:22.068 -03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 19:11:22.084 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 19:11:22.106 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 619.5537ms
+2026-01-13 19:11:22.109 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:11:22.114 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 662.7027ms
+2026-01-13 19:14:59.360 -03:00 [INF] Application is shutting down...
+2026-01-13 19:15:18.585 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 19:15:18.670 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 19:15:18.674 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 19:15:18.675 -03:00 [INF] Hosting environment: Development
+2026-01-13 19:15:18.675 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 19:15:20.512 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/script.js - null null
+2026-01-13 19:15:20.604 -03:00 [INF] The file /script.js was not modified
+2026-01-13 19:15:20.614 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/script.js - 304 null text/javascript 102.5997ms
+2026-01-13 19:15:21.681 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/login.html - null null
+2026-01-13 19:15:21.686 -03:00 [INF] The file /login.html was not modified
+2026-01-13 19:15:21.688 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/login.html - 304 null text/html 7.372ms
+2026-01-13 19:15:22.568 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 19:15:22.576 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 19:15:22.578 -03:00 [INF] CORS policy execution successful.
+2026-01-13 19:15:22.608 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:15:22.628 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 19:15:23.561 -03:00 [INF] Executed DbCommand (45ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 19:15:23.995 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 19:15:24.020 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 19:15:24.043 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 1409.9789ms
+2026-01-13 19:15:24.045 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:15:24.053 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 1485.5726ms
+2026-01-13 19:29:35.567 -03:00 [INF] Application is shutting down...
+2026-01-13 19:29:41.712 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 19:29:41.813 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 19:29:41.818 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 19:29:41.821 -03:00 [INF] Hosting environment: Development
+2026-01-13 19:29:41.822 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 19:29:43.487 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/ - null null
+2026-01-13 19:29:43.560 -03:00 [INF] The file /index.html was not modified
+2026-01-13 19:29:43.567 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/index.html - 304 null text/html 81.645ms
+2026-01-13 19:29:43.596 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/script.js - null null
+2026-01-13 19:29:43.596 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/config.js - null null
+2026-01-13 19:29:43.604 -03:00 [INF] The file /script.js was not modified
+2026-01-13 19:29:43.605 -03:00 [INF] The file /config.js was not modified
+2026-01-13 19:29:43.607 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/script.js - 304 null text/javascript 11.1892ms
+2026-01-13 19:29:43.607 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/config.js - 304 null text/javascript 11.4816ms
+2026-01-13 19:29:43.773 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/favicon.ico - null null
+2026-01-13 19:29:43.778 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 19:29:43.809 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/favicon.ico - 404 0 null 35.977ms
+2026-01-13 19:29:43.814 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5217/favicon.ico, Response status code: 404
+2026-01-13 19:29:47.614 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/login.html - null null
+2026-01-13 19:29:47.628 -03:00 [INF] Sending file. Request path: '/login.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\login.html'
+2026-01-13 19:29:47.630 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/login.html - 200 6645 text/html 16.3222ms
+2026-01-13 19:29:52.573 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 19:29:52.579 -03:00 [INF] CORS policy execution successful.
+2026-01-13 19:29:52.582 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:29:52.610 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 19:29:53.432 -03:00 [INF] Executed DbCommand (47ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 19:29:54.073 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 19:29:54.096 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 19:29:54.131 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 1514.654ms
+2026-01-13 19:29:54.133 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 19:29:54.141 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 1567.8205ms
+2026-01-13 19:29:54.678 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/dashboard.html - null null
+2026-01-13 19:29:54.682 -03:00 [INF] The file /dashboard.html was not modified
+2026-01-13 19:29:54.684 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/dashboard.html - 304 null text/html 6.0775ms
+2026-01-13 19:31:00.973 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/chatcomIA.html - null null
+2026-01-13 19:31:01.059 -03:00 [INF] Sending file. Request path: '/chatcomIA.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\chatcomIA.html'
+2026-01-13 19:31:01.060 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/chatcomIA.html - 200 47352 text/html 87.43ms
+2026-01-13 19:31:03.939 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryBRvvVZg7UzBlYMli 249
+2026-01-13 19:31:03.943 -03:00 [INF] CORS policy execution successful.
+2026-01-13 19:31:03.987 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 19:31:03.993 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 19:31:04.190 -03:00 [INF] Executed DbCommand (19ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 19:31:04.234 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 19:31:04.283 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 19:31:04.293 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 19:31:04.957 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p7='?' (DbType = Int32), @p6='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+UPDATE [Users] SET [LastResetDate] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2026-01-13 19:31:04.971 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 19:31:04.975 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 980.3388ms
+2026-01-13 19:31:04.977 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 19:31:04.979 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 1040.3312ms
+2026-01-13 19:31:07.777 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundarywhouggwZApu3EV5z 251
+2026-01-13 19:31:07.783 -03:00 [INF] CORS policy execution successful.
+2026-01-13 19:31:07.786 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 19:31:07.788 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 19:31:07.846 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 19:31:07.854 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 19:31:07.859 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 19:31:07.866 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 19:31:08.243 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 19:31:08.246 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 19:31:08.248 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 458.8665ms
+2026-01-13 19:31:08.250 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 19:31:08.252 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 474.4139ms
+2026-01-13 19:31:10.515 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/meus_prompts.html - null null
+2026-01-13 19:31:10.586 -03:00 [INF] Sending file. Request path: '/meus_prompts.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\meus_prompts.html'
+2026-01-13 19:31:10.588 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/meus_prompts.html - 200 8306 text/html 72.516ms
+2026-01-13 19:31:12.346 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/prompts.html - null null
+2026-01-13 19:31:12.350 -03:00 [INF] The file /prompts.html was not modified
+2026-01-13 19:31:12.351 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/prompts.html - 304 null text/html 4.9387ms
+2026-01-13 19:31:14.417 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/planos.html - null null
+2026-01-13 19:31:14.420 -03:00 [INF] The file /planos.html was not modified
+2026-01-13 19:31:14.421 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/planos.html - 304 null text/html 4.1271ms
+2026-01-13 19:31:16.311 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/configuracoes.html - null null
+2026-01-13 19:31:16.376 -03:00 [INF] Sending file. Request path: '/configuracoes.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\configuracoes.html'
+2026-01-13 19:31:16.378 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/configuracoes.html - 200 12558 text/html 66.3356ms
+2026-01-13 20:32:18.260 -03:00 [INF] Application is shutting down...
+2026-01-13 20:32:34.669 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 20:32:34.757 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 20:32:34.762 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 20:32:34.764 -03:00 [INF] Hosting environment: Development
+2026-01-13 20:32:34.765 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 20:32:39.448 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/ - null null
+2026-01-13 20:32:39.601 -03:00 [INF] The file /index.html was not modified
+2026-01-13 20:32:39.609 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/index.html - 304 null text/html 162.0653ms
+2026-01-13 20:32:39.718 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/script.js - null null
+2026-01-13 20:32:39.718 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/config.js - null null
+2026-01-13 20:32:39.725 -03:00 [INF] The file /config.js was not modified
+2026-01-13 20:32:39.725 -03:00 [INF] The file /script.js was not modified
+2026-01-13 20:32:39.727 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/config.js - 304 null text/javascript 9.4221ms
+2026-01-13 20:32:39.728 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/script.js - 304 null text/javascript 10.7862ms
+2026-01-13 20:32:39.981 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/favicon.ico - null null
+2026-01-13 20:32:39.987 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 20:32:40.012 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/favicon.ico - 404 0 null 30.7846ms
+2026-01-13 20:32:40.018 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5217/favicon.ico, Response status code: 404
+2026-01-13 20:32:42.501 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/login.html - null null
+2026-01-13 20:32:42.505 -03:00 [INF] The file /login.html was not modified
+2026-01-13 20:32:42.506 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/login.html - 304 null text/html 5.3171ms
+2026-01-13 20:32:43.481 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 20:32:43.490 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:32:43.494 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:32:43.525 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 20:32:44.270 -03:00 [INF] Executed DbCommand (36ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 20:32:44.656 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 20:32:44.682 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 20:32:44.709 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 1178.9005ms
+2026-01-13 20:32:44.712 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:32:44.724 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 1243.1118ms
+2026-01-13 20:32:45.252 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/dashboard.html - null null
+2026-01-13 20:32:45.256 -03:00 [INF] The file /dashboard.html was not modified
+2026-01-13 20:32:45.257 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/dashboard.html - 304 null text/html 4.9078ms
+2026-01-13 20:32:48.563 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/planos.html - null null
+2026-01-13 20:32:48.568 -03:00 [INF] The file /planos.html was not modified
+2026-01-13 20:32:48.570 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/planos.html - 304 null text/html 7.3661ms
+2026-01-13 20:32:50.893 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/prompts.html - null null
+2026-01-13 20:32:50.897 -03:00 [INF] The file /prompts.html was not modified
+2026-01-13 20:32:50.899 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/prompts.html - 304 null text/html 5.9455ms
+2026-01-13 20:32:52.425 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/meus_prompts.html - null null
+2026-01-13 20:32:52.434 -03:00 [INF] The file /meus_prompts.html was not modified
+2026-01-13 20:32:52.436 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/meus_prompts.html - 304 null text/html 11.6515ms
+2026-01-13 20:32:53.438 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/chatcomIA.html - null null
+2026-01-13 20:32:53.443 -03:00 [INF] The file /chatcomIA.html was not modified
+2026-01-13 20:32:53.447 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/chatcomIA.html - 304 null text/html 8.0816ms
+2026-01-13 20:32:55.440 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/configuracoes.html - null null
+2026-01-13 20:32:55.446 -03:00 [INF] The file /configuracoes.html was not modified
+2026-01-13 20:32:55.449 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/configuracoes.html - 304 null text/html 8.7667ms
+2026-01-13 20:32:57.841 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/admin.html - null null
+2026-01-13 20:32:57.947 -03:00 [INF] Sending file. Request path: '/admin.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\admin.html'
+2026-01-13 20:32:57.949 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/admin.html - 200 22670 text/html 108.5713ms
+2026-01-13 20:32:57.968 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/api/admin/usuarios - null null
+2026-01-13 20:32:58.049 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AdminController.GetUsuarios (PROJFACILITY.IA)'
+2026-01-13 20:32:58.057 -03:00 [INF] Route matched with {action = "GetUsuarios", controller = "Admin"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUsuarios() on controller PROJFACILITY.IA.Controllers.AdminController (PROJFACILITY.IA).
+2026-01-13 20:32:58.109 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+2026-01-13 20:32:58.181 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2026-01-13 20:32:58.198 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([c].[TokensUsed]), 0)
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2026-01-13 20:32:58.246 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[AgentId]
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+GROUP BY [c].[AgentId]
+ORDER BY COUNT(*) DESC
+2026-01-13 20:32:58.256 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2026-01-13 20:32:58.260 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([c].[TokensUsed]), 0)
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2026-01-13 20:32:58.271 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[AgentId]
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+GROUP BY [c].[AgentId]
+ORDER BY COUNT(*) DESC
+2026-01-13 20:32:58.276 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2026-01-13 20:32:58.282 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([c].[TokensUsed]), 0)
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2026-01-13 20:32:58.288 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[AgentId]
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+GROUP BY [c].[AgentId]
+ORDER BY COUNT(*) DESC
+2026-01-13 20:32:58.293 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2026-01-13 20:32:58.297 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COALESCE(SUM([c].[TokensUsed]), 0)
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+2026-01-13 20:32:58.305 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[AgentId]
+FROM [ChatMessages] AS [c]
+WHERE [c].[UserId] = @__user_Id_0
+GROUP BY [c].[AgentId]
+ORDER BY COUNT(*) DESC
+2026-01-13 20:32:58.308 -03:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.OrderedEnumerable`2[[System.Object, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:32:58.354 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AdminController.GetUsuarios (PROJFACILITY.IA) in 293.9185ms
+2026-01-13 20:32:58.355 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AdminController.GetUsuarios (PROJFACILITY.IA)'
+2026-01-13 20:32:58.357 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/api/admin/usuarios - 200 null application/json; charset=utf-8 389.4922ms
+2026-01-13 20:32:59.766 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/index.html - null null
+2026-01-13 20:32:59.770 -03:00 [INF] The file /index.html was not modified
+2026-01-13 20:32:59.773 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/index.html - 304 null text/html 6.7168ms
+2026-01-13 20:33:09.695 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 51
+2026-01-13 20:33:09.701 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:09.704 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:33:09.706 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 20:33:09.759 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 20:33:10.015 -03:00 [INF] Executing UnauthorizedObjectResult, writing value of type '<>f__AnonymousType4`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:10.020 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 312.6385ms
+2026-01-13 20:33:10.021 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:33:10.023 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 401 null application/json; charset=utf-8 327.6544ms
+2026-01-13 20:33:15.658 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 52
+2026-01-13 20:33:15.660 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:15.661 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:33:15.663 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 20:33:15.672 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 20:33:15.842 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 20:33:15.848 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 20:33:15.850 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 185.0423ms
+2026-01-13 20:33:15.853 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:33:15.854 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 195.8647ms
+2026-01-13 20:33:25.617 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundarylAuiDb63xs4YAABK 259
+2026-01-13 20:33:25.620 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:25.622 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:25.627 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:25.689 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:25.728 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:25.767 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:25.776 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:25.816 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundary5FAQtQM6GJtMBZim 255
+2026-01-13 20:33:25.819 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:25.822 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:25.823 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:25.828 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:25.837 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:25.840 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:25.843 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:25.985 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundarymANSfoOwqnzEB9jq 254
+2026-01-13 20:33:25.989 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:25.990 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:25.991 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:26.005 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:26.013 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:26.020 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:26.024 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:26.128 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryOh6yAyFlcGJtDzAE 253
+2026-01-13 20:33:26.136 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:26.138 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.139 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:26.142 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:26.149 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:26.153 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:26.155 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:26.281 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryG5BFrBK8hwBdB0aT 255
+2026-01-13 20:33:26.284 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:26.286 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.287 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:26.292 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:26.302 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:26.307 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:26.310 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:26.395 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p7='?' (DbType = Int32), @p6='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+UPDATE [Users] SET [LastResetDate] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2026-01-13 20:33:26.405 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:26.409 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 583.7721ms
+2026-01-13 20:33:26.410 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.413 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 596.7399ms
+2026-01-13 20:33:26.422 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryy6cUogBzlZPLkZqK 253
+2026-01-13 20:33:26.423 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:26.424 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.425 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:26.431 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:26.436 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:26.440 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:26.442 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:26.471 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p7='?' (DbType = Int32), @p6='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+UPDATE [Users] SET [LastResetDate] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2026-01-13 20:33:26.474 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:26.475 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 482.1166ms
+2026-01-13 20:33:26.476 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.477 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 491.9392ms
+2026-01-13 20:33:26.535 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p7='?' (DbType = Int32), @p6='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+UPDATE [Users] SET [LastResetDate] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2026-01-13 20:33:26.538 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:26.540 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 399.9834ms
+2026-01-13 20:33:26.541 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.543 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 414.8447ms
+2026-01-13 20:33:26.565 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p7='?' (DbType = Int32), @p6='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+UPDATE [Users] SET [LastResetDate] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2026-01-13 20:33:26.576 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:26.585 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 950.7691ms
+2026-01-13 20:33:26.586 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.587 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 970.3054ms
+2026-01-13 20:33:26.593 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryBS60vc3jc6fWg0Oe 255
+2026-01-13 20:33:26.603 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:26.604 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.605 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:26.613 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:26.622 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:26.625 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:26.637 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:26.681 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p7='?' (DbType = Int32), @p6='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+UPDATE [Users] SET [LastResetDate] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2026-01-13 20:33:26.684 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:26.685 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 396.4583ms
+2026-01-13 20:33:26.686 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.687 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 406.8127ms
+2026-01-13 20:33:26.725 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryeORyiqgihK8kJA2l 253
+2026-01-13 20:33:26.727 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:26.729 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.730 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:26.735 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:26.738 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:26.741 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:26.743 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:26.871 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:26.873 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:26.874 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 448.4031ms
+2026-01-13 20:33:26.875 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.876 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 454.4229ms
+2026-01-13 20:33:26.887 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryiQ2BpP1OMk2zIB2l 254
+2026-01-13 20:33:26.889 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:26.890 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:26.891 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:26.895 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:26.905 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:26.909 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:26.922 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:27.029 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryKeCWlUluiOPphoJR 254
+2026-01-13 20:33:27.034 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:27.036 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:27.037 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:27.040 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:27.043 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:27.052 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:27.055 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:27.136 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:27.140 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:27.141 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 534.1502ms
+2026-01-13 20:33:27.142 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:27.142 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 549.0843ms
+2026-01-13 20:33:27.160 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:27.170 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:27.173 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 441.664ms
+2026-01-13 20:33:27.176 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:27.177 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 452.476ms
+2026-01-13 20:33:27.272 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:27.274 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:27.276 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 383.699ms
+2026-01-13 20:33:27.276 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:27.278 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 390.8709ms
+2026-01-13 20:33:27.419 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:27.421 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:27.424 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 385.915ms
+2026-01-13 20:33:27.432 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:27.434 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 404.9135ms
+2026-01-13 20:33:28.518 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundarysWERsZb03Y0XTZNn 253
+2026-01-13 20:33:28.523 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:28.524 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:28.525 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:28.533 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:28.538 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:28.540 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:28.542 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:28.926 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:28.936 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:28.939 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 412.0399ms
+2026-01-13 20:33:28.940 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:28.943 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 424.238ms
+2026-01-13 20:33:49.918 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundary0iQ3FLxs7Wx3ThB1 258
+2026-01-13 20:33:49.920 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:49.921 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:49.923 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:33:49.929 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:33:49.937 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:49.941 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:33:49.945 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:33:50.363 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:33:50.365 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:33:50.366 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 441.5115ms
+2026-01-13 20:33:50.367 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:33:50.369 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 451.0278ms
+2026-01-13 20:33:54.900 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 20:33:54.903 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:33:54.903 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:33:54.904 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 20:33:54.908 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 20:33:55.063 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 20:33:55.066 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 20:33:55.067 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 162.3531ms
+2026-01-13 20:33:55.068 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:33:55.069 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 169.5835ms
+2026-01-13 20:34:17.205 -03:00 [INF] Application is shutting down...
+2026-01-13 20:40:02.312 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 20:40:02.451 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 20:40:02.458 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 20:40:02.460 -03:00 [INF] Hosting environment: Development
+2026-01-13 20:40:02.462 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 20:40:06.958 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/login.html - null null
+2026-01-13 20:40:07.007 -03:00 [INF] The file /login.html was not modified
+2026-01-13 20:40:07.015 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/login.html - 304 null text/html 57.7544ms
+2026-01-13 20:40:07.816 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 20:40:07.825 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 20:40:07.828 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:40:07.848 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:40:07.873 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 20:40:08.650 -03:00 [INF] Executed DbCommand (32ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 20:40:09.058 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 20:40:09.080 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 20:40:09.104 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 1223.1999ms
+2026-01-13 20:40:09.106 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:40:09.114 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 1298.8966ms
+2026-01-13 20:40:14.283 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundary97jHGXpiwj3SIbrf 248
+2026-01-13 20:40:14.289 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:40:14.330 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:40:14.336 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:40:14.407 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:40:14.444 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:40:14.485 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:40:14.496 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:40:15.109 -03:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:40:15.118 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:40:15.121 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 782.7862ms
+2026-01-13 20:40:15.123 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:40:15.124 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 840.8377ms
+2026-01-13 20:45:35.308 -03:00 [INF] Application is shutting down...
+2026-01-13 20:46:59.279 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 20:46:59.369 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 20:46:59.374 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 20:46:59.377 -03:00 [INF] Hosting environment: Development
+2026-01-13 20:46:59.378 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 20:47:03.991 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/script.js - null null
+2026-01-13 20:47:04.035 -03:00 [INF] The file /script.js was not modified
+2026-01-13 20:47:04.040 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/script.js - 304 null text/javascript 50.6972ms
+2026-01-13 20:47:09.775 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 20:47:09.785 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 20:47:09.787 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:47:09.810 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:47:09.831 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 20:47:10.566 -03:00 [INF] Executed DbCommand (24ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 20:47:11.013 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 20:47:11.033 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 20:47:11.056 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 1219.4942ms
+2026-01-13 20:47:11.058 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:47:11.069 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 1295.0137ms
+2026-01-13 20:47:13.765 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/chatcomIA.html?agent=juridico - null null
+2026-01-13 20:47:13.788 -03:00 [INF] Sending file. Request path: '/chatcomIA.html'. Physical path: 'C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA\wwwroot\chatcomIA.html'
+2026-01-13 20:47:13.791 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/chatcomIA.html?agent=juridico - 200 47352 text/html 26.1455ms
+2026-01-13 20:47:17.127 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryjWuP3Lw5dgILY2nu 255
+2026-01-13 20:47:17.131 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:47:17.169 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:47:17.175 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:47:17.241 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:47:17.287 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:47:17.323 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:47:17.338 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:47:22.086 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:47:22.091 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:47:22.098 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 4920.3834ms
+2026-01-13 20:47:22.100 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:47:22.102 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 4975.5775ms
+2026-01-13 20:49:39.363 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/chatcomIA.html?agent=juridico - null null
+2026-01-13 20:49:39.367 -03:00 [INF] The file /chatcomIA.html was not modified
+2026-01-13 20:49:39.369 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/chatcomIA.html?agent=juridico - 304 null text/html 5.1353ms
+2026-01-13 20:49:39.399 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/config.js - null null
+2026-01-13 20:49:39.403 -03:00 [INF] The file /config.js was not modified
+2026-01-13 20:49:39.405 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/config.js - 304 null text/javascript 5.4611ms
+2026-01-13 20:49:39.541 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/chatcomIA.html?agent=juridico - null null
+2026-01-13 20:49:39.547 -03:00 [INF] The file /chatcomIA.html was not modified
+2026-01-13 20:49:39.549 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/chatcomIA.html?agent=juridico - 304 null text/html 7.8879ms
+2026-01-13 20:49:42.486 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryTqImpAne66suQbCy 249
+2026-01-13 20:49:42.489 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:49:42.494 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:49:42.497 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:49:42.556 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:49:42.562 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:49:42.567 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:49:42.574 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:49:48.997 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0, [UsedTokensCurrentMonth] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2026-01-13 20:49:49.002 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:49:49.006 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:49:49.008 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 6508.0446ms
+2026-01-13 20:49:49.009 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:49:49.012 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 6526.4913ms
+2026-01-13 20:49:58.566 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundarymIYfQnpJdmo0pi3n 260
+2026-01-13 20:49:58.569 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:49:58.572 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:49:58.574 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:49:58.585 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:49:58.594 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:49:58.600 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:49:58.604 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:50:05.737 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0, [UsedTokensCurrentMonth] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2026-01-13 20:50:05.741 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:50:05.743 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:50:05.747 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 7168.6069ms
+2026-01-13 20:50:05.749 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:50:05.750 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 7184.3423ms
+2026-01-13 20:50:26.790 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryjH9jKOlXj1BmEYv1 261
+2026-01-13 20:50:26.793 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:50:26.795 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:50:26.797 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:50:26.803 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:50:26.811 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:50:26.816 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:50:26.819 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:50:32.221 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0, [UsedTokensCurrentMonth] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2026-01-13 20:50:32.226 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:50:32.230 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:50:32.233 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 5433.0798ms
+2026-01-13 20:50:32.235 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:50:32.236 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 5446.3458ms
+2026-01-13 20:51:00.747 -03:00 [INF] Application is shutting down...
+2026-01-13 20:51:14.601 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 20:51:14.689 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 20:51:14.694 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 20:51:14.696 -03:00 [INF] Hosting environment: Development
+2026-01-13 20:51:14.697 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 20:51:16.183 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/ - null null
+2026-01-13 20:51:16.260 -03:00 [INF] The file /index.html was not modified
+2026-01-13 20:51:16.272 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/index.html - 304 null text/html 92.9608ms
+2026-01-13 20:51:16.476 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/favicon.ico - null null
+2026-01-13 20:51:16.505 -03:00 [WRN] Failed to determine the https port for redirect.
+2026-01-13 20:51:16.544 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/favicon.ico - 404 0 null 68.2935ms
+2026-01-13 20:51:16.551 -03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5217/favicon.ico, Response status code: 404
+2026-01-13 20:51:19.160 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/login.html - null null
+2026-01-13 20:51:19.164 -03:00 [INF] The file /login.html was not modified
+2026-01-13 20:51:19.166 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/login.html - 304 null text/html 5.975ms
+2026-01-13 20:51:20.228 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/auth/login - application/json 57
+2026-01-13 20:51:20.235 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:51:20.249 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:51:20.275 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(PROJFACILITY.IA.Controllers.LoginRequest) on controller PROJFACILITY.IA.Controllers.AuthController (PROJFACILITY.IA).
+2026-01-13 20:51:21.014 -03:00 [INF] Executed DbCommand (24ms) [Parameters=[@__request_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__request_Email_0
+2026-01-13 20:51:21.471 -03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+2026-01-13 20:51:21.488 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType7`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[<>f__AnonymousType8`4[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], PROJFACILITY.IA, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-01-13 20:51:21.512 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA) in 1230.8952ms
+2026-01-13 20:51:21.514 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.AuthController.Login (PROJFACILITY.IA)'
+2026-01-13 20:51:21.520 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/auth/login - 200 null application/json; charset=utf-8 1292.3007ms
+2026-01-13 20:51:22.035 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/dashboard.html - null null
+2026-01-13 20:51:22.040 -03:00 [INF] The file /dashboard.html was not modified
+2026-01-13 20:51:22.041 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/dashboard.html - 304 null text/html 6.0078ms
+2026-01-13 20:51:24.494 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5217/chatcomIA.html - null null
+2026-01-13 20:51:24.497 -03:00 [INF] The file /chatcomIA.html was not modified
+2026-01-13 20:51:24.498 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5217/chatcomIA.html - 304 null text/html 3.9528ms
+2026-01-13 20:51:36.629 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5217/api/chat/enviar - multipart/form-data; boundary=----WebKitFormBoundaryAw02Fp7dZWtmDV4H 270
+2026-01-13 20:51:36.638 -03:00 [INF] CORS policy execution successful.
+2026-01-13 20:51:36.678 -03:00 [INF] Executing endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:51:36.683 -03:00 [INF] Route matched with {action = "EnviarMensagem", controller = "Chat"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] EnviarMensagem(System.String, System.String) on controller PROJFACILITY.IA.Controllers.ChatController (PROJFACILITY.IA).
+2026-01-13 20:51:36.754 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_2='?' (DbType = Int32), @__userId_0='?' (DbType = Int32), @__8__locals1_agentId_1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[AgentId], [t].[Sender], [t].[Text], [t].[Timestamp], [t].[TokensUsed], [t].[UserId]
+FROM (
+    SELECT TOP(@__p_2) [c].[Id], [c].[AgentId], [c].[Sender], [c].[Text], [c].[Timestamp], [c].[TokensUsed], [c].[UserId]
+    FROM [ChatMessages] AS [c]
+    WHERE [c].[UserId] = @__userId_0 AND [c].[AgentId] = @__8__locals1_agentId_1
+    ORDER BY [c].[Timestamp] DESC
+) AS [t]
+ORDER BY [t].[Timestamp]
+2026-01-13 20:51:36.792 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:51:36.833 -03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[CreatedAt], [u].[Email], [u].[IsActive], [u].[LastLogin], [u].[LastResetDate], [u].[Name], [u].[Password], [u].[Plan], [u].[Role], [u].[SubscriptionCycle], [u].[UsedTokensCurrentMonth], [u].[VerificationCode], [u].[VerificationCodeExpires]
+FROM [Users] AS [u]
+WHERE [u].[Id] = @__p_0
+2026-01-13 20:51:36.842 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__agentId_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[Name], [a].[Specialty], [a].[SystemInstruction]
+FROM [Agents] AS [a]
+WHERE [a].[Name] = @__agentId_0
+2026-01-13 20:51:40.022 -03:00 [INF] Executed DbCommand (8ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (DbType = DateTime2), @p1='?' (DbType = Int64)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Users] SET [LastLogin] = @p0, [UsedTokensCurrentMonth] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2026-01-13 20:51:40.032 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (DbType = DateTime2), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ChatMessages] ([AgentId], [Sender], [Text], [Timestamp], [TokensUsed], [UserId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+2026-01-13 20:51:40.035 -03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType9`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-13 20:51:40.042 -03:00 [INF] Executed action PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA) in 3356.4313ms
+2026-01-13 20:51:40.045 -03:00 [INF] Executed endpoint 'PROJFACILITY.IA.Controllers.ChatController.EnviarMensagem (PROJFACILITY.IA)'
+2026-01-13 20:51:40.047 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5217/api/chat/enviar - 200 null application/json; charset=utf-8 3417.8839ms
+2026-01-13 20:53:52.012 -03:00 [INF] Application is shutting down...
+2026-01-13 22:13:29.649 -03:00 [INF] User profile is available. Using 'C:\Users\klock\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-13 22:13:29.752 -03:00 [INF] Now listening on: http://localhost:5217
+2026-01-13 22:13:29.756 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-13 22:13:29.758 -03:00 [INF] Hosting environment: Development
+2026-01-13 22:13:29.760 -03:00 [INF] Content root path: C:\Users\klock\OneDrive\Desktop\PROJFACILITY.IA
+2026-01-13 22:13:33.410 -03:00 [INF] Application is shutting down...

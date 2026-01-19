@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
+    <title>Facility.IA - Nexus de Inteligência</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* Estilos inline para ajustes específicos desta página */
+        .texto-centralizado { text-align: center; }
+        
+        .autocomplete-list {
+            position: absolute;
+            top: 100%;
+            left: 20px;
+            right: 20px;
+            background-color: #161b22;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: none;
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+            border-radius: 0 0 15px 15px;
+            display: none;
+            text-align: left;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+        }
+        
+        .autocomplete-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            color: #ccc;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+        }
+        
+        .autocomplete-item:hover {
+            background-color: var(--primary);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .input-search-container { position: relative; }
+
+        /* --- NOVO: Efeito de Digitação (Typing Effect) --- */
+        #typing-text {
+            min-height: 1.2em; /* Reserva espaço para evitar pulos na tela */
+            display: inline-block;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* O cursor piscando */
+        #typing-text::after {
+            content: '|';
+            margin-left: 5px;
+            opacity: 1;
+            color: var(--primary); /* Usa a cor verde neon definida no CSS principal */
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="particles-js"></div>
+    <div class="scanline"></div>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><h1>FACILITY.IA <span class="badge-beta">MÁXIMO DESEMPENHO</span></h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="prompts.html">Como funciona?</a></li> 
+                <li><a href="planos.html">Planos</a></li>
+                <li><a href="#universal">Profissões</a></li>
+                <li><a href="login.html" class="cta-button">Entrar</a></li> 
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h2 id="typing-text"></h2>
+                
+                <p>Conhecimento a poucos cliques.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-num">+150</span>
+                        <span class="stat-label">Prompts Otimizados</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">+100</span>
+                        <span class="stat-label">Profissões Direcionadas</span>
+                    </div>
+                </div>
+
+                <br>
+                <a href="login.html" class="cta-button-primary">Iniciar Processo</a>
+            </div>
+        </section>
+
+        <p class="texto-centralizado">Escolha seu Prompt com um Clique</p>
+        <p class="texto-centralizado" style="color: #aaa; font-size: 0.9rem; margin-top: -10px;">Não converse com a IA. Apenas ative a chave e receba o resultado pronto.</p>
+
+        <div class="switch-grid">
+            <div class="switch-card" id="demo1">
+                <div class="switch-info">
+                    <h4>Resumo de Slides</h4>
+                    <p>Sem perder informações cruciais.</p>
+                    <div class="backend-note">⚡ Nós deixamos os prompts prontos para você.</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" onchange="toggleSwitch('demo1')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="switch-card" id="demo2">
+                <div class="switch-info">
+                    <h4>Simulado de Prova</h4>
+                    <p>Resultados baseados no ENADE.</p>
+                    <div class="backend-note">⚡ É só clicar e terá resultados incríveis.</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" onchange="toggleSwitch('demo2')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="switch-card" id="demo3">
+                <div class="switch-info">
+                    <h4>Roteiro para Reunião</h4>
+                    <p>Pautas e atas automáticas.</p>
+                    <div class="backend-note">⚡ Fazendo tudo bem feito do melhor jeito.</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" onchange="toggleSwitch('demo3')">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <p class="texto-centralizado" style="margin-top: 60px;">Processamentos em Destaque</p>
+            
+        <div class="cards-container">
+            <div class="agente-card">
+                <div class="card-status">● Carreira</div>
+                <div class="icon">💻</div>
+                <h4>Dev. FullStack Pleno</h4>
+                <p>Refatoração de código, correção de bugs e arquitetura de software.</p>
+                <button class="card-btn">Acessar</button>
+            </div>
+
+            <div class="agente-card">
+                <div class="card-status">● Carreira</div>
+                <div class="icon">📈</div>
+                <h4>Analista de Mercado</h4>
+                <p>Estratégias de vendas, análise SWOT e inteligência competitiva.</p>
+                <button class="card-btn">Acessar</button>
+            </div>
+            
+            <div class="agente-card">
+                <div class="card-status">● Carreira</div>
+                <div class="icon">📢</div>
+                <h4>Marketing Neural</h4>
+                <p>Criação de copys, anúncios e roteiros de alta conversão.</p>
+                <button class="card-btn">Acessar</button>
+            </div>
+
+            <div class="agente-card">
+                <div class="card-status">● Acadêmico</div>
+                <div class="icon">🎓</div>
+                <h4>Mentor ABNT</h4>
+                <p>Formatação de trabalhos, citações e estruturação de monografias.</p>
+                <button class="card-btn">Iniciar Estudo</button>
+            </div>
+        </div>
+
+        <section id="universal" style="padding: 4rem 5%; text-align: center;">
+            <div class="universal-box">
+                <h3>Super-Especialistas Dedicados</h3>
+                <p style="color: #aaa; font-size: 1.1rem; margin-bottom: 30px;">
+                    O poder máximo do ChatGPT, calibrado com bibliografias técnicas.
+                </p>
+
+                <div class="tag-container">
+                    <span class="tag">Psicólogo Clínico</span>
+                    <span class="tag">Arquiteto Urbanista</span>
+                    <span class="tag">Cirurgião Dentista</span>
+                    <span class="tag">Engenheiro Civil</span>
+                    <span class="tag">Nutricionista</span>
+                    <span class="tag">Advogado Penal</span>
+                    <span class="tag">Contador</span>
+                </div>
+
+                <div class="input-search-container">
+                    <input type="text" id="inputProfissao" class="input-profession" placeholder="Digite sua profissão (ex: Biomédico)..." autocomplete="off">
+                    
+                    <div id="listaSugestoes" class="autocomplete-list"></div>
+                    
+                    <button class="btn-activate">Procurar</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5 class="uppercase">Sobre Nós</h5>
+                <p>Orquestração de Inteligência Artificial para ambientes de alta performance.</p>
+            </div>
+            <div class="footer-col">
+                <h5 class="uppercase">Status do Sistema</h5>
+                <ul style="list-style: none; color: #888;">
+                    <li>SERVIDOR: <span class="text-primary">AWS-BR-SP</span></li>
+                    <li>ONLINE: <span class="text-primary">99.98%</span></li>
+                    <li>SEGURANÇA: <span class="text-primary">AES-256</span></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5 class="uppercase">Legal</h5>
+                <ul style="list-style: none;">
+                    <li><a href="#" style="color: #888; text-decoration: none;">Termos de Uso</a></li>
+                    <li><a href="#" style="color: #888; text-decoration: none;">Privacidade</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FACILITY.IA INC. TODOS OS DIREITOS RESERVADOS.</p>
+        </div>
+    </footer>
+
+    <div class="chat-widget-btn" onclick="toggleChat()">💬 I.A.</div>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <span>Assistente Facility.IA</span>
+            <span class="close-btn" style="cursor:pointer;" onclick="toggleChat()">✖</span>
+        </div>
+        <div class="chat-body">
+            <p>Sistema online. Como posso ajudar?</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Comando...">
+            <button style="background:none; border:none; color: var(--primary-color); cursor:pointer;">➤</button>
+        </div>
+    </div>
+<script src="config.js"></script> <script src="script.js"></script> ```
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script> 
+
+    <script>
+        // --- 1. SCRIPT DE EFEITO DE DIGITAÇÃO (TYPING EFFECT) ---
+        const typingElement = document.getElementById('typing-text');
+        const textToType = "Facilititando sua vida profissional e acadêmica!";
+        const typingSpeed = 60; // Velocidade em ms (quanto menor, mais rápido)
+        let charIndex = 0;
+
+        function typeWriter() {
+            if (charIndex < textToType.length) {
+                typingElement.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, typingSpeed);
+            }
+        }
+
+        // Inicia a digitação quando a janela carrega
+        window.addEventListener('load', typeWriter);
+
+
+        // --- 2. LÓGICA DE AUTOCOMPLETE (Mantida do original) ---
+        const profissoes = [
+            "Advogado Civil", "Advogado Trabalhista", "Advogado Criminalista", "Advogado Tributário", 
+            "Juiz / Assessor Jurídico", "Oficial de Cartório", "Compliance Officer", "Perito Judicial",
+            "Médico Clínico Geral", "Cirurgião Dentista", "Ortodontista", "Implantodontista", 
+            "Enfermeiro(a)", "Psicólogo Clínico", "Nutricionista", "Fisioterapeuta", 
+            "Farmacêutico", "Médico Veterinário", "Biomédico", "Personal Trainer",
+            "Engenheiro Civil", "Arquiteto Urbanista", "Designer de Interiores", 
+            "Engenheiro Eletricista", "Engenheiro Mecânico", "Engenheiro de Segurança do Trabalho", 
+            "Engenheiro Agrônomo",
+            "Desenvolvedor Front-End", "Desenvolvedor Back-End", "Desenvolvedor Full-Stack", 
+            "Cientista de Dados", "Analista de QA", "DevOps / SRE", "Analista de Segurança", 
+            "Product Owner", "UX/UI Designer",
+            "Contador", "Administrador de Empresas", "Analista Financeiro", "Corretor de Imóveis", 
+            "Corretor de Seguros", "Gestor de RH", "Gerente de Projetos",
+            "Copywriter", "Social Media Manager", "Jornalista", "Roteirista de Vídeo", 
+            "Tradutor", "Designer Gráfico",
+            "Professor (Ensino Fundamental/Médio)", "Professor Universitário", "Pedagogo", 
+            "Pesquisador Acadêmico", "Estudante"
+        ];
+
+        const input = document.getElementById("inputProfissao");
+        const lista = document.getElementById("listaSugestoes");
+
+        input.addEventListener("input", function() {
+            const valor = this.value;
+            lista.innerHTML = ""; 
+
+            if (!valor) {
+                lista.style.display = "none";
+                return;
+            }
+
+            const sugestoes = profissoes.filter(p => p.toLowerCase().includes(valor.toLowerCase()));
+
+            if (sugestoes.length > 0) {
+                lista.style.display = "block"; 
+                sugestoes.forEach(sugestao => {
+                    const item = document.createElement("div");
+                    item.classList.add("autocomplete-item");
+                    
+                    const regex = new RegExp(`(${valor})`, "gi");
+                    const textoFormatado = sugestao.replace(regex, "<strong>$1</strong>");
+                    item.innerHTML = textoFormatado;
+
+                    item.addEventListener("click", function() {
+                        input.value = sugestao; 
+                        lista.style.display = "none"; 
+                    });
+
+                    lista.appendChild(item);
+                });
+            } else {
+                lista.style.display = "none";
+            }
+        });
+
+        document.addEventListener("click", function(e) {
+            if (e.target !== input) {
+                lista.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
